@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { pool, poolConnect, sql } = require('../../config/db_harry_clinton');
 const EmailService = require('./MAIL_SERVICE/services');
+const { hashPassword, comparePassword } = require('./helpers');
 
 var E_Mail_OTP_Map = new Map();
 
@@ -17,7 +18,7 @@ const E_MAIL_SERVICE = new EmailService();
  *   @full_name
  *   @email_id
  *   @mobile_number
- *   @password_hash
+ *   @password
  * @profile_url
  *   @rcu
  *
@@ -33,15 +34,19 @@ router.post('/Register', async (req, res, next) => {
     const data = req.body ?? {};
 
     // Validate required fields
-    if (!data.full_name || !data.email_id || !data.password_hash || !data.rcu) {
+    if (!data.full_name || !data.email_id || !data.password || !data.rcu) {
       return res.status(405).json({
         Status: '0',
-        Message: 'Required fields missing (full_name, email_id, password_hash, rcu)',
+        Message: 'Required fields missing (full_name, email_id, password, rcu)',
         Response: null,
         ResponseCode: '405',
         RequestReceived: data,
       });
     }
+
+    // Hash the password
+    const hashedPassword = await hashPassword(data.password);
+
 
     await poolConnect;
 
@@ -50,7 +55,7 @@ router.post('/Register', async (req, res, next) => {
       .input('email_id', sql.VarChar(255), data.email_id)
       .input('mobile_number', sql.VarChar(50), data.mobile_number ?? null)
       .input('profile_url', sql.VarChar(255), data.profile_url ?? 'No File Uploaded')
-      .input('password_hash', sql.VarChar(255), data.password_hash)
+      .input('password_hash', sql.VarChar(255), hashedPassword)
       .input('rcu', sql.VarChar(100), data.rcu)
       .output('user_id', sql.VarChar(36))
       .output('success', sql.Bit)
@@ -110,7 +115,7 @@ router.post('/OTP-Login', async (req, res, next) => {
   try {
     const data = req.body ?? {};
 
-    if (!data.email_id ) {
+    if (!data.email_id) {
       return res.status(405).json({
         Status: '0',
         Message: 'Required fields missing (email_id)',
@@ -214,10 +219,10 @@ router.post('/Password-Login', async (req, res, next) => {
   try {
     const data = req.body ?? {};
 
-    if (!data.email_id || !data.password_hash) {
+    if (!data.email_id || !data.password) {
       return res.status(405).json({
         Status: '0',
-        Message: 'Required fields missing (email_id, password_hash)',
+        Message: 'Required fields missing (email_id, password)',
         Response: null,
         ResponseCode: '405',
         RequestReceived: data,
@@ -226,22 +231,60 @@ router.post('/Password-Login', async (req, res, next) => {
 
     await poolConnect;
 
-    const request = pool.request()
+    // Get stored password hash
+    const getPassRequest = pool.request()
       .input('email_id', sql.VarChar(255), data.email_id)
-      .input('password_hash', sql.VarChar(255), data.password_hash)
+      .output('success', sql.Bit)
+      .output('message', sql.VarChar(500))
+      .output('password_hash', sql.VarChar(255));
+
+    const getPassResult = await getPassRequest.execute('sp_get_user_password');
+
+    const getPassSuccess = getPassResult.output?.success ?? 0;
+    const getPassMessage = getPassResult.output?.message ?? '';
+    const storedPasswordHash = getPassResult.output?.password_hash ?? null;
+
+    if (!getPassSuccess || !storedPasswordHash) {
+      out = {
+        Status: '0',
+        Message: getPassMessage || 'User not found',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Compare password with stored hash
+    const isPasswordValid = await comparePassword(data.password, storedPasswordHash);
+
+    if (!isPasswordValid) {
+      out = {
+        Status: '0',
+        Message: 'Password is incorrect',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Password is correct, get full user data
+    const loginRequest = pool.request()
+      .input('email_id', sql.VarChar(255), data.email_id)
+      .input('password_hash', sql.VarChar(255), storedPasswordHash)
       .output('success', sql.Bit)
       .output('message', sql.VarChar(500));
 
-    const result = await request.execute('sp_login_user');
-
-    const success = result.output?.success ?? 0;
-    const message = result.output?.message ?? '';
-    const userRow = result.recordset?.[0] ?? null; // <-- row from SELECT
+    const loginResult = await loginRequest.execute('sp_login_user');
+    const loginSuccess = loginResult.output?.success ?? 0;
+    const loginMessage = loginResult.output?.message ?? '';
+    const loginUserRow = loginResult.recordset?.[0] ?? null;
 
     out = {
-      Status: success.toString(),
-      Message: message,
-      Response: userRow, // <-- send full row data
+      Status: loginSuccess.toString(),
+      Message: loginMessage,
+      Response: loginUserRow,
       ResponseCode: '200',
       RequestReceived: data,
     };
@@ -353,10 +396,10 @@ router.post('/Reset-Password', async (req, res, next) => {
   try {
     const data = req.body ?? {};
 
-    if (!data.email_id || !data.old_password_hash || !data.new_password_hash || !data.luu) {
+    if (!data.email_id || !data.old_password || !data.new_password || !data.luu) {
       return res.status(405).json({
         Status: '0',
-        Message: 'Required fields missing (email_id, old_password_hash, new_password_hash, luu)',
+        Message: 'Required fields missing (email_id, old_password, new_password, luu)',
         Response: null,
         ResponseCode: '405',
         RequestReceived: data,
@@ -365,10 +408,51 @@ router.post('/Reset-Password', async (req, res, next) => {
 
     await poolConnect;
 
+    // Get stored password hash for verification
+    const getPassRequest = pool.request()
+      .input('email_id', sql.VarChar(255), data.email_id)
+      .output('success', sql.Bit)
+      .output('message', sql.VarChar(500))
+      .output('password_hash', sql.VarChar(255));
+
+    const getPassResult = await getPassRequest.execute('sp_get_user_password');
+
+    const getPassSuccess = getPassResult.output?.success ?? 0;
+    const getPassMessage = getPassResult.output?.message ?? '';
+    const storedPasswordHash = getPassResult.output?.password_hash ?? null;
+
+    if (!getPassSuccess || !storedPasswordHash) {
+      out = {
+        Status: '0',
+        Message: getPassMessage || 'User not found',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Verify old password
+    const isOldPasswordValid = await comparePassword(data.old_password, storedPasswordHash);
+
+    if (!isOldPasswordValid) {
+      out = {
+        Status: '0',
+        Message: 'Old password is incorrect',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Hash the new password
+    const hashedNewPassword = await hashPassword(data.new_password);
+
     const request = pool.request()
       .input('email_id', sql.VarChar(255), data.email_id)
-      .input('old_password_hash', sql.VarChar(255), data.old_password_hash)
-      .input('new_password_hash', sql.VarChar(255), data.new_password_hash)
+      .input('old_password_hash', sql.VarChar(255), storedPasswordHash)
+      .input('new_password_hash', sql.VarChar(255), hashedNewPassword)
       .input('luu', sql.VarChar(100), data.luu)
       .output('success', sql.Bit)
       .output('message', sql.VarChar(500));
