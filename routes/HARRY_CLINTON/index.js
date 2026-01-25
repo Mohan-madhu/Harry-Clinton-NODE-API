@@ -9,5 +9,6 @@ poolConnect
 
 router.use('/Auth', require('./Auth'));
 router.use('/FileUpload', require('./FileUpload'));
+router.use('/Mail', require('./Mail'));
 
 module.exports = router;
