@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { pool, poolConnect, sql } = require('../../config/db_harry_clinton');
+const EmailService = require('./MAIL_SERVICE/services');
+
+var E_Mail_OTP_Map = new Map();
+
+
+const E_MAIL_SERVICE = new EmailService();
 
 /** 
  * ==============================
@@ -128,6 +134,61 @@ router.post('/Login', async (req, res, next) => {
     const message = result.output?.message ?? '';
     const userRow = result.recordset?.[0] ?? null; // <-- row from SELECT
 
+
+
+
+    if (success === true && userRow) {
+      const Data = {
+        Status: success.toString(),
+        Message: message,
+        Response: userRow, // <-- send full row data
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+
+      console.log('User logged in successfully:', userRow.email_id);
+      const OTP = Math.floor(1000 + Math.random() * 9000);
+      const E_MAIL = data.email_id;
+
+      // Store OTP immediately with pending email status
+      E_Mail_OTP_Map.set(E_MAIL, {
+        OTP: OTP,
+        DATA: Data,
+        emailSent: false,
+        emailError: null
+      });
+
+      // Send email async without waiting
+      E_MAIL_SERVICE.sendOTPEmail(E_MAIL, OTP)
+        .then(mailRes => {
+          console.log('OTP Email sent successfully:', mailRes.messageId);
+          const entry = E_Mail_OTP_Map.get(E_MAIL);
+          if (entry) {
+            entry.emailSent = true;
+            E_Mail_OTP_Map.set(E_MAIL, entry);
+          }
+        })
+        .catch(mailErr => {
+          console.error('Error sending OTP Email:', mailErr);
+          const entry = E_Mail_OTP_Map.get(E_MAIL);
+          if (entry) {
+            entry.emailError = mailErr.message;
+            E_Mail_OTP_Map.set(E_MAIL, entry);
+          }
+        });
+
+    
+      out = {
+        Status: 1,
+        Message: 'User Data Exists. OTP Sent',
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+
+      return res.json(out);
+
+    }
+
     out = {
       Status: success.toString(),
       Message: message,
@@ -143,6 +204,77 @@ router.post('/Login', async (req, res, next) => {
       Message: err.message,
       Response: null,
       ResponseCode: '500',
+    };
+    return res.status(500).json(out);
+  }
+});
+
+
+router.post('/Verify-Login-OTP', async (req, res, next) => {
+  let out = '';
+
+  try {
+    const data = req.body ?? {};
+
+    if (!data.email_id || !data.otp) {
+      return res.status(405).json({
+        Status: '0',
+        Message: 'Required fields missing (email_id, otp)',
+        Response: null,
+        ResponseCode: '405',
+        RequestReceived: data,
+      });
+    }
+
+    const storedEntry = E_Mail_OTP_Map.get(data.email_id);
+    
+    if (!storedEntry) {
+      out = {
+        Status: '0',
+        Message: 'No OTP request found for this email',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Check if email failed to send
+    if (storedEntry.emailError) {
+      E_Mail_OTP_Map.delete(data.email_id);
+      out = {
+        Status: '0',
+        Message: 'Email failed to send: ' + storedEntry.emailError,
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Verify OTP
+    if (storedEntry.OTP.toString() === data.otp.toString()) {
+      E_Mail_OTP_Map.delete(data.email_id); // Invalidate OTP after successful verification
+      out = storedEntry.DATA;
+    } else {
+      out = {
+        Status: '0',
+        Message: 'Invalid OTP',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+    }
+
+    return res.json(out);
+
+  } catch (err) {
+    out = {
+      Status: '0',
+      Message: err.message,
+      Response: null,
+      ResponseCode: '500',
+      RequestReceived: data,
     };
     return res.status(500).json(out);
   }
