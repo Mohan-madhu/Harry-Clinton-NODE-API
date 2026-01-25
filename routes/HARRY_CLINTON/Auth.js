@@ -104,16 +104,16 @@ router.post('/Register', async (req, res, next) => {
  *   @success
  *   @message
  */
-router.post('/Login', async (req, res, next) => {
+router.post('/OTP-Login', async (req, res, next) => {
   let out = '';
 
   try {
     const data = req.body ?? {};
 
-    if (!data.email_id || !data.password_hash) {
+    if (!data.email_id ) {
       return res.status(405).json({
         Status: '0',
-        Message: 'Required fields missing (email_id, password_hash)',
+        Message: 'Required fields missing (email_id)',
         Response: null,
         ResponseCode: '405',
         RequestReceived: data,
@@ -124,11 +124,10 @@ router.post('/Login', async (req, res, next) => {
 
     const request = pool.request()
       .input('email_id', sql.VarChar(255), data.email_id)
-      .input('password_hash', sql.VarChar(255), data.password_hash)
       .output('success', sql.Bit)
       .output('message', sql.VarChar(500));
 
-    const result = await request.execute('sp_login_user');
+    const result = await request.execute('sp_otp_login_user');
 
     const success = result.output?.success ?? 0;
     const message = result.output?.message ?? '';
@@ -177,7 +176,7 @@ router.post('/Login', async (req, res, next) => {
           }
         });
 
-    
+
       out = {
         Status: 1,
         Message: 'User Data Exists. OTP Sent',
@@ -209,6 +208,55 @@ router.post('/Login', async (req, res, next) => {
   }
 });
 
+router.post('/Password-Login', async (req, res, next) => {
+  let out = '';
+
+  try {
+    const data = req.body ?? {};
+
+    if (!data.email_id || !data.password_hash) {
+      return res.status(405).json({
+        Status: '0',
+        Message: 'Required fields missing (email_id, password_hash)',
+        Response: null,
+        ResponseCode: '405',
+        RequestReceived: data,
+      });
+    }
+
+    await poolConnect;
+
+    const request = pool.request()
+      .input('email_id', sql.VarChar(255), data.email_id)
+      .input('password_hash', sql.VarChar(255), data.password_hash)
+      .output('success', sql.Bit)
+      .output('message', sql.VarChar(500));
+
+    const result = await request.execute('sp_login_user');
+
+    const success = result.output?.success ?? 0;
+    const message = result.output?.message ?? '';
+    const userRow = result.recordset?.[0] ?? null; // <-- row from SELECT
+
+    out = {
+      Status: success.toString(),
+      Message: message,
+      Response: userRow, // <-- send full row data
+      ResponseCode: '200',
+      RequestReceived: data,
+    };
+
+    return res.json(out);
+  } catch (err) {
+    out = {
+      Status: '0',
+      Message: err.message,
+      Response: null,
+      ResponseCode: '500',
+    };
+    return res.status(500).json(out);
+  }
+});
 
 router.post('/Verify-Login-OTP', async (req, res, next) => {
   let out = '';
@@ -227,7 +275,7 @@ router.post('/Verify-Login-OTP', async (req, res, next) => {
     }
 
     const storedEntry = E_Mail_OTP_Map.get(data.email_id);
-    
+
     if (!storedEntry) {
       out = {
         Status: '0',
@@ -254,8 +302,10 @@ router.post('/Verify-Login-OTP', async (req, res, next) => {
 
     // Verify OTP
     if (storedEntry.OTP.toString() === data.otp.toString()) {
-      E_Mail_OTP_Map.delete(data.email_id); // Invalidate OTP after successful verification
+
       out = storedEntry.DATA;
+      E_Mail_OTP_Map.delete(data.email_id); // Invalidate OTP after successful verification
+      return res.json(out);
     } else {
       out = {
         Status: '0',
@@ -349,54 +399,6 @@ router.post('/Reset-Password', async (req, res, next) => {
 });
 
 
-/**
- * =========================
- * TEST PERFORMANCE ENDPOINT
- * =========================
- * Test endpoint to measure poolConnect latency
- * GET /API/HARRY-CLINTON/Auth/Test-Performance
- */
-router.get('/Test-Performance', async (req, res) => {
-  try {
-    const { poolConnect } = require('../../config/db_harry_clinton');
-
-    // Test 1: With await poolConnect (OLD WAY)
-    const t0 = Date.now();
-    await poolConnect;
-    const t1 = Date.now();
-    const awaitTime = t1 - t0;
-
-    // Test 2: Direct query without await (NEW WAY)
-    const t2 = Date.now();
-    const result = await pool.request().query('SELECT 1 AS test');
-    const t3 = Date.now();
-    const directTime = t3 - t2;
-
-    // Overall request time
-    const totalTime = Date.now() - t0;
-
-    return res.json({
-      Status: '1',
-      Message: 'Performance test completed',
-      Response: {
-        awaitPoolConnect_ms: awaitTime,
-        directQuery_ms: directTime,
-        totalRequest_ms: totalTime,
-        improvement_percent: awaitTime > 0 ? Math.round(((awaitTime - directTime) / awaitTime) * 100) : 0,
-        recommendation: awaitTime > 5 ? 'Remove await poolConnect from routes' : 'Pool already optimized'
-      },
-      ResponseCode: '200'
-    });
-
-  } catch (err) {
-    return res.status(500).json({
-      Status: '0',
-      Message: err.message,
-      Response: null,
-      ResponseCode: '500'
-    });
-  }
-});
 
 
 module.exports = router;
