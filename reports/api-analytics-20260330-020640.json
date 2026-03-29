@@ -1,0 +1,255 @@
+{
+  "summary": {
+    "generatedAt": "2026-03-29T20:36:40.688Z",
+    "mode": "safe",
+    "baseUrl": "http://127.0.0.1:15000/API/HARRY-CLINTON",
+    "totals": {
+      "discovered": 5,
+      "executed": 2,
+      "skipped": 3,
+      "passed": 0,
+      "failed": 2
+    },
+    "byMethod": {
+      "GET": {
+        "total": 2,
+        "passed": 0,
+        "failed": 2,
+        "skipped": 0
+      },
+      "POST": {
+        "total": 1,
+        "passed": 0,
+        "failed": 0,
+        "skipped": 1
+      },
+      "PUT": {
+        "total": 1,
+        "passed": 0,
+        "failed": 0,
+        "skipped": 1
+      },
+      "DELETE": {
+        "total": 1,
+        "passed": 0,
+        "failed": 0,
+        "skipped": 1
+      }
+    },
+    "byStatus": {
+      "0": 2
+    },
+    "latencyMs": {
+      "average": 35.49,
+      "p50": 6.89,
+      "p95": 64.09,
+      "max": 64.09
+    },
+    "slowest": [
+      {
+        "method": "GET",
+        "requestName": "GET ALL",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+        "status": 0,
+        "durationMs": 64.09,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/product-rating-summary"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET BY ID",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+        "status": 0,
+        "durationMs": 6.89,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/product-rating-summary/prod_001"
+      }
+    ],
+    "failures": [
+      {
+        "method": "GET",
+        "requestName": "GET ALL",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/product-rating-summary",
+        "error": "fetch failed"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET BY ID",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/product-rating-summary/prod_001",
+        "error": "fetch failed"
+      }
+    ],
+    "skipped": [
+      {
+        "method": "POST",
+        "requestName": "POST",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+        "reason": "blocked by mode=safe (POST)"
+      },
+      {
+        "method": "PUT",
+        "requestName": "PUT",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+        "reason": "blocked by mode=safe (PUT)"
+      },
+      {
+        "method": "DELETE",
+        "requestName": "DELETE",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+        "reason": "blocked by mode=safe (DELETE)"
+      }
+    ]
+  },
+  "results": [
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+      "collectionName": "Product Rating Summary",
+      "requestName": "GET ALL",
+      "method": "GET",
+      "url": "{{P}}/product-rating-summary",
+      "headers": [],
+      "body": {
+        "type": "none",
+        "file": {
+          "name": ""
+        },
+        "text": {
+          "value": "",
+          "format": "application/json"
+        },
+        "form": {
+          "isMultipart": false,
+          "fields": []
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/product-rating-summary",
+      "ok": false,
+      "status": 0,
+      "durationMs": 64.09,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+      "collectionName": "Product Rating Summary",
+      "requestName": "GET BY ID",
+      "method": "GET",
+      "url": "{{P}}/product-rating-summary/prod_001",
+      "headers": [],
+      "body": {
+        "type": "none",
+        "file": {
+          "name": ""
+        },
+        "text": {
+          "value": "",
+          "format": "application/json"
+        },
+        "form": {
+          "isMultipart": false,
+          "fields": []
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/product-rating-summary/prod_001",
+      "ok": false,
+      "status": 0,
+      "durationMs": 6.89,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+      "collectionName": "Product Rating Summary",
+      "requestName": "POST",
+      "method": "POST",
+      "url": "{{P}}/product-rating-summary",
+      "headers": [],
+      "body": {
+        "type": "text",
+        "file": {
+          "name": ""
+        },
+        "text": {
+          "value": "{\n  \"product_id\": \"prod_001\",\n  \"avg_rating\": 4.5,\n  \"total_reviews\": 10,\n  \"rating_5_count\": 7,\n  \"rating_4_count\": 2,\n  \"rating_3_count\": 1,\n  \"rcu\": \"admin\"\n}",
+          "format": "application/json"
+        },
+        "form": {
+          "isMultipart": false,
+          "fields": []
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "skipped": true,
+      "skipReason": "blocked by mode=safe (POST)"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+      "collectionName": "Product Rating Summary",
+      "requestName": "PUT",
+      "method": "PUT",
+      "url": "{{P}}/product-rating-summary",
+      "headers": [],
+      "body": {
+        "type": "text",
+        "file": {
+          "name": ""
+        },
+        "text": {
+          "value": "{\n  \"product_id\": \"prod_001\",\n  \"avg_rating\": 4.6,\n  \"total_reviews\": 12,\n  \"luu\": \"admin\"\n}",
+          "format": "application/json"
+        },
+        "form": {
+          "isMultipart": false,
+          "fields": []
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "skipped": true,
+      "skipReason": "blocked by mode=safe (PUT)"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\L_Ratings_&_Reviews\\Product_Rating_Summary.json",
+      "collectionName": "Product Rating Summary",
+      "requestName": "DELETE",
+      "method": "DELETE",
+      "url": "{{P}}/product-rating-summary",
+      "headers": [],
+      "body": {
+        "type": "text",
+        "file": {
+          "name": ""
+        },
+        "text": {
+          "value": "{\n  \"product_id\": \"prod_001\"\n}",
+          "format": "application/json"
+        },
+        "form": {
+          "isMultipart": false,
+          "fields": []
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "skipped": true,
+      "skipReason": "blocked by mode=safe (DELETE)"
+    }
+  ]
+}

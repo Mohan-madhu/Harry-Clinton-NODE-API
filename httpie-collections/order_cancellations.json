@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "format": "httpie",
+    "version": "1.0.0",
+    "contentType": "collection",
+    "schema": "https://schema.httpie.io/1.0.0.json",
+    "docs": "https://httpie.io/r/help/export-from-httpie",
+    "source": "HTTPie Desktop 2025.2.0"
+  },
+  "entry": {
+    "name": "Order_Cancellations",
+    "icon": {
+      "name": "default",
+      "color": "purple"
+    },
+    "auth": {
+      "type": "none"
+    },
+    "requests": [
+      {
+        "name": "GET /Order-Cancellations",
+        "url": "{{P}}/Order-Cancellations",
+        "method": "GET",
+        "headers": [],
+        "queryParams": [
+          {
+            "name": "includeDeleted",
+            "value": "false",
+            "enabled": true
+          },
+          {
+            "name": "includeInactive",
+            "value": "false",
+            "enabled": true
+          }
+        ],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "none",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      },
+      {
+        "name": "GET /Order_Cancellations/:id",
+        "url": "{{P}}/Order_Cancellations/aaaaaaaa-0000-1111-2222-333333333333",
+        "method": "GET",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "none",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      },
+      {
+        "name": "POST /Order-Cancellations",
+        "url": "{{P}}/Order-Cancellations",
+        "method": "POST",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "text",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "{\n  \"order_id\": \"55555555-6666-7777-8888-999999999999\",\n  \"cancelled_by\": \"user\",\n  \"cancellation_reason\": \"Accidentally placed order\",\n  \"rcu\": \"user@brand.com\"\n}",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      },
+      {
+        "name": "POST /Order-Cancellations",
+        "url": "{{P}}/Order-Cancellations",
+        "method": "PUT",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "text",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "{\n  \"order_cancellation_id\": \"aaaaaaaa-0000-1111-2222-333333333333\",\n  \"cancellation_reason\": \"User requested refund\",\n  \"isactive\": true,\n  \"luu\": \"admin@brand.com\"\n}",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      },
+      {
+        "name": "DELETE /Order_Cancellations",
+        "url": "{{P}}/Order_Cancellations",
+        "method": "DELETE",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "text",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "{\n  \"order_cancellation_id\": \"aaaaaaaa-0000-1111-2222-333333333333\",\n  \"luu\": \"admin@brand.com\"\n}",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      }
+    ]
+  }
+}

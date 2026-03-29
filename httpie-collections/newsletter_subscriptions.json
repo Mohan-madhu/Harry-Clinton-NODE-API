@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "format": "httpie",
+    "version": "1.0.0",
+    "contentType": "collection",
+    "schema": "https://schema.httpie.io/1.0.0.json",
+    "docs": "https://httpie.io/r/help/export-from-httpie",
+    "source": "HTTPie Desktop 2025.2.0"
+  },
+  "entry": {
+    "name": "Newsletter_Subscriptions",
+    "icon": {
+      "name": "default",
+      "color": "purple"
+    },
+    "auth": {
+      "type": "none"
+    },
+    "requests": [
+      {
+        "name": "GET /Newsletter-Subscriptions",
+        "url": "{{P}}/Newsletter-Subscriptions",
+        "method": "GET",
+        "headers": [],
+        "queryParams": [
+          {
+            "name": "includeDeleted",
+            "value": "false",
+            "enabled": true
+          },
+          {
+            "name": "includeInactive",
+            "value": "false",
+            "enabled": true
+          }
+        ],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "none",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      },
+      {
+        "name": "GET /Newsletter-Subscriptions/:id",
+        "url": "{{P}}/Newsletter-Subscriptions/99999999-5555-6666-7777-888888888888",
+        "method": "GET",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "none",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      },
+      {
+        "name": "POST /Newsletter-Subscriptions",
+        "url": "{{P}}/Newsletter-Subscriptions",
+        "method": "POST",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "text",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "{\n  \"emailid\": \"user@example.com\",\n  \"subscription_status\": \"subscribed\",\n  \"rcu\": \"system@brand.com\"\n}",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      },
+      {
+        "name": "POST /Newsletter-Subscriptions",
+        "url": "{{P}}/Newsletter-Subscriptions",
+        "method": "PUT",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "text",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "{\n  \"newsletter_subscription_id\": \"99999999-5555-6666-7777-888888888888\",\n  \"subscription_status\": \"subscribed\",\n  \"isactive\": true,\n  \"luu\": \"user@brand.com\"\n}",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      },
+      {
+        "name": "DELETE /Newsletter-Subscriptions",
+        "url": "{{P}}/Newsletter-Subscriptions",
+        "method": "DELETE",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "auth": {
+          "type": "inherited"
+        },
+        "body": {
+          "type": "text",
+          "file": {
+            "name": ""
+          },
+          "text": {
+            "value": "{\n  \"newsletter_subscription_id\": \"99999999-5555-6666-7777-888888888888\",\n  \"luu\": \"admin@brand.com\"\n}",
+            "format": "application/json"
+          },
+          "form": {
+            "isMultipart": false,
+            "fields": []
+          },
+          "graphql": {
+            "query": "",
+            "variables": ""
+          }
+        }
+      }
+    ]
+  }
+}

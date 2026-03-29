@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const { pool, poolConnect, sql } = require('../../config/db_harry_clinton');
 const EmailService = require('./MAIL_SERVICE/services');
-const { hashPassword, comparePassword } = require('./helpers');
+const { hashPassword, comparePassword, generateToken } = require('./helpers');
 
 var E_Mail_OTP_Map = new Map();
+var Password_Reset_Map = new Map();
 
 
 const E_MAIL_SERVICE = new EmailService();
@@ -89,6 +90,96 @@ router.post('/Register', async (req, res, next) => {
 });
 
 
+router.post('/Password-Login', async (req, res, next) => {
+  let out = '';
+
+  try {
+    const data = req.body ?? {};
+
+    if (!data.email_id || !data.password) {
+      return res.status(405).json({
+        Status: '0',
+        Message: 'Required fields missing (email_id, password)',
+        Response: null,
+        ResponseCode: '405',
+        RequestReceived: data,
+      });
+    }
+
+    await poolConnect;
+
+    // Get stored password hash
+    const getPassRequest = pool.request()
+      .input('email_id', sql.VarChar(255), data.email_id)
+      .output('success', sql.Bit)
+      .output('message', sql.VarChar(500))
+      .output('password_hash', sql.VarChar(255));
+
+    const getPassResult = await getPassRequest.execute('sp_get_user_password');
+
+    const getPassSuccess = getPassResult.output?.success ?? 0;
+    const getPassMessage = getPassResult.output?.message ?? '';
+    const storedPasswordHash = getPassResult.output?.password_hash ?? null;
+
+    if (!getPassSuccess || !storedPasswordHash) {
+      out = {
+        Status: '0',
+        Message: getPassMessage || 'User not found',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Compare password with stored hash
+    const isPasswordValid = await comparePassword(data.password, storedPasswordHash);
+
+    if (!isPasswordValid) {
+      out = {
+        Status: '0',
+        Message: 'Password is incorrect',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Password is correct, get full user data
+    const loginRequest = pool.request()
+      .input('email_id', sql.VarChar(255), data.email_id)
+      .input('password_hash', sql.VarChar(255), storedPasswordHash)
+      .output('success', sql.Bit)
+      .output('message', sql.VarChar(500));
+
+    const loginResult = await loginRequest.execute('sp_login_user');
+    const loginSuccess = loginResult.output?.success ?? 0;
+    const loginMessage = loginResult.output?.message ?? '';
+    const loginUserRow = loginResult.recordset?.[0] ?? null;
+const userRoles = loginResult.recordsets?.[1] ?? [];  
+    out = {
+      Status: loginSuccess.toString(),
+      Message: loginMessage,
+      Response: {
+    user: loginUserRow,
+    roles: userRoles
+  },
+      ResponseCode: '200',
+      RequestReceived: data,
+    };
+
+    return res.json(out);
+  } catch (err) {
+    out = {
+      Status: '0',
+      Message: err.message,
+      Response: null,
+      ResponseCode: '500',
+    };
+    return res.status(500).json(out);
+  }
+});
 
 /**
  * =========================
@@ -213,93 +304,7 @@ router.post('/OTP-Login', async (req, res, next) => {
   }
 });
 
-router.post('/Password-Login', async (req, res, next) => {
-  let out = '';
 
-  try {
-    const data = req.body ?? {};
-
-    if (!data.email_id || !data.password) {
-      return res.status(405).json({
-        Status: '0',
-        Message: 'Required fields missing (email_id, password)',
-        Response: null,
-        ResponseCode: '405',
-        RequestReceived: data,
-      });
-    }
-
-    await poolConnect;
-
-    // Get stored password hash
-    const getPassRequest = pool.request()
-      .input('email_id', sql.VarChar(255), data.email_id)
-      .output('success', sql.Bit)
-      .output('message', sql.VarChar(500))
-      .output('password_hash', sql.VarChar(255));
-
-    const getPassResult = await getPassRequest.execute('sp_get_user_password');
-
-    const getPassSuccess = getPassResult.output?.success ?? 0;
-    const getPassMessage = getPassResult.output?.message ?? '';
-    const storedPasswordHash = getPassResult.output?.password_hash ?? null;
-
-    if (!getPassSuccess || !storedPasswordHash) {
-      out = {
-        Status: '0',
-        Message: getPassMessage || 'User not found',
-        Response: null,
-        ResponseCode: '200',
-        RequestReceived: data,
-      };
-      return res.json(out);
-    }
-
-    // Compare password with stored hash
-    const isPasswordValid = await comparePassword(data.password, storedPasswordHash);
-
-    if (!isPasswordValid) {
-      out = {
-        Status: '0',
-        Message: 'Password is incorrect',
-        Response: null,
-        ResponseCode: '200',
-        RequestReceived: data,
-      };
-      return res.json(out);
-    }
-
-    // Password is correct, get full user data
-    const loginRequest = pool.request()
-      .input('email_id', sql.VarChar(255), data.email_id)
-      .input('password_hash', sql.VarChar(255), storedPasswordHash)
-      .output('success', sql.Bit)
-      .output('message', sql.VarChar(500));
-
-    const loginResult = await loginRequest.execute('sp_login_user');
-    const loginSuccess = loginResult.output?.success ?? 0;
-    const loginMessage = loginResult.output?.message ?? '';
-    const loginUserRow = loginResult.recordset?.[0] ?? null;
-
-    out = {
-      Status: loginSuccess.toString(),
-      Message: loginMessage,
-      Response: loginUserRow,
-      ResponseCode: '200',
-      RequestReceived: data,
-    };
-
-    return res.json(out);
-  } catch (err) {
-    out = {
-      Status: '0',
-      Message: err.message,
-      Response: null,
-      ResponseCode: '500',
-    };
-    return res.status(500).json(out);
-  }
-});
 
 router.post('/Verify-Login-OTP', async (req, res, next) => {
   let out = '';
@@ -368,6 +373,89 @@ router.post('/Verify-Login-OTP', async (req, res, next) => {
       Response: null,
       ResponseCode: '500',
       RequestReceived: data,
+    };
+    return res.status(500).json(out);
+  }
+});
+
+router.post('/Forgot-Password', async (req, res, next) => {
+  let out = '';
+
+  try {
+    const data = req.body ?? {};
+
+    if (!data.email_id) {
+      return res.status(405).json({
+        Status: '0',
+        Message: 'Required fields missing (email_id)',
+        Response: null,
+        ResponseCode: '405',
+        RequestReceived: data,
+      });
+    }
+
+    await poolConnect;
+
+    // Verify user exists and get row data
+    const userRequest = pool.request()
+      .input('email_id', sql.VarChar(255), data.email_id)
+      .output('success', sql.Bit)
+      .output('message', sql.VarChar(500));
+
+    const userResult = await userRequest.execute('sp_otp_login_user');
+
+    const userSuccess = userResult.output?.success ?? 0;
+    const userMessage = userResult.output?.message ?? '';
+    const userRow = userResult.recordset?.[0] ?? null;
+
+    if (!userSuccess || !userRow) {
+      out = {
+        Status: '0',
+        Message: userMessage || 'User not found',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Create reset token and track expiry
+    const resetToken = generateToken();
+    const expiresAt = Date.now() + 15 * 60 * 1000; // 15 minutes
+
+    Password_Reset_Map.set(resetToken, {
+      user_id: userRow.user_id,
+      email_id: data.email_id,
+      expiresAt,
+    });
+
+    // Send reset token via email with reset template
+    E_MAIL_SERVICE.sendPasswordResetEmail(data.email_id, resetToken)
+      .then(mailRes => {
+        console.log('Reset email sent:', mailRes.messageId);
+      })
+      .catch(mailErr => {
+        console.error('Error sending reset email:', mailErr);
+      });
+
+    out = {
+      Status: '1',
+      Message: 'Reset link sent to email (valid for 15 minutes)',
+      Response: {
+        transaction_id: resetToken,
+      },
+      ResponseCode: '200',
+      RequestReceived: data,
+    };
+
+    return res.json(out);
+
+  } catch (err) {
+    out = {
+      Status: '0',
+      Message: err.message,
+      Response: null,
+      ResponseCode: '500',
     };
     return res.status(500).json(out);
   }
@@ -482,6 +570,112 @@ router.post('/Reset-Password', async (req, res, next) => {
   }
 });
 
+router.post('/Forgot-Password-Confirm', async (req, res, next) => {
+  let out = '';
+
+  try {
+    const data = req.body ?? {};
+
+    if (!data.email_id || !data.transaction_id || !data.new_password || !data.luu) {
+      return res.status(405).json({
+        Status: '0',
+        Message: 'Required fields missing (email_id, transaction_id, new_password, luu)',
+        Response: null,
+        ResponseCode: '405',
+        RequestReceived: data,
+      });
+    }
+
+    const tokenEntry = Password_Reset_Map.get(data.transaction_id);
+
+    if (!tokenEntry || tokenEntry.email_id !== data.email_id) {
+      out = {
+        Status: '0',
+        Message: 'Invalid or expired transaction',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Expiry check
+    if (tokenEntry.expiresAt && Date.now() > tokenEntry.expiresAt) {
+      Password_Reset_Map.delete(data.transaction_id);
+      out = {
+        Status: '0',
+        Message: 'Reset link expired',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    await poolConnect;
+
+    // Get current password hash to satisfy SP signature
+    const getPassRequest = pool.request()
+      .input('email_id', sql.VarChar(255), data.email_id)
+      .output('success', sql.Bit)
+      .output('message', sql.VarChar(500))
+      .output('password_hash', sql.VarChar(255));
+
+    const getPassResult = await getPassRequest.execute('sp_get_user_password');
+
+    const getPassSuccess = getPassResult.output?.success ?? 0;
+    const getPassMessage = getPassResult.output?.message ?? '';
+    const storedPasswordHash = getPassResult.output?.password_hash ?? null;
+
+    if (!getPassSuccess || !storedPasswordHash) {
+      out = {
+        Status: '0',
+        Message: getPassMessage || 'User not found',
+        Response: null,
+        ResponseCode: '200',
+        RequestReceived: data,
+      };
+      return res.json(out);
+    }
+
+    // Hash new password
+    const hashedNewPassword = await hashPassword(data.new_password);
+
+    const request = pool.request()
+      .input('email_id', sql.VarChar(255), data.email_id)
+      .input('old_password_hash', sql.VarChar(255), storedPasswordHash)
+      .input('new_password_hash', sql.VarChar(255), hashedNewPassword)
+      .input('luu', sql.VarChar(100), data.luu)
+      .output('success', sql.Bit)
+      .output('message', sql.VarChar(500));
+
+    const result = await request.execute('sp_reset_password');
+
+    const output = result.output ?? {};
+
+    // Clear token after use
+    Password_Reset_Map.delete(data.transaction_id);
+
+    out = {
+      Status: output.success?.toString?.() ?? '0',
+      Message: output.message ?? '',
+      Response: null,
+      ResponseCode: '200',
+      RequestReceived: data,
+    };
+
+    return res.json(out);
+
+  } catch (err) {
+    out = {
+      Status: '0',
+      Message: err.message,
+      Response: null,
+      ResponseCode: '500',
+    };
+    return res.status(500).json(out);
+  }
+});
 
 
 

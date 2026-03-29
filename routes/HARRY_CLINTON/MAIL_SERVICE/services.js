@@ -1,5 +1,6 @@
 const { createTransporter, getDefaultFromAddress } = require("./config");
 const { createOTPEmailTemplate, createOTPTextTemplate } = require("./Templates/OTP_Template");
+const { createResetPasswordEmailTemplate, createResetPasswordTextTemplate } = require("./Templates/ResetPassword_Template");
 
 
 class EmailService {
@@ -63,6 +64,26 @@ class EmailService {
         const mailOptions = this.createMailOptions(
             toEmail,
             'Harry Clinton - Your Login OTP Verification Code',
+            htmlTemplate,
+            textTemplate
+        );
+
+        return await this.sendEmail(mailOptions);
+    }
+
+    /**
+     * Send password reset email
+     * @param {string} toEmail - Recipient email address
+     * @param {string} token - Reset token (used in link)
+     * @returns {Promise} Promise with mail response
+     */
+    async sendPasswordResetEmail(toEmail, token) {
+        const htmlTemplate = createResetPasswordEmailTemplate(token, toEmail);
+        const textTemplate = createResetPasswordTextTemplate(token, toEmail);
+
+        const mailOptions = this.createMailOptions(
+            toEmail,
+            'Harry Clinton - Reset Your Password',
             htmlTemplate,
             textTemplate
         );

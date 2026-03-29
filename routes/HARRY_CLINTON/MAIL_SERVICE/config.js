@@ -9,6 +9,11 @@ const getBusinessName = () => {
     return 'Harry Clinton';
 };
 
+const getPasswordResetBaseUrl = () => {
+    // Base URL for password reset links (frontend endpoint)
+    return process.env.C_HARRY_CLINTON_RESET_URL || 'https://harryclinton.com/reset-password';
+};
+
 const createTransporter = () => {
     return nodemailer.createTransport({
         host: process.env.C_HARRY_CLINTON_SMTP_HOST,
@@ -26,5 +31,6 @@ const createTransporter = () => {
 module.exports = {
     createTransporter,
     getDefaultFromAddress,
-    getBusinessName
+    getBusinessName,
+    getPasswordResetBaseUrl
 };

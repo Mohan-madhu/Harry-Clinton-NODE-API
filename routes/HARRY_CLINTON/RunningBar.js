@@ -1,19 +1,11 @@
-// routes/User.js (HARRY_CLINTON)
+// routes/RunningBar.js (HARRY_CLINTON)
 const express = require('express');
 const router = express.Router();
 const { pool, poolConnect, sql } = require('../../config/db_harry_clinton');
 
-// Define SQL types for each field
 const FIELD_TYPES = {
-  user_id: { type: sql.VarChar, maxLength: 36 },
-  full_name: { type: sql.VarChar, maxLength: 255 },
-  email_id: { type: sql.VarChar, maxLength: 255 },
-  mobile_number: { type: sql.VarChar, maxLength: 50 },
-  profile_url: { type: sql.VarChar, maxLength: 255 },
-  password_hash: { type: sql.VarChar, maxLength: 255 },
-  email_verified: { type: sql.Bit },
-  mobile_verified: { type: sql.Bit },
-  last_login_at: { type: sql.DateTime },
+  running_bar_id: { type: sql.VarChar, maxLength: 36 },
+  running_bar_name: { type: sql.VarChar, maxLength: 255 },
   isactive: { type: sql.Bit },
   isdeleted: { type: sql.Bit },
   rcu: { type: sql.VarChar, maxLength: 100 },
@@ -22,39 +14,15 @@ const FIELD_TYPES = {
   lcm: { type: sql.DateTime }
 };
 
-// Fields allowed during INSERT
-// (user_id, email_verified, mobile_verified, isactive, isdeleted, rcm have defaults, but you can include them if you want)
-const INSERT_FIELDS = [
-  'full_name',
-  'email_id',
-  'mobile_number',
-  'profile_url',
-  'password_hash',
-  'rcu'
-];
-
-// Fields allowed during UPDATE
-const UPDATE_FIELDS = [
-  'full_name',
-  'email_id',
-  'mobile_number',
-  'profile_url',
-  'password_hash',
-  'email_verified',
-  'mobile_verified',
-  'last_login_at',
-  'isactive',
-  'isdeleted',
-  'luu'
-];
+const INSERT_FIELDS = ['running_bar_name', 'rcu']; // id/rcm/default bits handled by DB defaults
+const UPDATE_FIELDS = ['running_bar_name', 'isactive', 'isdeleted', 'luu'];
 
 const prepareInputValue = (field, value) => {
   if (value === null || value === undefined || value === '') return null;
 
-  const t = FIELD_TYPES[field]?.type?.name;
+  const typeName = FIELD_TYPES[field]?.type?.name;
 
-  // Convert common boolean-like values safely
-  if (t === 'Bit') {
+  if (typeName === 'Bit') {
     if (typeof value === 'boolean') return value;
     if (typeof value === 'number') return value ? 1 : 0;
     if (typeof value === 'string') {
@@ -62,83 +30,88 @@ const prepareInputValue = (field, value) => {
       if (['1', 'true', 'yes', 'y'].includes(v)) return 1;
       if (['0', 'false', 'no', 'n'].includes(v)) return 0;
     }
-    return null; // reject weird boolean values
+    return null;
   }
 
-  // datetime: accept Date object, or parseable string
-  if (t === 'DateTime') {
+  if (typeName === 'DateTime') {
     if (value instanceof Date && !isNaN(value.getTime())) return value;
     const d = new Date(value);
     return isNaN(d.getTime()) ? null : d;
   }
 
-  // strings
   return typeof value === 'string' ? value.trim() : value;
 };
 
 /**
- * GET /users
- * By default returns only non-deleted users.
- * Use ?includeDeleted=1 to include deleted rows too.
+ * GET /running-bars
+ * Default: non-deleted only.
+ * Query:
+ *  - ?includeDeleted=1
+ *  - ?includeInactive=1
  */
 router.get('/', async (req, res) => {
   try {
     await poolConnect;
 
-    const includeDeleted =
-      req.query.includeDeleted === '1' || req.query.includeDeleted === 'true';
+    const includeDeleted = req.query.includeDeleted === '1' || req.query.includeDeleted === 'true';
+    const includeInactive = req.query.includeInactive === '1' || req.query.includeInactive === 'true';
 
-    const query = includeDeleted
-      ? 'SELECT * FROM dbo.tbl_users;'
-      : 'SELECT * FROM dbo.tbl_users WHERE isdeleted = 0;';
+    const where = [];
+    if (!includeDeleted) where.push('isdeleted = 0');
+    if (!includeInactive) where.push('isactive = 1');
+
+    const query = `
+      SELECT *
+      FROM dbo.tbl_running_bars
+      ${where.length ? `WHERE ${where.join(' AND ')}` : ''}
+      ORDER BY running_bar_name ASC;
+    `;
 
     const result = await pool.request().query(query);
-
     res.json({ success: true, data: result.recordset, count: result.recordset.length });
   } catch (err) {
-    console.error('HC Users get error:', err);
+    console.error('HC RunningBars get error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 /**
- * GET /users/:id
- * Returns a single user. (non-deleted only by default)
- * Use ?includeDeleted=1 to fetch even if deleted.
+ * GET /running-bars/:id
+ * Default: non-deleted only.
+ * Use ?includeDeleted=1 to include deleted.
  */
 router.get('/:id', async (req, res) => {
   try {
     const id = req.params.id;
-    if (!id) return res.status(400).json({ success: false, message: 'user_id required' });
+    if (!id) return res.status(400).json({ success: false, message: 'running_bar_id required' });
 
     await poolConnect;
 
-    const includeDeleted =
-      req.query.includeDeleted === '1' || req.query.includeDeleted === 'true';
+    const includeDeleted = req.query.includeDeleted === '1' || req.query.includeDeleted === 'true';
 
-    const request = pool.request().input('user_id', FIELD_TYPES.user_id.type, id);
+    const request = pool.request().input('running_bar_id', FIELD_TYPES.running_bar_id.type, id);
 
     const query = includeDeleted
-      ? 'SELECT * FROM dbo.tbl_users WHERE user_id = @user_id;'
-      : 'SELECT * FROM dbo.tbl_users WHERE user_id = @user_id AND isdeleted = 0;';
+      ? 'SELECT * FROM dbo.tbl_running_bars WHERE running_bar_id = @running_bar_id;'
+      : 'SELECT * FROM dbo.tbl_running_bars WHERE running_bar_id = @running_bar_id AND isdeleted = 0;';
 
     const result = await request.query(query);
 
     if (result.recordset.length === 0) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res.status(404).json({ success: false, message: 'Running bar not found' });
     }
 
     res.json({ success: true, data: result.recordset[0] });
   } catch (err) {
-    console.error('HC Users get by id error:', err);
+    console.error('HC RunningBars get by id error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 /**
- * POST /users
- * Creates a new user.
- * SQL will auto-generate user_id and rcm (and defaults for booleans) unless you add them to INSERT_FIELDS.
+ * POST /running-bars
+ * Required: running_bar_name
+ * Body: { running_bar_name, rcu }
  */
 router.post('/', async (req, res) => {
   try {
@@ -147,12 +120,8 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ success: false, message: 'No data' });
     }
 
-    // Basic minimal validation (optional but helpful)
-    if (!data.full_name || !data.email_id || !data.password_hash) {
-      return res.status(400).json({
-        success: false,
-        message: 'full_name, email_id, and password_hash are required'
-      });
+    if (!data.running_bar_name) {
+      return res.status(400).json({ success: false, message: 'running_bar_name is required' });
     }
 
     const cols = [];
@@ -177,33 +146,33 @@ router.post('/', async (req, res) => {
     await poolConnect;
 
     const result = await request.query(
-      `INSERT INTO dbo.tbl_users (${cols.join(',')})
+      `INSERT INTO dbo.tbl_running_bars (${cols.join(',')})
        OUTPUT INSERTED.*
        VALUES (${vals.join(',')});`
     );
 
     res.status(201).json({ success: true, data: result.recordset[0] });
   } catch (err) {
-    console.error('HC Users post error:', err);
+    console.error('HC RunningBars post error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 /**
- * PUT /users
- * Updates user by user_id. Also sets lcm to IST (UTC + 330 minutes), same style as your sample.
+ * PUT /running-bars
+ * Required: running_bar_id
+ * Updates fields + sets lcm to IST (UTC + 330 mins)
  */
 router.put('/', async (req, res) => {
   try {
     const data = req.body;
-    if (!data || !data.user_id) {
-      return res.status(400).json({ success: false, message: 'user_id required' });
+    if (!data || !data.running_bar_id) {
+      return res.status(400).json({ success: false, message: 'running_bar_id required' });
     }
 
     const updates = [];
     const request = pool.request();
-
-    request.input('user_id', FIELD_TYPES.user_id.type, data.user_id);
+    request.input('running_bar_id', FIELD_TYPES.running_bar_id.type, data.running_bar_id);
 
     UPDATE_FIELDS.forEach((f) => {
       if (data[f] != null) {
@@ -215,80 +184,104 @@ router.put('/', async (req, res) => {
       }
     });
 
-    // Always update lcm (Last Changed Moment) to IST
+    // Always update lcm (IST)
     updates.push('lcm = DATEADD(MINUTE, 330, GETUTCDATE())');
 
     if (updates.length === 1) {
-      // only lcm update would happen; you can allow it or reject.
       return res.status(400).json({ success: false, message: 'No valid fields to update' });
     }
-
-    const setClause = updates.join(', ');
 
     await poolConnect;
 
     const result = await request.query(
-      `UPDATE dbo.tbl_users
-       SET ${setClause}
-       WHERE user_id = @user_id;
+      `UPDATE dbo.tbl_running_bars
+       SET ${updates.join(', ')}
+       WHERE running_bar_id = @running_bar_id;
        SELECT @@ROWCOUNT AS affected;`
     );
 
     if (result.recordset[0].affected === 0) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res.status(404).json({ success: false, message: 'Running bar not found' });
     }
 
-    res.json({ success: true, message: 'User updated' });
+    res.json({ success: true, message: 'Running bar updated' });
   } catch (err) {
-    console.error('HC Users put error:', err);
+    console.error('HC RunningBars put error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 /**
- * DELETE /users
- * Soft delete: sets isdeleted=1 and lcm timestamp.
- * Body: { "user_id": "..." , "luu": "admin" (optional) }
+ * DELETE /running-bars
+ * Soft delete: sets isdeleted=1 + lcm
+ * Body: { running_bar_id, luu? }
  */
 router.delete('/', async (req, res) => {
   try {
-    const { user_id, luu } = req.body;
-    if (!user_id) return res.status(400).json({ success: false, message: 'user_id required' });
+    const { running_bar_id, luu } = req.body;
+    if (!running_bar_id) {
+      return res.status(400).json({ success: false, message: 'running_bar_id required' });
+    }
 
     await poolConnect;
 
-    const request = pool.request().input('user_id', FIELD_TYPES.user_id.type, user_id);
+    const request = pool.request().input('running_bar_id', FIELD_TYPES.running_bar_id.type, running_bar_id);
 
     if (luu != null) {
       const v = prepareInputValue('luu', luu);
       if (v !== null) request.input('luu', FIELD_TYPES.luu.type, v);
     }
 
-    // If luu not provided, keep current luu as-is (no overwrite)
     const query = luu != null
-      ? `UPDATE dbo.tbl_users
+      ? `UPDATE dbo.tbl_running_bars
          SET isdeleted = 1,
              luu = @luu,
              lcm = DATEADD(MINUTE, 330, GETUTCDATE())
-         WHERE user_id = @user_id;
+         WHERE running_bar_id = @running_bar_id;
          SELECT @@ROWCOUNT AS affected;`
-      : `UPDATE dbo.tbl_users
+      : `UPDATE dbo.tbl_running_bars
          SET isdeleted = 1,
              lcm = DATEADD(MINUTE, 330, GETUTCDATE())
-         WHERE user_id = @user_id;
+         WHERE running_bar_id = @running_bar_id;
          SELECT @@ROWCOUNT AS affected;`;
 
     const result = await request.query(query);
 
     if (result.recordset[0].affected === 0) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res.status(404).json({ success: false, message: 'Running bar not found' });
     }
 
-    res.json({ success: true, message: 'User deleted (soft)' });
+    res.json({ success: true, message: 'Running bar deleted (soft)' });
   } catch (err) {
-    console.error('HC Users delete error:', err);
+    console.error('HC RunningBars delete error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 module.exports = router;
+
+/**
+ * ---------------------------
+ * SAMPLE REQUEST PAYLOADS
+ * ---------------------------
+ *
+ * 1) POST /running-bars
+ * {
+ *   "running_bar_name": "Downtown Marathon Club",
+ *   "rcu": "ADMIN_PORTAL"
+ * }
+ *
+ * 2) PUT /running-bars
+ * {
+ *   "running_bar_id": "0D5A2C7E-8F4D-4A1D-9B3E-2F5D9C7A1B22",
+ *   "running_bar_name": "Downtown Marathon Club (Updated)",
+ *   "isactive": true,
+ *   "luu": "ADMIN_PORTAL"
+ * }
+ *
+ * 3) DELETE /running-bars
+ * {
+ *   "running_bar_id": "0D5A2C7E-8F4D-4A1D-9B3E-2F5D9C7A1B22",
+ *   "luu": "ADMIN_PORTAL"
+ * }
+ */

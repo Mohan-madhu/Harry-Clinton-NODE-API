@@ -1,0 +1,4453 @@
+{
+  "meta": {
+    "format": "httpie",
+    "version": "1.0.0",
+    "contentType": "workspace",
+    "schema": "https://schema.httpie.io/1.0.0.json",
+    "docs": "https://httpie.io/r/help/export-from-httpie",
+    "source": "HTTPie Desktop 2025.2.0"
+  },
+  "entry": {
+    "name": "Harry Clinton",
+    "icon": {
+      "name": "default",
+      "color": "orange"
+    },
+    "collections": [
+      {
+        "name": "Authentication",
+        "icon": {
+          "name": "globe",
+          "color": "green"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/FileUpload",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "form",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": true,
+                "fields": [
+                  {
+                    "name": "path",
+                    "value": "PROFILE_PIC",
+                    "enabled": true,
+                    "type": "text"
+                  },
+                  {
+                    "name": "file",
+                    "value": "",
+                    "enabled": true,
+                    "type": "file"
+                  }
+                ]
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Auth/Register",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"full_name\": \"Test User\",\n  \"email_id\": \"test@gmail.com\",\n  \"mobile_number\": \"123\",\n  \"profile_url\":\"~/Uploads/HARRY_CLINTON/20260122155731550_010A6150.JPG\",\n  \"password\": \"123\",\n  \"rcu\": \"ADMIN_HTTPIE\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Auth/Password-Login",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"email_id\": \"test@gmail.com\", \n \"password\": \"123\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Auth/OTP-Login",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"email_id\": \"mohan326856@gmail.com\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Auth/Verify-Login-OTP",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"email_id\": \"mohan326856@gmail.com\", \n \"otp\": \"2200\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Auth/Reset-Password",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"email_id\": \"mohan326856@gmail.com\",\n  \"old_password\": \"123\",\n  \"new_password\": \"1234\",\n  \"luu\": \"MOHAN_UPDATER_ADMIN\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Auth/Forgot-Password",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"email_id\": \"mohan326856@gmail.com\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Auth/Forgot-Password-Confirm",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"email_id\": \"mohan326856@gmail.com\",\n  \"transaction_id\":\"8aee7ee1-e815-495e-a877-f576d8d05ce1\",\n  \"new_password\":\"12345\",\n  \"luu\":\"MOHAN\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Mail",
+        "icon": {
+          "name": "bubble",
+          "color": "red"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Mail/Send-Mail",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"to\": \"mohan326856@gmail.com\",\n  \"subject\": \"A Small Greeting for You, Mounika 😊\",\n  \"html\": \"<h2>Hi Mounika,</h2><p>Just wanted to send you a warm greeting and wish you a wonderful day ahead! 🌸</p><p>Hope everything is going great for you. Take care and keep smiling!</p><p>Warm regards,<br/>Manesh</p>\",\n  \"text\": \"Hi Mounika,\\nJust wanted to send you a warm greeting and wish you a wonderful day ahead! Hope everything is going great for you. Take care and keep smiling!\\n\\nWarm regards,\\nManesh\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Mail/Send-OTP-Email",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"email_id\": \"mohan326856@gmail.com\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "User",
+        "icon": {
+          "name": "lock",
+          "color": "pink"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Users",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Users/16D12EF1-B26C-4FDB-AB17-1FCD84D24BDE",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Users",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"full_name\": \"Bruce Wayne\",\n  \"email_id\": \"bruce.wayne@example.com\",\n  \"mobile_number\": \"9876543210\",\n  \"profile_url\": \"~/Uploads/HARRY_CLINTON/20260130123055999_profile.jpg\",\n  \"password_hash\": \"$2b$10$7YzAbCdEfG1234567890HiJkLmNoPqRsTuVwXyZaBcDeFgHijKlMn\",\n  \"rcu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Users",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"user_id\": \"1C97A4E4-22CA-4350-8DF8-16A59ACF31D1\",\n  \"full_name\": \"Bruce Wayne Updated\",\n  \"email_id\": \"batman@wayneenterprises.com\",\n  \"mobile_number\": \"9000011111\",\n  \"profile_url\": \"~/Uploads/HARRY_CLINTON/20260130123055999_profile_updated.jpg\",\n  \"email_verified\": true,\n  \"mobile_verified\": true,\n  \"last_login_at\": \"2026-01-30T12:45:55.000Z\",\n  \"is_active\": true,\n  \"is_deleted\": false,\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Users",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"user_id\": \"1C97A4E4-22CA-4350-8DF8-16A59ACF31D1\",\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Roles",
+        "icon": {
+          "name": "lock",
+          "color": "pink"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Roles",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Roles/189E8EB7-BE58-42F4-9381-B35798205F8C",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Roles",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"role_name\": \"Order Manager\",\n  \"role_code\": \"OR\",\n  \"description\": \"Full access to Orders\",\n  \"rcu\": \"SYSTEM_ADMIN\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Roles",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"role_id\": \"189E8EB7-BE58-42F4-9381-B35798205F8C\",\n  \"role_name\": \"Admin (Updated)\",\n  \"role_code\": \"ADMIN_MAIN\",\n  \"description\": \"Updated role description\",\n  \"isactive\": true,\n  \"isdeleted\": false,\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Roles",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"role_id\": \"189E8EB7-BE58-42F4-9381-B35798205F8C\",\n  \"luu\": \"SUPER_ADMIN\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "User - Roles",
+        "icon": {
+          "name": "lock",
+          "color": "pink"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/User-Roles",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/User-Roles/8FCB0CA0-FCBB-4F81-9006-B3A2B21E8EEC",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/User-Roles/user/C304C995-7B8C-45BA-B101-00572AAEE9F1",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/User-Roles",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n   \n    \"user_id\": \"C304C995-7B8C-45BA-B101-00572AAEE9F1\",\n    \"role_id\": \"A9A80FB2-9850-4007-8248-075EFFB2C6A0\",\n    \"assigned_at\": \"2026-01-29T17:02:08.007Z\",\n    \"isactive\": true,\n    \"isdeleted\": false,\n    \"full_name\": \"Mohan B\",\n    \"email_id\": \"mohan32qw6856@gmail.com\",\n    \"role_name\": \"Customer\",\n    \"role_code\": \"CUSTOMER\"\n  }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/User-Roles/add",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"user_id\": \"USER_GUID_HERE\",\n  \"role_id\": \"ROLE_GUID_HERE\",\n  \"rcu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/User-Roles",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"role_id\": \"2A81D779-4DB9-44F8-A3B4-23B8A4B4A51D\",\n  \"role_name\": \"Admin (Updated)\",\n  \"role_code\": \"ADMIN_MAIN\",\n  \"description\": \"Updated role description\",\n  \"isactive\": true,\n  \"isdeleted\": false,\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/User-Roles",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"user_role_id\": \"USER_ROLE_GUID\",\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/User-Roles/remove",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"user_role_id\": \"USER_ROLE_GUID\",\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Profiles",
+        "icon": {
+          "name": "thumbUp",
+          "color": "aqua"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Profiles",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Profiles/8FCB0CA0-FCBB-4F81-9006-B3A2B21E8EEC",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Profiles",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"user_id\":\"16D12EF1-B26C-4FDB-AB17-1FCD84D24BDE\",\n\"emailid\":\"mohan@gmail.com\",\n \n  \"fullname\": \"Mohan Bharathi\",\n  \"mobile_number\": \"9000000000\",\n  \"gender\": \"Male\",\n  \"profile_url\": \"https://yourcdn.com/profiles/new.jpg\",\n  \"isactive\": 1,\n  \"luu\": \"admin_update\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Profiles",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": " {\n      \"profile_id\": \"C02A8429-7B84-45A2-B9CD-7BF55BB3C884\",\n      \"user_id\": \"16D12EF1-B26C-4FDB-AB17-1FCD84D24BDE\",\n      \"fullname\": \"Mohan Bharathi\",\n      \"emailid\": \"mohan@gmail.com\",\n      \"mobile_number\": \"9000000000\",\n      \"gender\": \"Female\",\n      \"dateofbirth\": null,\n      \"profile_url\": \"https://yourcdn.com/profiles/new.jpg\",\n      \"lastloginat\": null,\n      \"isactive\": true,\n      \"isdeleted\": false,\n      \"rcu\": null,\n      \"rcm\": \"2026-02-10T16:42:43.447Z\",\n      \"luu\": null,\n      \"lcm\": null\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Profiles",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"profile_id\": \"9f3c2c9a-0a11-4d7b-b2b5-6d9c1e8a4455\",\n  \"luu\": \"admin_delete\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Addresses",
+        "icon": {
+          "name": "thumbUp",
+          "color": "aqua"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Addresses",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Addresses/8FCB0CA0-FCBB-4F81-9006-B3A2B21E8EEC",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Addresses",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"user_id\": \"16D12EF1-B26C-4FDB-AB17-1FCD84D24BDE\",\n  \"full_name\": \"Mohan B\",\n  \"mobile_number\":\"984531\",\n  \"house_street\":\"#159\",\n  \"city\":\"Chennai\",\n  \"state\":\"TN\",\n\"pincode\":\"606905\",\n  \"emailid\":\"mohan@gmail.com\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Addresses",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"address_id\": \"7a1b2c3d-4455-6677-8899-aabbccddeeff\",\n  \"city\": \"Chennai\",\n  \"state\": \"Tamil Nadu\",\n  \"pincode\": \"600001\",\n  \"landmark\": \"Opposite Metro Station\",\n  \"isdefault\": 0,\n  \"luu\": \"admin_update\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Addresses",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"address_id\": \"7a1b2c3d-4455-6677-8899-aabbccddeeff\",\n  \"luu\": \"admin_delete\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Running Bar",
+        "icon": {
+          "name": "lock",
+          "color": "pink"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar/D50258F6-2CD0-4C83-A382-DAA207D44653",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"running_bar_name\": \"Pongal Running Bar\",\n  \"rcu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"running_bar_id\": \"0D5A2C7E-8F4D-4A1D-9B3E-2F5D9C7A1B22\",\n  \"running_bar_name\": \"Downtown Marathon Club Updated\",\n  \"isactive\": true,\n  \"isdeleted\": false,\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"running_bar_id\": \"0D5A2C7E-8F4D-4A1D-9B3E-2F5D9C7A1B22\",\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Running Bar Items",
+        "icon": {
+          "name": "lock",
+          "color": "pink"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar-Items",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar-Items/D50258F6-2CD0-4C83-A382-DAA207D44653",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar-Items",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"running_bar_id\": \"D50258F6-2CD0-4C83-A382-DAA207D44653\",\n  \"itemsdata\": \"50% for Diwali \",\n  \"duration_seconds\": 1,\n  \"display_order\": 1,\n  \"rcu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar-Items",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"running_bar_item_id\": \"AAAAAAA1-BBBB-CCCC-DDDD-EEEEEEEEEEEE\",\n  \"itemsdata\": \"{\\\"type\\\":\\\"text\\\",\\\"value\\\":\\\"Updated message\\\"}\",\n  \"duration_seconds\": 8,\n  \"display_order\": 2,\n  \"isactive\": true,\n  \"isdeleted\": false,\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Running-Bar-Items",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"running_bar_item_id\": \"AAAAAAA1-BBBB-CCCC-DDDD-EEEEEEEEEEEE\",\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Menu Category",
+        "icon": {
+          "name": "lock",
+          "color": "pink"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Category",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Category/189E8EB7-BE58-42F4-9381-B35798205F8C",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Category",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"menu_category_name\": \"Starters\",\n  \"menu_category_slug\": \"starters\",\n  \"display_order\": 1,\n  \"rcu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Category",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"menu_category_id\": \"6F5E7A12-9C0D-4C3A-9D2A-8D5B7C1E2F33\",\n  \"menu_category_name\": \"Starters & Snacks\",\n  \"menu_category_slug\": \"starters-snacks\",\n  \"display_order\": 2,\n  \"isactive\": true,\n  \"isdeleted\": false,\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Category",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"menu_category_id\": \"6F5E7A12-9C0D-4C3A-9D2A-8D5B7C1E2F33\",\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Menu Sub Categories",
+        "icon": {
+          "name": "lock",
+          "color": "pink"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Sub-Category",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Sub-Category/189E8EB7-BE58-42F4-9381-B35798205F8C",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Sub-Category",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"menu_category_id\": \"6F5E7A12-9C0D-4C3A-9D2A-8D5B7C1E2F33\",\n  \"menu_subcategory_name\": \"Veg Starters\",\n  \"menu_subcategory_slug\": \"veg-starters\",\n  \"redirect_link\": \"https://example.com/menu/veg-starters\",\n  \"display_order\": 1,\n  \"rcu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Sub-Category",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"menu_subcategory_id\": \"9A1B2C3D-4E5F-6789-ABCD-0123456789AB\",\n  \"menu_category_id\": \"6F5E7A12-9C0D-4C3A-9D2A-8D5B7C1E2F33\",\n  \"menu_subcategory_name\": \"Veg Starters Updated\",\n  \"menu_subcategory_slug\": \"veg-starters-updated\",\n  \"redirect_link\": \"https://example.com/menu/veg-starters-updated\",\n  \"display_order\": 2,\n  \"isactive\": true,\n  \"isdeleted\": false,\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Menu-Sub-Category",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"menu_subcategory_id\": \"9A1B2C3D-4E5F-6789-ABCD-0123456789AB\",\n  \"luu\": \"ADMIN_PORTAL\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": " {\n      \"product_name\": \"Premium Cotton T-Shirt\",\n      \"product_slug\": \"premium-cotton-tshirt\",\n      \"short_description\": \"Soft, breathable cotton tee for everyday wear.\",\n      \"description\": \"<p>100% cotton. Regular fit. Durable stitching.</p>\",\n      \"base_price\": 499.0,\n      \"currency_code\": \"inr\",\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_id\": \"11111111-2222-3333-4444-555555555555\",\n      \"product_name\": \"Premium Cotton T-Shirt (Updated)\",\n      \"product_slug\": \"premium-cotton-tshirt\",\n      \"short_description\": \"Updated: Soft, breathable cotton tee.\",\n      \"description\": \"<p>Updated description content here.</p>\",\n      \"base_price\": 549.0,\n      \"currency_code\": \"inr\",\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_id\": \"11111111-2222-3333-4444-555555555555\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Wishlists",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "GET /Wishlists",
+            "url": "{{P}}/Wishlists",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [
+              {
+                "name": "includeDeleted",
+                "value": "false"
+              },
+              {
+                "name": "includeInactive",
+                "value": "false"
+              }
+            ],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "GET /Wishlists/:id",
+            "url": "{{P}}/Wishlists/11111111-2222-3333-4444-555555555555",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "POST /Wishlists",
+            "url": "{{P}}/Wishlists",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"user_id\": \"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n  \"wishlist_name\": \"Birthday Gifts\",\n  \"isactive\": true,\n  \"rcu\": \"user@brand.com\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "PUT /Wishlists",
+            "url": "{{P}}/Wishlists",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"wishlist_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"wishlist_name\": \"Anniversary Gifts Updated\",\n  \"isactive\": true,\n  \"luu\": \"user@brand.com\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "DELETE /Wishlists",
+            "url": "{{P}}/Wishlists",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"wishlist_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"luu\": \"admin@brand.com\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Wishlist_Items",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "GET /Wishlist_Items",
+            "url": "{{P}}/Wishlist_Items",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [
+              {
+                "name": "includeDeleted",
+                "value": "false"
+              },
+              {
+                "name": "includeInactive",
+                "value": "false"
+              }
+            ],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "GET /Wishlist_Items/:id",
+            "url": "{{P}}/Wishlist_Items/22222222-3333-4444-5555-666666666666",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "POST /Wishlist_Items",
+            "url": "{{P}}/Wishlist_Items",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"wishlist_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"product_id\": \"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n  \"product_variant_id\": \"bbbbbbbb-cccc-dddd-eeee-ffffffffffff\",\n  \"added_at\": \"2025-01-15T10:30:00\",\n  \"rcu\": \"user@brand.com\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "PUT /Wishlist_Items",
+            "url": "{{P}}/Wishlist_Items",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"wishlist_item_id\": \"22222222-3333-4444-5555-666666666666\",\n  \"product_variant_id\": \"cccccccc-dddd-eeee-ffff-0000000000000\",\n  \"isactive\": true,\n  \"luu\": \"user@brand.com\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "DELETE /Wishlist_Items",
+            "url": "{{P}}/Wishlist_Items",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"wishlist_item_id\": \"22222222-3333-4444-5555-666666666666\",\n  \"luu\": \"admin@brand.com\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products-Media",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products-Media",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Media/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Media",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_id\": \"11111111-2222-3333-4444-555555555555\",\n      \"product_variant_id\": \"22222222-3333-4444-5555-666666666666\",\n      \"media_type\": \"image\",\n      \"media_url\": \"https://cdn.brand.com/products/tshirt/black-front.jpg\",\n      \"alt_text\": \"Black T-Shirt Front View\",\n      \"display_order\": 1,\n      \"isprimary\": true,\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Media",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_media_id\": \"33333333-4444-5555-6666-777777777777\",\n      \"media_type\": \"image\",\n      \"media_url\": \"https://cdn.brand.com/products/tshirt/black-front-updated.jpg\",\n      \"alt_text\": \"Black T-Shirt Front View Updated\",\n      \"display_order\": 1,\n      \"isprimary\": true,\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Media",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": " {\n      \"product_media_id\": \"33333333-4444-5555-6666-777777777777\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products-Seo",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products-Seo",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Seo/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Seo",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": " {\n      \"product_id\": \"11111111-2222-3333-4444-555555555555\",\n      \"seo_title\": \"Buy Premium Cotton T-Shirt Online\",\n      \"seo_description\": \"Shop premium cotton t-shirts at best price. Comfortable and stylish.\",\n      \"seo_keywords\": \"cotton t-shirt, premium tee, mens wear\",\n      \"og_image_url\": \"https://cdn.brand.com/products/tshirt/og.jpg\",\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Seo",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_seo_id\": \"dddddddd-eeee-ffff-1111-222222222222\",\n      \"seo_title\": \"Buy Premium Cotton T-Shirt - Updated\",\n      \"seo_description\": \"Updated SEO description for better ranking.\",\n      \"seo_keywords\": \"cotton t-shirt, mens fashion, updated keywords\",\n      \"og_image_url\": \"https://cdn.brand.com/products/tshirt/og-updated.jpg\",\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Seo",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_seo_id\": \"dddddddd-eeee-ffff-1111-222222222222\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products-Cloth-Type-Care-Instructions",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products-Cloth-Type-Care-Instructions",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Cloth-Type-Care-Instructions/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Cloth-Type-Care-Instructions",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"cloth_type_id\": \"99999999-8888-7777-6666-555555555555\",\n      \"care_instruction_id\": \"bbbbbbbb-cccc-dddd-eeee-ffffffffffff\",\n      \"display_order\": 1,\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Cloth-Type-Care-Instructions",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"cloth_type_care_instruction_id\": \"cccccccc-dddd-eeee-ffff-111111111111\",\n      \"cloth_type_id\": \"99999999-8888-7777-6666-555555555555\",\n      \"care_instruction_id\": \"bbbbbbbb-cccc-dddd-eeee-ffffffffffff\",\n      \"display_order\": 2,\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Cloth-Type-Care-Instructions",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"cloth_type_care_instruction_id\": \"cccccccc-dddd-eeee-ffff-111111111111\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products-Care-Instructions",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products-Care-Instructions",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Care-Instructions/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Care-Instructions",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": " {\n      \"instruction_text\": \"Machine wash cold. Do not bleach. Tumble dry low.\",\n      \"display_order\": 1,\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Care-Instructions",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"care_instruction_id\": \"bbbbbbbb-cccc-dddd-eeee-ffffffffffff\",\n      \"instruction_text\": \"Machine wash cold. Do not bleach. Dry in shade.\",\n      \"display_order\": 1,\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Care-Instructions",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"care_instruction_id\": \"bbbbbbbb-cccc-dddd-eeee-ffffffffffff\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products-Cloth-Types",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products-Cloth-Types",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Cloth-Types/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Cloth-Types",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"cloth_type_name\": \"100% Cotton\",\n      \"cloth_type_slug\": \"cotton-100\",\n      \"description\": \"Pure cotton fabric, breathable and soft.\",\n      \"display_order\": 1,\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Cloth-Types",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"cloth_type_id\": \"99999999-8888-7777-6666-555555555555\",\n      \"cloth_type_name\": \"100% Cotton (Updated)\",\n      \"cloth_type_slug\": \"cotton-100\",\n      \"description\": \"Updated description for cotton fabric.\",\n      \"display_order\": 1,\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "Products-Cloth-Types",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"cloth_type_id\": \"99999999-8888-7777-6666-555555555555\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products-Sizes",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products-Sizes",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Sizes/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Sizes",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"size_name\": \"M\",\n      \"size_type\": \"alpha\",\n      \"display_order\": 2,\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Sizes",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": " {\n      \"size_id\": \"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n      \"size_name\": \"M\",\n      \"size_type\": \"alpha\",\n      \"display_order\": 2,\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Sizes",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": " {\n      \"size_id\": \"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products-Attributes-Values",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes-Values",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes-Values/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes-Values",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_id\": \"11111111-2222-3333-4444-555555555555\",\n      \"product_variant_id\": \"22222222-3333-4444-5555-666666666666\",\n      \"attribute_id\": \"44444444-5555-6666-7777-888888888888\",\n      \"attribute_value\": \"Black\",\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes-Values",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_attribute_value_id\": \"55555555-6666-7777-8888-999999999999\",\n      \"attribute_value\": \"Black (Updated)\",\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes-Values",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_attribute_value_id\": \"55555555-6666-7777-8888-999999999999\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products-Attributes",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"attribute_name\": \"Color\",\n      \"attribute_slug\": \"color\",\n      \"attribute_type\": \"dropdown\",\n      \"display_order\": 1,\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"attribute_id\": \"44444444-5555-6666-7777-888888888888\",\n      \"attribute_name\": \"Color (Updated)\",\n      \"attribute_slug\": \"color\",\n      \"attribute_type\": \"dropdown\",\n      \"display_order\": 1,\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Attributes",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"attribute_id\": \"44444444-5555-6666-7777-888888888888\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Products-Variants",
+        "icon": {
+          "name": "default",
+          "color": "purple"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Products-Variants",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Variants/",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Variants",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_id\": \"11111111-2222-3333-4444-555555555555\",\n      \"sku\": \"TSHIRT-COTTON-BLK-M\",\n      \"variant_name\": \"Black - Medium\",\n      \"price\": 549.0,\n      \"stock_qty\": 100,\n      \"size_id\": \"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n      \"cloth_type_id\": \"99999999-8888-7777-6666-555555555555\",\n      \"isdefault\": true,\n      \"rcu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Variants",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n      \"product_variant_id\": \"22222222-3333-4444-5555-666666666666\",\n      \"sku\": \"TSHIRT-COTTON-BLK-M\",\n      \"variant_name\": \"Black - Medium (Updated)\",\n      \"price\": 579.0,\n      \"stock_qty\": 80,\n      \"size_id\": \"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n      \"cloth_type_id\": \"99999999-8888-7777-6666-555555555555\",\n      \"isdefault\": false,\n      \"isactive\": true,\n      \"luu\": \"editor@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Products-Variants",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": " {\n      \"product_variant_id\": \"22222222-3333-4444-5555-666666666666\",\n      \"luu\": \"admin@brand.com\"\n    }",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Appointment-Date-Slots",
+        "icon": {
+          "name": "paperPencil",
+          "color": "yellow"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Date-Slots",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Date-Slots/189E8EB7-BE58-42F4-9381-B35798205F8C",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Date-Slots",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"slot_date\": \"2026-02-05\",\n  \"slot_duration_minutes\": 30,\n  \"isavailable\": 1,\n  \"notes\": \"Regular working day\",\n  \"rcu\": \"admin\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Date-Slots",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_date_slot_id\": \"A6087909-1A35-449D-804B-9F0F950CB894\",\n  \"slot_duration_minutes\": 60,\n  \"isavailable\": 0,\n  \"notes\": \"Fully blocked for maintenance\",\n  \"luu\": \"admin\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Date-Slots",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_date_slot_id\": \"A6087909-1A35-449D-804B-9F0F950CB894\",\n  \"luu\": \"admin\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Appointment-Slot-Blocks",
+        "icon": {
+          "name": "paperPencil",
+          "color": "yellow"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Slot-Blocks",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Slot-Blocks/189E8EB7-BE58-42F4-9381-B35798205F8C",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Slot-Blocks",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_date_slot_id\": \"A6087909-1A35-449D-804B-9F0F950CB894\",\n  \"block_start_time\": \"14:00\",\n  \"block_end_time\": \"15:00\",\n  \"block_reason\": \"Lunch\",\n  \"blocked_by\": \"admin\",\n  \"rcu\": \"admin\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Slot-Blocks",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_slot_block_id\": \"A6087909-1A35-449D-804B-9F0F950CB894\",\n  \"block_reason\": \"Extended lunch\",\n  \"block_start_time\": \"14:00\",\n  \"block_end_time\": \"15:30\",\n  \"luu\": \"admin\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Slot-Blocks",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_slot_block_id\": \"PUT-GUID-HERE\",\n  \"luu\": \"admin\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Appointment-Time-Slots",
+        "icon": {
+          "name": "paperPencil",
+          "color": "yellow"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Time-Slots",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Time-Slots/189E8EB7-BE58-42F4-9381-B35798205F8C",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Time-Slots",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_date_slot_id\": \"A6087909-1A35-449D-804B-9F0F950CB894\",\n  \"slot_start_time\": \"13:00\",\n  \"slot_end_time\": \"13:30\",\n  \"isavailable\": 1,\n  \"isbooked\": 0,\n  \"display_order\": 1,\n  \"notes\": \"Auto-generated\",\n  \"rcu\": \"admin\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Time-Slots",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_time_slot_id\": \"PUT-GUID-HERE\",\n  \"isavailable\": 0,\n  \"notes\": \"Disabled by admin\",\n  \"luu\": \"admin\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Appointment-Time-Slots",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_time_slot_id\": \"PUT-GUID-HERE\",\n  \"luu\": \"admin\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Custom-Appointments",
+        "icon": {
+          "name": "paperPencil",
+          "color": "yellow"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "{{P}}/Custom-Appointments",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Custom-Appointments/189E8EB7-BE58-42F4-9381-B35798205F8C",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Custom-Appointments",
+            "method": "POST",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_date_slot_id\": \"DATE-SLOT-GUID\",\n  \"appointment_time_slot_id\": \"TIME-SLOT-GUID\",\n  \"name\": \"John Doe\",\n  \"city\": \"New York\",\n  \"preferred_delivery_date\": \"2026-02-12\",\n  \"occasion\": \"Birthday\",\n  \"appointment_status\": \"Approved\",\n  \"appointment_notes\": \"Customer requested fresh flowers\",\n  \"rcu\": \"customer\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Custom-Appointments",
+            "method": "PUT",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_id\": \"PUT-GUID-HERE\",\n  \"appointment_status\": \"approved\",\n  \"approved_at\": \"2026-02-03T15:00:00\",\n  \"luu\": \"admin\"\n}\n",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          },
+          {
+            "name": "",
+            "url": "{{P}}/Custom-Appointments",
+            "method": "DELETE",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "text",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "{\n  \"appointment_id\": \"PUT-GUID-HERE\",\n  \"luu\": \"admin\"\n}",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Development",
+        "icon": {
+          "name": "monitor",
+          "color": "red"
+        },
+        "auth": {
+          "type": "none"
+        },
+        "requests": [
+          {
+            "name": "",
+            "url": "",
+            "method": "GET",
+            "headers": [],
+            "queryParams": [],
+            "pathParams": [],
+            "auth": {
+              "type": "inherited"
+            },
+            "body": {
+              "type": "none",
+              "file": {
+                "name": ""
+              },
+              "text": {
+                "value": "",
+                "format": "application/json"
+              },
+              "form": {
+                "isMultipart": false,
+                "fields": []
+              },
+              "graphql": {
+                "query": "",
+                "variables": ""
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "environments": [
+      {
+        "name": "Defaults",
+        "color": "gray",
+        "isDefault": true,
+        "isLocalOnly": false,
+        "variables": [
+          {
+            "name": "dev",
+            "value": "http://localhost:15000/API/Harry-Clinton",
+            "isSecret": false
+          },
+          {
+            "name": "prod",
+            "value": "https://dev.dine360.ca/backend/API/Harry-Clinton",
+            "isSecret": false
+          },
+          {
+            "name": "file",
+            "value": "https://dev.dine360.ca/backend",
+            "isSecret": false
+          },
+          {
+            "name": "P1",
+            "value": "https://dev.dine360.ca/backend/API/Harry-Clinton",
+            "isSecret": false
+          },
+          {
+            "name": "P",
+            "value": "http://localhost:15000/API/Harry-Clinton",
+            "isSecret": false
+          }
+        ]
+      }
+    ],
+    "drafts": []
+  }
+}

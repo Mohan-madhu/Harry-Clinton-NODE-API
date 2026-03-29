@@ -1,0 +1,656 @@
+{
+  "summary": {
+    "generatedAt": "2026-03-29T20:37:40.690Z",
+    "mode": "full",
+    "baseUrl": "http://127.0.0.1:15000/API/HARRY-CLINTON",
+    "totals": {
+      "discovered": 20,
+      "executed": 20,
+      "skipped": 0,
+      "passed": 0,
+      "failed": 20
+    },
+    "byMethod": {
+      "POST": {
+        "total": 9,
+        "passed": 0,
+        "failed": 9,
+        "skipped": 0
+      },
+      "GET": {
+        "total": 7,
+        "passed": 0,
+        "failed": 7,
+        "skipped": 0
+      },
+      "PUT": {
+        "total": 2,
+        "passed": 0,
+        "failed": 2,
+        "skipped": 0
+      },
+      "DELETE": {
+        "total": 2,
+        "passed": 0,
+        "failed": 2,
+        "skipped": 0
+      }
+    },
+    "byStatus": {
+      "0": 20
+    },
+    "latencyMs": {
+      "average": 3.58,
+      "p50": 2.2,
+      "p95": 5.23,
+      "max": 20.42
+    },
+    "slowest": [
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Register",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "durationMs": 20.42,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Forgot-Password",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "durationMs": 5.23,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Verify-Login-OTP",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "durationMs": 4.94,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/OTP-Login",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "durationMs": 4.68,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Password-Login",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "durationMs": 4.13,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Reset-Password",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "durationMs": 3.86,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Forgot-Password-Confirm",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "durationMs": 3.59,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET /Users/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+        "status": 0,
+        "durationMs": 3.06,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET /Users/:id",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+        "status": 0,
+        "durationMs": 2.98,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/id_sample"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Users/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+        "status": 0,
+        "durationMs": 2.96,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/"
+      }
+    ],
+    "failures": [
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Register",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register",
+        "error": "fetch failed"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Password-Login",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login",
+        "error": "fetch failed"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/OTP-Login",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login",
+        "error": "fetch failed"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Verify-Login-OTP",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP",
+        "error": "fetch failed"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Forgot-Password",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password",
+        "error": "fetch failed"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Reset-Password",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password",
+        "error": "fetch failed"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Forgot-Password-Confirm",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm",
+        "error": "fetch failed"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET /Users/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+        "error": "fetch failed"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET /Users/:id",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/id_sample",
+        "error": "fetch failed"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Users/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+        "error": "fetch failed"
+      },
+      {
+        "method": "PUT",
+        "requestName": "PUT /Users/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+        "error": "fetch failed"
+      },
+      {
+        "method": "DELETE",
+        "requestName": "DELETE /Users/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+        "error": "fetch failed"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET /Roles/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+        "error": "fetch failed"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET /Roles/:id",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/id_sample",
+        "error": "fetch failed"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Roles/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+        "error": "fetch failed"
+      },
+      {
+        "method": "PUT",
+        "requestName": "PUT /Roles/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+        "error": "fetch failed"
+      },
+      {
+        "method": "DELETE",
+        "requestName": "DELETE /Roles/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+        "error": "fetch failed"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET /User-Roles/",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\UserRoles.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/User-Roles/",
+        "error": "fetch failed"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET /User-Roles/:id",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\UserRoles.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/User-Roles/id_sample",
+        "error": "fetch failed"
+      },
+      {
+        "method": "GET",
+        "requestName": "GET /User-Roles/user/:user_id",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\UserRoles.js",
+        "status": 0,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/User-Roles/user/user_id_sample",
+        "error": "fetch failed"
+      }
+    ],
+    "skipped": []
+  },
+  "results": [
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Register",
+      "method": "POST",
+      "urlPath": "/Auth/Register",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register",
+      "ok": false,
+      "status": 0,
+      "durationMs": 20.42,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Password-Login",
+      "method": "POST",
+      "urlPath": "/Auth/Password-Login",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login",
+      "ok": false,
+      "status": 0,
+      "durationMs": 4.13,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/OTP-Login",
+      "method": "POST",
+      "urlPath": "/Auth/OTP-Login",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login",
+      "ok": false,
+      "status": 0,
+      "durationMs": 4.68,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Verify-Login-OTP",
+      "method": "POST",
+      "urlPath": "/Auth/Verify-Login-OTP",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP",
+      "ok": false,
+      "status": 0,
+      "durationMs": 4.94,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Forgot-Password",
+      "method": "POST",
+      "urlPath": "/Auth/Forgot-Password",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password",
+      "ok": false,
+      "status": 0,
+      "durationMs": 5.23,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Reset-Password",
+      "method": "POST",
+      "urlPath": "/Auth/Reset-Password",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password",
+      "ok": false,
+      "status": 0,
+      "durationMs": 3.86,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Forgot-Password-Confirm",
+      "method": "POST",
+      "urlPath": "/Auth/Forgot-Password-Confirm",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm",
+      "ok": false,
+      "status": 0,
+      "durationMs": 3.59,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+      "collectionName": "/Users",
+      "requestName": "GET /Users/",
+      "method": "GET",
+      "urlPath": "/Users/",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+      "ok": false,
+      "status": 0,
+      "durationMs": 3.06,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+      "collectionName": "/Users",
+      "requestName": "GET /Users/:id",
+      "method": "GET",
+      "urlPath": "/Users/:id",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/id_sample",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/id_sample",
+      "ok": false,
+      "status": 0,
+      "durationMs": 2.98,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+      "collectionName": "/Users",
+      "requestName": "POST /Users/",
+      "method": "POST",
+      "urlPath": "/Users/",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+      "ok": false,
+      "status": 0,
+      "durationMs": 2.96,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+      "collectionName": "/Users",
+      "requestName": "PUT /Users/",
+      "method": "PUT",
+      "urlPath": "/Users/",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+      "ok": false,
+      "status": 0,
+      "durationMs": 2.2,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\User.js",
+      "collectionName": "/Users",
+      "requestName": "DELETE /Users/",
+      "method": "DELETE",
+      "urlPath": "/Users/",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Users/",
+      "ok": false,
+      "status": 0,
+      "durationMs": 2.15,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+      "collectionName": "/Roles",
+      "requestName": "GET /Roles/",
+      "method": "GET",
+      "urlPath": "/Roles/",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+      "ok": false,
+      "status": 0,
+      "durationMs": 2.07,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+      "collectionName": "/Roles",
+      "requestName": "GET /Roles/:id",
+      "method": "GET",
+      "urlPath": "/Roles/:id",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/id_sample",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/id_sample",
+      "ok": false,
+      "status": 0,
+      "durationMs": 1.95,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+      "collectionName": "/Roles",
+      "requestName": "POST /Roles/",
+      "method": "POST",
+      "urlPath": "/Roles/",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+      "ok": false,
+      "status": 0,
+      "durationMs": 1.74,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+      "collectionName": "/Roles",
+      "requestName": "PUT /Roles/",
+      "method": "PUT",
+      "urlPath": "/Roles/",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+      "ok": false,
+      "status": 0,
+      "durationMs": 1.67,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Roles.js",
+      "collectionName": "/Roles",
+      "requestName": "DELETE /Roles/",
+      "method": "DELETE",
+      "urlPath": "/Roles/",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Roles/",
+      "ok": false,
+      "status": 0,
+      "durationMs": 1.37,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\UserRoles.js",
+      "collectionName": "/User-Roles",
+      "requestName": "GET /User-Roles/",
+      "method": "GET",
+      "urlPath": "/User-Roles/",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/User-Roles/",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/User-Roles/",
+      "ok": false,
+      "status": 0,
+      "durationMs": 1.08,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\UserRoles.js",
+      "collectionName": "/User-Roles",
+      "requestName": "GET /User-Roles/:id",
+      "method": "GET",
+      "urlPath": "/User-Roles/:id",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/User-Roles/id_sample",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/User-Roles/id_sample",
+      "ok": false,
+      "status": 0,
+      "durationMs": 0.83,
+      "error": "fetch failed"
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\UserRoles.js",
+      "collectionName": "/User-Roles",
+      "requestName": "GET /User-Roles/user/:user_id",
+      "method": "GET",
+      "urlPath": "/User-Roles/user/:user_id",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/User-Roles/user/user_id_sample",
+      "skipped": false,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/User-Roles/user/user_id_sample",
+      "ok": false,
+      "status": 0,
+      "durationMs": 0.59,
+      "error": "fetch failed"
+    }
+  ]
+}
