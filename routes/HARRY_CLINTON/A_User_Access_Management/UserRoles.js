@@ -1,7 +1,7 @@
 // routes/UserRole.js (HARRY_CLINTON)
 const express = require('express');
 const router = express.Router();
-const { pool, poolConnect, sql } = require('../../config/db_harry_clinton');
+const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
 
 const FIELD_TYPES = {
   user_role_id: { type: sql.VarChar, maxLength: 36 },
@@ -87,7 +87,7 @@ router.get('/', async (req, res) => {
       SELECT
         ur.*,
         u.full_name,
-        u.email_id,
+        u.email,
         r.role_name,
         r.role_code
       FROM dbo.tbl_user_roles ur
@@ -123,7 +123,7 @@ router.get('/:id', async (req, res) => {
       SELECT
         ur.*,
         u.full_name,
-        u.email_id,
+        u.email,
         r.role_name,
         r.role_code
       FROM dbo.tbl_user_roles ur

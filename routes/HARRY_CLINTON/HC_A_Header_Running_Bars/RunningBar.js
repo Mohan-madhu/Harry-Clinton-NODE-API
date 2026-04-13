@@ -1,15 +1,11 @@
-// routes/MenuSubcategory.js (HARRY_CLINTON) - BASIC CRUD (5 endpoints)
+// routes/RunningBar.js (HARRY_CLINTON)
 const express = require('express');
 const router = express.Router();
-const { pool, poolConnect, sql } = require('../../config/db_harry_clinton');
+const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
 
 const FIELD_TYPES = {
-  menu_subcategory_id: { type: sql.VarChar, maxLength: 36 },
-  menu_category_id: { type: sql.VarChar, maxLength: 36 },
-  menu_subcategory_name: { type: sql.VarChar, maxLength: 255 },
-  menu_subcategory_slug: { type: sql.VarChar, maxLength: 255 },
-  redirect_link: { type: sql.VarChar, maxLength: 1000 },
-  display_order: { type: sql.Int },
+  running_bar_id: { type: sql.VarChar, maxLength: 36 },
+  running_bar_name: { type: sql.VarChar, maxLength: 255 },
   isactive: { type: sql.Bit },
   isdeleted: { type: sql.Bit },
   rcu: { type: sql.VarChar, maxLength: 100 },
@@ -18,35 +14,13 @@ const FIELD_TYPES = {
   lcm: { type: sql.DateTime }
 };
 
-const INSERT_FIELDS = [
-  'menu_category_id',
-  'menu_subcategory_name',
-  'menu_subcategory_slug',
-  'redirect_link',
-  'display_order',
-  'rcu'
-];
-
-const UPDATE_FIELDS = [
-  'menu_category_id',
-  'menu_subcategory_name',
-  'menu_subcategory_slug',
-  'redirect_link',
-  'display_order',
-  'isactive',
-  'isdeleted',
-  'luu'
-];
+const INSERT_FIELDS = ['running_bar_name', 'rcu']; // id/rcm/default bits handled by DB defaults
+const UPDATE_FIELDS = ['running_bar_name', 'isactive', 'isdeleted', 'luu'];
 
 const prepareInputValue = (field, value) => {
   if (value === null || value === undefined || value === '') return null;
 
   const typeName = FIELD_TYPES[field]?.type?.name;
-
-  if (typeName === 'Int') {
-    const n = parseInt(value, 10);
-    return Number.isFinite(n) ? n : null;
-  }
 
   if (typeName === 'Bit') {
     if (typeof value === 'boolean') return value;
@@ -59,10 +33,22 @@ const prepareInputValue = (field, value) => {
     return null;
   }
 
+  if (typeName === 'DateTime') {
+    if (value instanceof Date && !isNaN(value.getTime())) return value;
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
   return typeof value === 'string' ? value.trim() : value;
 };
 
-// 1) GET ALL
+/**
+ * GET /running-bars
+ * Default: non-deleted only.
+ * Query:
+ *  - ?includeDeleted=1
+ *  - ?includeInactive=1
+ */
 router.get('/', async (req, res) => {
   try {
     await poolConnect;
@@ -71,67 +57,62 @@ router.get('/', async (req, res) => {
     const includeInactive = req.query.includeInactive === '1' || req.query.includeInactive === 'true';
 
     const where = [];
-    const request = pool.request();
-
-    if (!includeDeleted) where.push('s.isdeleted = 0');
-    if (!includeInactive) where.push('s.isactive = 1');
-
-    if (req.query.menu_category_id) {
-      where.push('s.menu_category_id = @menu_category_id');
-      request.input('menu_category_id', FIELD_TYPES.menu_category_id.type, req.query.menu_category_id);
-    }
-
-    const whereClause = where.length ? `WHERE ${where.join(' AND ')}` : '';
+    if (!includeDeleted) where.push('isdeleted = 0');
+    if (!includeInactive) where.push('isactive = 1');
 
     const query = `
-      SELECT
-        s.*,
-        c.menu_category_name,
-        c.menu_category_slug
-      FROM dbo.tbl_menu_subcategories s
-      INNER JOIN dbo.tbl_menu_categories c ON c.menu_category_id = s.menu_category_id
-      ${whereClause}
-      ORDER BY c.display_order ASC, s.display_order ASC, s.menu_subcategory_name ASC;
+      SELECT *
+      FROM dbo.tbl_running_bars
+      ${where.length ? `WHERE ${where.join(' AND ')}` : ''}
+      ORDER BY running_bar_name ASC;
     `;
 
-    const result = await request.query(query);
+    const result = await pool.request().query(query);
     res.json({ success: true, data: result.recordset, count: result.recordset.length });
   } catch (err) {
-    console.error('HC MenuSubcategories get error:', err);
+    console.error('HC RunningBars get error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
-// 2) GET BY ID
+/**
+ * GET /running-bars/:id
+ * Default: non-deleted only.
+ * Use ?includeDeleted=1 to include deleted.
+ */
 router.get('/:id', async (req, res) => {
   try {
     const id = req.params.id;
-    if (!id) return res.status(400).json({ success: false, message: 'menu_subcategory_id required' });
+    if (!id) return res.status(400).json({ success: false, message: 'running_bar_id required' });
 
     await poolConnect;
 
     const includeDeleted = req.query.includeDeleted === '1' || req.query.includeDeleted === 'true';
 
-    const request = pool.request().input('menu_subcategory_id', FIELD_TYPES.menu_subcategory_id.type, id);
+    const request = pool.request().input('running_bar_id', FIELD_TYPES.running_bar_id.type, id);
 
     const query = includeDeleted
-      ? `SELECT * FROM dbo.tbl_menu_subcategories WHERE menu_subcategory_id = @menu_subcategory_id;`
-      : `SELECT * FROM dbo.tbl_menu_subcategories WHERE menu_subcategory_id = @menu_subcategory_id AND isdeleted = 0;`;
+      ? 'SELECT * FROM dbo.tbl_running_bars WHERE running_bar_id = @running_bar_id;'
+      : 'SELECT * FROM dbo.tbl_running_bars WHERE running_bar_id = @running_bar_id AND isdeleted = 0;';
 
     const result = await request.query(query);
 
     if (result.recordset.length === 0) {
-      return res.status(404).json({ success: false, message: 'Menu subcategory not found' });
+      return res.status(404).json({ success: false, message: 'Running bar not found' });
     }
 
     res.json({ success: true, data: result.recordset[0] });
   } catch (err) {
-    console.error('HC MenuSubcategories get by id error:', err);
+    console.error('HC RunningBars get by id error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
-// 3) POST (CREATE)
+/**
+ * POST /running-bars
+ * Required: running_bar_name
+ * Body: { running_bar_name, rcu }
+ */
 router.post('/', async (req, res) => {
   try {
     const data = req.body;
@@ -139,11 +120,8 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ success: false, message: 'No data' });
     }
 
-    if (!data.menu_category_id || !data.menu_subcategory_name || !data.menu_subcategory_slug) {
-      return res.status(400).json({
-        success: false,
-        message: 'menu_category_id, menu_subcategory_name, menu_subcategory_slug are required'
-      });
+    if (!data.running_bar_name) {
+      return res.status(400).json({ success: false, message: 'running_bar_name is required' });
     }
 
     const cols = [];
@@ -161,34 +139,40 @@ router.post('/', async (req, res) => {
       }
     });
 
-    if (cols.length === 0) return res.status(400).json({ success: false, message: 'No valid fields' });
+    if (cols.length === 0) {
+      return res.status(400).json({ success: false, message: 'No valid fields' });
+    }
 
     await poolConnect;
 
     const result = await request.query(
-      `INSERT INTO dbo.tbl_menu_subcategories (${cols.join(',')})
+      `INSERT INTO dbo.tbl_running_bars (${cols.join(',')})
        OUTPUT INSERTED.*
        VALUES (${vals.join(',')});`
     );
 
     res.status(201).json({ success: true, data: result.recordset[0] });
   } catch (err) {
-    console.error('HC MenuSubcategories post error:', err);
+    console.error('HC RunningBars post error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
-// 4) PUT (UPDATE)
+/**
+ * PUT /running-bars
+ * Required: running_bar_id
+ * Updates fields + sets lcm to IST (UTC + 330 mins)
+ */
 router.put('/', async (req, res) => {
   try {
     const data = req.body;
-    if (!data || !data.menu_subcategory_id) {
-      return res.status(400).json({ success: false, message: 'menu_subcategory_id required' });
+    if (!data || !data.running_bar_id) {
+      return res.status(400).json({ success: false, message: 'running_bar_id required' });
     }
 
     const updates = [];
     const request = pool.request();
-    request.input('menu_subcategory_id', FIELD_TYPES.menu_subcategory_id.type, data.menu_subcategory_id);
+    request.input('running_bar_id', FIELD_TYPES.running_bar_id.type, data.running_bar_id);
 
     UPDATE_FIELDS.forEach((f) => {
       if (data[f] != null) {
@@ -200,6 +184,7 @@ router.put('/', async (req, res) => {
       }
     });
 
+    // Always update lcm (IST)
     updates.push('lcm = DATEADD(MINUTE, 330, GETUTCDATE())');
 
     if (updates.length === 1) {
@@ -209,61 +194,94 @@ router.put('/', async (req, res) => {
     await poolConnect;
 
     const result = await request.query(
-      `UPDATE dbo.tbl_menu_subcategories
+      `UPDATE dbo.tbl_running_bars
        SET ${updates.join(', ')}
-       WHERE menu_subcategory_id = @menu_subcategory_id;
+       WHERE running_bar_id = @running_bar_id;
        SELECT @@ROWCOUNT AS affected;`
     );
 
     if (result.recordset[0].affected === 0) {
-      return res.status(404).json({ success: false, message: 'Menu subcategory not found' });
+      return res.status(404).json({ success: false, message: 'Running bar not found' });
     }
 
-    res.json({ success: true, message: 'Menu subcategory updated' });
+    res.json({ success: true, message: 'Running bar updated' });
   } catch (err) {
-    console.error('HC MenuSubcategories put error:', err);
+    console.error('HC RunningBars put error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
-// 5) DELETE (SOFT DELETE)
+/**
+ * DELETE /running-bars
+ * Soft delete: sets isdeleted=1 + lcm
+ * Body: { running_bar_id, luu? }
+ */
 router.delete('/', async (req, res) => {
   try {
-    const { menu_subcategory_id, luu } = req.body;
-    if (!menu_subcategory_id) {
-      return res.status(400).json({ success: false, message: 'menu_subcategory_id required' });
+    const { running_bar_id, luu } = req.body;
+    if (!running_bar_id) {
+      return res.status(400).json({ success: false, message: 'running_bar_id required' });
     }
 
     await poolConnect;
 
-    const request = pool.request().input('menu_subcategory_id', FIELD_TYPES.menu_subcategory_id.type, menu_subcategory_id);
+    const request = pool.request().input('running_bar_id', FIELD_TYPES.running_bar_id.type, running_bar_id);
 
-    if (luu != null) request.input('luu', FIELD_TYPES.luu.type, prepareInputValue('luu', luu));
+    if (luu != null) {
+      const v = prepareInputValue('luu', luu);
+      if (v !== null) request.input('luu', FIELD_TYPES.luu.type, v);
+    }
 
     const query = luu != null
-      ? `UPDATE dbo.tbl_menu_subcategories
+      ? `UPDATE dbo.tbl_running_bars
          SET isdeleted = 1,
              luu = @luu,
              lcm = DATEADD(MINUTE, 330, GETUTCDATE())
-         WHERE menu_subcategory_id = @menu_subcategory_id;
+         WHERE running_bar_id = @running_bar_id;
          SELECT @@ROWCOUNT AS affected;`
-      : `UPDATE dbo.tbl_menu_subcategories
+      : `UPDATE dbo.tbl_running_bars
          SET isdeleted = 1,
              lcm = DATEADD(MINUTE, 330, GETUTCDATE())
-         WHERE menu_subcategory_id = @menu_subcategory_id;
+         WHERE running_bar_id = @running_bar_id;
          SELECT @@ROWCOUNT AS affected;`;
 
     const result = await request.query(query);
 
     if (result.recordset[0].affected === 0) {
-      return res.status(404).json({ success: false, message: 'Menu subcategory not found' });
+      return res.status(404).json({ success: false, message: 'Running bar not found' });
     }
 
-    res.json({ success: true, message: 'Menu subcategory deleted (soft)' });
+    res.json({ success: true, message: 'Running bar deleted (soft)' });
   } catch (err) {
-    console.error('HC MenuSubcategories delete error:', err);
+    console.error('HC RunningBars delete error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 module.exports = router;
+
+/**
+ * ---------------------------
+ * SAMPLE REQUEST PAYLOADS
+ * ---------------------------
+ *
+ * 1) POST /running-bars
+ * {
+ *   "running_bar_name": "Downtown Marathon Club",
+ *   "rcu": "ADMIN_PORTAL"
+ * }
+ *
+ * 2) PUT /running-bars
+ * {
+ *   "running_bar_id": "0D5A2C7E-8F4D-4A1D-9B3E-2F5D9C7A1B22",
+ *   "running_bar_name": "Downtown Marathon Club (Updated)",
+ *   "isactive": true,
+ *   "luu": "ADMIN_PORTAL"
+ * }
+ *
+ * 3) DELETE /running-bars
+ * {
+ *   "running_bar_id": "0D5A2C7E-8F4D-4A1D-9B3E-2F5D9C7A1B22",
+ *   "luu": "ADMIN_PORTAL"
+ * }
+ */

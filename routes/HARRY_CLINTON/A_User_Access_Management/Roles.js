@@ -1,19 +1,13 @@
-// routes/User.js (HARRY_CLINTON)
+// routes/Role.js (HARRY_CLINTON)
 const express = require('express');
 const router = express.Router();
-const { pool, poolConnect, sql } = require('../../config/db_harry_clinton');
+const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
 
-// Define SQL types for each field
 const FIELD_TYPES = {
-  user_id: { type: sql.VarChar, maxLength: 36 },
-  full_name: { type: sql.VarChar, maxLength: 255 },
-  email_id: { type: sql.VarChar, maxLength: 255 },
-  mobile_number: { type: sql.VarChar, maxLength: 50 },
-  profile_url: { type: sql.VarChar, maxLength: 255 },
-  password_hash: { type: sql.VarChar, maxLength: 255 },
-  email_verified: { type: sql.Bit },
-  mobile_verified: { type: sql.Bit },
-  last_login_at: { type: sql.DateTime },
+  role_id: { type: sql.VarChar, maxLength: 36 },
+  role_name: { type: sql.VarChar, maxLength: 100 },
+  role_code: { type: sql.VarChar, maxLength: 50 },
+  description: { type: sql.VarChar, maxLength: 255 },
   isactive: { type: sql.Bit },
   isdeleted: { type: sql.Bit },
   rcu: { type: sql.VarChar, maxLength: 100 },
@@ -22,39 +16,16 @@ const FIELD_TYPES = {
   lcm: { type: sql.DateTime }
 };
 
-// Fields allowed during INSERT
-// (user_id, email_verified, mobile_verified, isactive, isdeleted, rcm have defaults, but you can include them if you want)
-const INSERT_FIELDS = [
-  'full_name',
-  'email_id',
-  'mobile_number',
-  'profile_url',
-  'password_hash',
-  'rcu'
-];
-
-// Fields allowed during UPDATE
-const UPDATE_FIELDS = [
-  'full_name',
-  'email_id',
-  'mobile_number',
-  'profile_url',
-  'password_hash',
-  'email_verified',
-  'mobile_verified',
-  'last_login_at',
-  'isactive',
-  'isdeleted',
-  'luu'
-];
+// Allowed fields for insert/update
+const INSERT_FIELDS = ['role_name', 'role_code', 'description', 'rcu'];
+const UPDATE_FIELDS = ['role_name', 'role_code', 'description', 'isactive', 'isdeleted', 'luu'];
 
 const prepareInputValue = (field, value) => {
   if (value === null || value === undefined || value === '') return null;
 
-  const t = FIELD_TYPES[field]?.type?.name;
+  const typeName = FIELD_TYPES[field]?.type?.name;
 
-  // Convert common boolean-like values safely
-  if (t === 'Bit') {
+  if (typeName === 'Bit') {
     if (typeof value === 'boolean') return value;
     if (typeof value === 'number') return value ? 1 : 0;
     if (typeof value === 'string') {
@@ -62,24 +33,22 @@ const prepareInputValue = (field, value) => {
       if (['1', 'true', 'yes', 'y'].includes(v)) return 1;
       if (['0', 'false', 'no', 'n'].includes(v)) return 0;
     }
-    return null; // reject weird boolean values
+    return null;
   }
 
-  // datetime: accept Date object, or parseable string
-  if (t === 'DateTime') {
+  if (typeName === 'DateTime') {
     if (value instanceof Date && !isNaN(value.getTime())) return value;
     const d = new Date(value);
     return isNaN(d.getTime()) ? null : d;
   }
 
-  // strings
   return typeof value === 'string' ? value.trim() : value;
 };
 
 /**
- * GET /users
- * By default returns only non-deleted users.
- * Use ?includeDeleted=1 to include deleted rows too.
+ * GET /roles
+ * Default: returns non-deleted roles only.
+ * Use ?includeDeleted=1 to include deleted.
  */
 router.get('/', async (req, res) => {
   try {
@@ -89,56 +58,55 @@ router.get('/', async (req, res) => {
       req.query.includeDeleted === '1' || req.query.includeDeleted === 'true';
 
     const query = includeDeleted
-      ? 'SELECT * FROM dbo.tbl_users;'
-      : 'SELECT * FROM dbo.tbl_users WHERE isdeleted = 0;';
+      ? 'SELECT * FROM dbo.tbl_roles;'
+      : 'SELECT * FROM dbo.tbl_roles WHERE isdeleted = 0;';
 
     const result = await pool.request().query(query);
-
     res.json({ success: true, data: result.recordset, count: result.recordset.length });
   } catch (err) {
-    console.error('HC Users get error:', err);
+    console.error('HC Roles get error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 /**
- * GET /users/:id
- * Returns a single user. (non-deleted only by default)
- * Use ?includeDeleted=1 to fetch even if deleted.
+ * GET /roles/:id
+ * Default: non-deleted only.
+ * Use ?includeDeleted=1 to include deleted.
  */
 router.get('/:id', async (req, res) => {
   try {
     const id = req.params.id;
-    if (!id) return res.status(400).json({ success: false, message: 'user_id required' });
+    if (!id) return res.status(400).json({ success: false, message: 'role_id required' });
 
     await poolConnect;
 
     const includeDeleted =
       req.query.includeDeleted === '1' || req.query.includeDeleted === 'true';
 
-    const request = pool.request().input('user_id', FIELD_TYPES.user_id.type, id);
+    const request = pool.request().input('role_id', FIELD_TYPES.role_id.type, id);
 
     const query = includeDeleted
-      ? 'SELECT * FROM dbo.tbl_users WHERE user_id = @user_id;'
-      : 'SELECT * FROM dbo.tbl_users WHERE user_id = @user_id AND isdeleted = 0;';
+      ? 'SELECT * FROM dbo.tbl_roles WHERE role_id = @role_id;'
+      : 'SELECT * FROM dbo.tbl_roles WHERE role_id = @role_id AND isdeleted = 0;';
 
     const result = await request.query(query);
 
     if (result.recordset.length === 0) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res.status(404).json({ success: false, message: 'Role not found' });
     }
 
     res.json({ success: true, data: result.recordset[0] });
   } catch (err) {
-    console.error('HC Users get by id error:', err);
+    console.error('HC Roles get by id error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 /**
- * POST /users
- * Creates a new user.
- * SQL will auto-generate user_id and rcm (and defaults for booleans) unless you add them to INSERT_FIELDS.
+ * POST /roles
+ * Required: role_name, role_code
+ * role_id, rcm, isactive, isdeleted handled by DB defaults unless you add them.
  */
 router.post('/', async (req, res) => {
   try {
@@ -147,11 +115,10 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ success: false, message: 'No data' });
     }
 
-    // Basic minimal validation (optional but helpful)
-    if (!data.full_name || !data.email_id || !data.password_hash) {
+    if (!data.role_name || !data.role_code) {
       return res.status(400).json({
         success: false,
-        message: 'full_name, email_id, and password_hash are required'
+        message: 'role_name and role_code are required'
       });
     }
 
@@ -177,33 +144,33 @@ router.post('/', async (req, res) => {
     await poolConnect;
 
     const result = await request.query(
-      `INSERT INTO dbo.tbl_users (${cols.join(',')})
+      `INSERT INTO dbo.tbl_roles (${cols.join(',')})
        OUTPUT INSERTED.*
        VALUES (${vals.join(',')});`
     );
 
     res.status(201).json({ success: true, data: result.recordset[0] });
   } catch (err) {
-    console.error('HC Users post error:', err);
+    console.error('HC Roles post error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 /**
- * PUT /users
- * Updates user by user_id. Also sets lcm to IST (UTC + 330 minutes), same style as your sample.
+ * PUT /roles
+ * Required: role_id
+ * Also sets lcm to IST (UTC + 330 minutes).
  */
 router.put('/', async (req, res) => {
   try {
     const data = req.body;
-    if (!data || !data.user_id) {
-      return res.status(400).json({ success: false, message: 'user_id required' });
+    if (!data || !data.role_id) {
+      return res.status(400).json({ success: false, message: 'role_id required' });
     }
 
     const updates = [];
     const request = pool.request();
-
-    request.input('user_id', FIELD_TYPES.user_id.type, data.user_id);
+    request.input('role_id', FIELD_TYPES.role_id.type, data.role_id);
 
     UPDATE_FIELDS.forEach((f) => {
       if (data[f] != null) {
@@ -215,11 +182,10 @@ router.put('/', async (req, res) => {
       }
     });
 
-    // Always update lcm (Last Changed Moment) to IST
+    // Always update lcm
     updates.push('lcm = DATEADD(MINUTE, 330, GETUTCDATE())');
 
     if (updates.length === 1) {
-      // only lcm update would happen; you can allow it or reject.
       return res.status(400).json({ success: false, message: 'No valid fields to update' });
     }
 
@@ -228,65 +194,64 @@ router.put('/', async (req, res) => {
     await poolConnect;
 
     const result = await request.query(
-      `UPDATE dbo.tbl_users
+      `UPDATE dbo.tbl_roles
        SET ${setClause}
-       WHERE user_id = @user_id;
+       WHERE role_id = @role_id;
        SELECT @@ROWCOUNT AS affected;`
     );
 
     if (result.recordset[0].affected === 0) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res.status(404).json({ success: false, message: 'Role not found' });
     }
 
-    res.json({ success: true, message: 'User updated' });
+    res.json({ success: true, message: 'Role updated' });
   } catch (err) {
-    console.error('HC Users put error:', err);
+    console.error('HC Roles put error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });
 
 /**
- * DELETE /users
- * Soft delete: sets isdeleted=1 and lcm timestamp.
- * Body: { "user_id": "..." , "luu": "admin" (optional) }
+ * DELETE /roles
+ * Soft delete: sets isdeleted = 1 and lcm timestamp.
+ * Body: { "role_id": "...", "luu": "..." (optional) }
  */
 router.delete('/', async (req, res) => {
   try {
-    const { user_id, luu } = req.body;
-    if (!user_id) return res.status(400).json({ success: false, message: 'user_id required' });
+    const { role_id, luu } = req.body;
+    if (!role_id) return res.status(400).json({ success: false, message: 'role_id required' });
 
     await poolConnect;
 
-    const request = pool.request().input('user_id', FIELD_TYPES.user_id.type, user_id);
+    const request = pool.request().input('role_id', FIELD_TYPES.role_id.type, role_id);
 
     if (luu != null) {
       const v = prepareInputValue('luu', luu);
       if (v !== null) request.input('luu', FIELD_TYPES.luu.type, v);
     }
 
-    // If luu not provided, keep current luu as-is (no overwrite)
     const query = luu != null
-      ? `UPDATE dbo.tbl_users
+      ? `UPDATE dbo.tbl_roles
          SET isdeleted = 1,
              luu = @luu,
              lcm = DATEADD(MINUTE, 330, GETUTCDATE())
-         WHERE user_id = @user_id;
+         WHERE role_id = @role_id;
          SELECT @@ROWCOUNT AS affected;`
-      : `UPDATE dbo.tbl_users
+      : `UPDATE dbo.tbl_roles
          SET isdeleted = 1,
              lcm = DATEADD(MINUTE, 330, GETUTCDATE())
-         WHERE user_id = @user_id;
+         WHERE role_id = @role_id;
          SELECT @@ROWCOUNT AS affected;`;
 
     const result = await request.query(query);
 
     if (result.recordset[0].affected === 0) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res.status(404).json({ success: false, message: 'Role not found' });
     }
 
-    res.json({ success: true, message: 'User deleted (soft)' });
+    res.json({ success: true, message: 'Role deleted (soft)' });
   } catch (err) {
-    console.error('HC Users delete error:', err);
+    console.error('HC Roles delete error:', err);
     res.status(500).json({ success: false, message: 'Internal server error', error: err.message });
   }
 });

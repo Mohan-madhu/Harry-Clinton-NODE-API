@@ -1,7 +1,7 @@
 // routes/MenuCategory.js (HARRY_CLINTON) - BASIC CRUD (5 endpoints)
 const express = require('express');
 const router = express.Router();
-const { pool, poolConnect, sql } = require('../../config/db_harry_clinton');
+const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
 
 const FIELD_TYPES = {
   menu_category_id: { type: sql.VarChar, maxLength: 36 },

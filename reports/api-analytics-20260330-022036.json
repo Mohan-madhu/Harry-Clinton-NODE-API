@@ -1,0 +1,779 @@
+{
+  "summary": {
+    "generatedAt": "2026-03-29T20:50:39.934Z",
+    "mode": "full",
+    "baseUrl": "http://127.0.0.1:15000/API/HARRY-CLINTON",
+    "totalRequests": 7,
+    "totals": {
+      "discovered": 7,
+      "executed": 7,
+      "skipped": 0,
+      "passed": 0,
+      "failed": 7,
+      "retried": 14,
+      "autoFixApplied": 7
+    },
+    "byMethod": {
+      "POST": {
+        "total": 7,
+        "passed": 0,
+        "failed": 7,
+        "skipped": 0
+      }
+    },
+    "byStatus": {
+      "405": 3,
+      "500": 4
+    },
+    "latencyMs": {
+      "average": 75.19,
+      "p50": 103.76,
+      "p95": 188.88,
+      "max": 188.88
+    },
+    "slowest": [
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Register",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 500,
+        "durationMs": 188.88,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Forgot-Password",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 500,
+        "durationMs": 122.42,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/OTP-Login",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 500,
+        "durationMs": 108.43,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Password-Login",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 500,
+        "durationMs": 103.76,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Verify-Login-OTP",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 405,
+        "durationMs": 1.17,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Forgot-Password-Confirm",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 405,
+        "durationMs": 1.04,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm"
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Reset-Password",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 405,
+        "durationMs": 0.65,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password"
+      }
+    ],
+    "failures": [
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Register",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 500,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register",
+        "error": null,
+        "autoFixNotes": [
+          "seedBody: full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu"
+        ]
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Password-Login",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 500,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login",
+        "error": null,
+        "autoFixNotes": [
+          "seedBody: full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu"
+        ]
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/OTP-Login",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 500,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login",
+        "error": null,
+        "autoFixNotes": [
+          "seedBody: full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu"
+        ]
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Verify-Login-OTP",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 405,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP",
+        "error": null,
+        "autoFixNotes": [
+          "seedBody: full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu"
+        ]
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Forgot-Password",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 500,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password",
+        "error": null,
+        "autoFixNotes": [
+          "seedBody: full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu"
+        ]
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Reset-Password",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 405,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password",
+        "error": null,
+        "autoFixNotes": [
+          "seedBody: full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu"
+        ]
+      },
+      {
+        "method": "POST",
+        "requestName": "POST /Auth/Forgot-Password-Confirm",
+        "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+        "status": 405,
+        "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm",
+        "error": null,
+        "autoFixNotes": [
+          "seedBody: full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu",
+          "autoFix: added payload fields full_name, email_id, password, rcu"
+        ]
+      }
+    ],
+    "skipped": []
+  },
+  "runDir": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\reports\\api-analytics-run-20260330-022036",
+  "callsLogPath": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\reports\\api-analytics-run-20260330-022036\\calls.ndjson",
+  "results": [
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Register",
+      "method": "POST",
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register",
+      "urlPath": "/Auth/Register",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "skipped": false,
+      "skipReason": null,
+      "ok": false,
+      "status": 500,
+      "durationMs": 188.88,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register",
+      "responseSample": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+      "responseBytes": 64,
+      "error": null,
+      "retryCount": 2,
+      "autoFixApplied": true,
+      "autoFixNotes": [
+        "seedBody: full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu"
+      ],
+      "attempts": [
+        {
+          "skipped": false,
+          "attemptNo": 1,
+          "fixNote": "seedBody: full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 243.72,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        },
+        {
+          "skipped": false,
+          "attemptNo": 2,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 209.19,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        },
+        {
+          "skipped": false,
+          "attemptNo": 3,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Register",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 188.88,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        }
+      ]
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Password-Login",
+      "method": "POST",
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login",
+      "urlPath": "/Auth/Password-Login",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "skipped": false,
+      "skipReason": null,
+      "ok": false,
+      "status": 500,
+      "durationMs": 103.76,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login",
+      "responseSample": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+      "responseBytes": 64,
+      "error": null,
+      "retryCount": 2,
+      "autoFixApplied": true,
+      "autoFixNotes": [
+        "seedBody: full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu"
+      ],
+      "attempts": [
+        {
+          "skipped": false,
+          "attemptNo": 1,
+          "fixNote": "seedBody: full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 122.88,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        },
+        {
+          "skipped": false,
+          "attemptNo": 2,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 130.4,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        },
+        {
+          "skipped": false,
+          "attemptNo": 3,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Password-Login",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 103.76,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        }
+      ]
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/OTP-Login",
+      "method": "POST",
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login",
+      "urlPath": "/Auth/OTP-Login",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "skipped": false,
+      "skipReason": null,
+      "ok": false,
+      "status": 500,
+      "durationMs": 108.43,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login",
+      "responseSample": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+      "responseBytes": 64,
+      "error": null,
+      "retryCount": 2,
+      "autoFixApplied": true,
+      "autoFixNotes": [
+        "seedBody: full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu"
+      ],
+      "attempts": [
+        {
+          "skipped": false,
+          "attemptNo": 1,
+          "fixNote": "seedBody: full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 101.73,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        },
+        {
+          "skipped": false,
+          "attemptNo": 2,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 124.01,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        },
+        {
+          "skipped": false,
+          "attemptNo": 3,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/OTP-Login",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 108.43,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        }
+      ]
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Verify-Login-OTP",
+      "method": "POST",
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP",
+      "urlPath": "/Auth/Verify-Login-OTP",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "skipped": false,
+      "skipReason": null,
+      "ok": false,
+      "status": 405,
+      "durationMs": 1.17,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP",
+      "responseSample": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, otp)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+      "responseBytes": 232,
+      "error": null,
+      "retryCount": 2,
+      "autoFixApplied": true,
+      "autoFixNotes": [
+        "seedBody: full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu"
+      ],
+      "attempts": [
+        {
+          "skipped": false,
+          "attemptNo": 1,
+          "fixNote": "seedBody: full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 405,
+          "ok": false,
+          "durationMs": 2.22,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, otp)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+          "responseBytes": 232
+        },
+        {
+          "skipped": false,
+          "attemptNo": 2,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 405,
+          "ok": false,
+          "durationMs": 1.17,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, otp)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+          "responseBytes": 232
+        },
+        {
+          "skipped": false,
+          "attemptNo": 3,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Verify-Login-OTP",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 405,
+          "ok": false,
+          "durationMs": 1.17,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, otp)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+          "responseBytes": 232
+        }
+      ]
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Forgot-Password",
+      "method": "POST",
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password",
+      "urlPath": "/Auth/Forgot-Password",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "skipped": false,
+      "skipReason": null,
+      "ok": false,
+      "status": 500,
+      "durationMs": 122.42,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password",
+      "responseSample": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+      "responseBytes": 64,
+      "error": null,
+      "retryCount": 2,
+      "autoFixApplied": true,
+      "autoFixNotes": [
+        "seedBody: full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu"
+      ],
+      "attempts": [
+        {
+          "skipped": false,
+          "attemptNo": 1,
+          "fixNote": "seedBody: full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 114.1,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        },
+        {
+          "skipped": false,
+          "attemptNo": 2,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 113.38,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        },
+        {
+          "skipped": false,
+          "attemptNo": 3,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 500,
+          "ok": false,
+          "durationMs": 122.42,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"\",\"Response\":null,\"ResponseCode\":\"500\"}",
+          "responseBytes": 64
+        }
+      ]
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Reset-Password",
+      "method": "POST",
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password",
+      "urlPath": "/Auth/Reset-Password",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "skipped": false,
+      "skipReason": null,
+      "ok": false,
+      "status": 405,
+      "durationMs": 0.65,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password",
+      "responseSample": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, old_password, new_password, luu)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+      "responseBytes": 260,
+      "error": null,
+      "retryCount": 2,
+      "autoFixApplied": true,
+      "autoFixNotes": [
+        "seedBody: full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu"
+      ],
+      "attempts": [
+        {
+          "skipped": false,
+          "attemptNo": 1,
+          "fixNote": "seedBody: full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 405,
+          "ok": false,
+          "durationMs": 1.2,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, old_password, new_password, luu)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+          "responseBytes": 260
+        },
+        {
+          "skipped": false,
+          "attemptNo": 2,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 405,
+          "ok": false,
+          "durationMs": 1.09,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, old_password, new_password, luu)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+          "responseBytes": 260
+        },
+        {
+          "skipped": false,
+          "attemptNo": 3,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Reset-Password",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 405,
+          "ok": false,
+          "durationMs": 0.65,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, old_password, new_password, luu)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+          "responseBytes": 260
+        }
+      ]
+    },
+    {
+      "sourceFile": "D:\\2026\\Harry-Clinton\\HC-BACKEND\\routes\\HARRY_CLINTON\\Auth.js",
+      "collectionName": "/Auth",
+      "requestName": "POST /Auth/Forgot-Password-Confirm",
+      "method": "POST",
+      "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm",
+      "urlPath": "/Auth/Forgot-Password-Confirm",
+      "headers": [],
+      "body": {
+        "type": "none"
+      },
+      "skipped": false,
+      "skipReason": null,
+      "ok": false,
+      "status": 405,
+      "durationMs": 1.04,
+      "urlResolved": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm",
+      "responseSample": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, transaction_id, new_password, luu)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+      "responseBytes": 262,
+      "error": null,
+      "retryCount": 2,
+      "autoFixApplied": true,
+      "autoFixNotes": [
+        "seedBody: full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu",
+        "autoFix: added payload fields full_name, email_id, password, rcu"
+      ],
+      "attempts": [
+        {
+          "skipped": false,
+          "attemptNo": 1,
+          "fixNote": "seedBody: full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 405,
+          "ok": false,
+          "durationMs": 1.98,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, transaction_id, new_password, luu)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+          "responseBytes": 262
+        },
+        {
+          "skipped": false,
+          "attemptNo": 2,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 405,
+          "ok": false,
+          "durationMs": 1.22,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, transaction_id, new_password, luu)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+          "responseBytes": 262
+        },
+        {
+          "skipped": false,
+          "attemptNo": 3,
+          "fixNote": "autoFix: added payload fields full_name, email_id, password, rcu",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:15000/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "bodyPreview": "{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}"
+          },
+          "status": 405,
+          "ok": false,
+          "durationMs": 1.04,
+          "responseBody": "{\"Status\":\"0\",\"Message\":\"Required fields missing (email_id, transaction_id, new_password, luu)\",\"Response\":null,\"ResponseCode\":\"405\",\"RequestReceived\":{\"full_name\":\"full_name_sample\",\"email_id\":\"autobot@example.com\",\"password\":\"Pass@123456\",\"rcu\":\"AUTO_RUNNER\"}}",
+          "responseBytes": 262
+        }
+      ]
+    }
+  ]
+}

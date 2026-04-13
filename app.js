@@ -16,6 +16,8 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/Uploads", express.static(path.join(process.cwd(), "Uploads")));
+app.use("/api-tester", express.static(path.join(process.cwd(), "public", "api-tester")));
+app.use("/api-tester/api", require("./routes/api-tester"));
 
 app.use("/API/HARRY-CLINTON", require("./routes/HARRY_CLINTON"));
 

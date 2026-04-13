@@ -1,0 +1,16 @@
+B_Customer_Management
+C_Product_Catalog_&_Configuration
+D_Wishlist_Management
+E_Cart_Management
+F_Order_Management
+G_Payments
+H_Coupons_&_Discounts
+HC_C_Home_Visuals
+HC_D_Spotlight
+HC_E_Style_by_HC
+HC_F_Appointments
+I_ Shipping_&_Delivery
+J_Returns_&_Refunds
+K_Support_Content_&_System_Configuration
+L_Ratings_&_Reviews
+MAIL_SERVICE

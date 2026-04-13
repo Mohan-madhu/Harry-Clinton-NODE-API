@@ -8,13 +8,13 @@ poolConnect
   .catch(err => console.error('✗ HARRY_CLINTON database pool connection failed:', err));
 
 router.use('/Auth', require('./Auth'));
-router.use('/Users', require('./User'));
-router.use('/Roles', require('./Roles'));
-router.use('/User-Roles', require('./UserRoles'));
-router.use('/Running-Bar', require('./RunningBar'));
-router.use('/Running-Bar-Items', require('./RunningBarItems'));
-router.use('/Menu-Category', require('./MenuCategory'));
-router.use('/Menu-Sub-Category', require('./MenuSubCategory'));
+router.use('/Users', require('./A_User_Access_Management/User'));
+router.use('/Roles', require('./A_User_Access_Management/Roles'));
+router.use('/User-Roles', require('./A_User_Access_Management/UserRoles'));
+router.use('/Running-Bar', require('./HC_A_Header_Running_Bars/RunningBar'));
+router.use('/Running-Bar-Items', require('./HC_A_Header_Running_Bars/RunningBarItems'));
+router.use('/Menu-Category', require('./HC_B_Menu_Navigation/MenuCategory'));
+router.use('/Menu-Sub-Category', require('./HC_B_Menu_Navigation/MenuSubCategory'));
 
 router.use('/Products', require('./C_Product_Catalog_&_Configuration/Products'));
 router.use('/Products-Variants', require('./C_Product_Catalog_&_Configuration/Products_Variants'));
