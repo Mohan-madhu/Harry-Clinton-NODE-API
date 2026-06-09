@@ -7,7 +7,7 @@ poolConnect
   .then(() => console.log('✓ HARRY_CLINTON database pool connected'))
   .catch(err => console.error('✗ HARRY_CLINTON database pool connection failed:', err));
 
-router.use('/Auth', require('./Auth'));
+router.use('/Auth', require('./A_Auth_Mail_FileUpload/Auth'));
 router.use('/Users', require('./A_User_Access_Management/User'));
 router.use('/Roles', require('./A_User_Access_Management/Roles'));
 router.use('/User-Roles', require('./A_User_Access_Management/UserRoles'));
@@ -108,7 +108,7 @@ router.use('/Variant-Rating-Summary', require('./L_Ratings_&_Reviews/Variant_Rat
 router.use('/Product-Rating-Summary', require('./L_Ratings_&_Reviews/Product_Rating_Summary'));
 
 
-router.use('/FileUpload', require('./FileUpload'));
-router.use('/Mail', require('./Mail'));
+router.use('/FileUpload', require('./A_Auth_Mail_FileUpload/FileUpload'));
+router.use('/Mail', require('./A_Auth_Mail_FileUpload/Mail'));
 
 module.exports = router;

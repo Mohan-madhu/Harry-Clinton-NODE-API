@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const createFileUploader = require('../../controllers/fileUpload.controller');
+const createFileUploader = require('../../../controllers/fileUpload.controller');
 const PROJECT_NAME = 'HARRY_CLINTON';
 const router = express.Router();
 

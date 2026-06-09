@@ -1,0 +1,2337 @@
+﻿[
+    {
+        "Mount":  "/Auth",
+        "RequirePath":  "A_Auth_Mail_FileUpload/Auth",
+        "FilePath":  "routes/HARRY_CLINTON/A_Auth_Mail_FileUpload/Auth.js",
+        "ModuleName":  "Auth",
+        "ModuleFolder":  "A_Auth_Mail_FileUpload",
+        "Crud5":  false,
+        "EndpointCount":  7,
+        "Endpoints":  [
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/Register",
+                              "FullPath":  "/API/HARRY-CLINTON/Auth/Register"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/Password-Login",
+                              "FullPath":  "/API/HARRY-CLINTON/Auth/Password-Login"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/OTP-Login",
+                              "FullPath":  "/API/HARRY-CLINTON/Auth/OTP-Login"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/Verify-Login-OTP",
+                              "FullPath":  "/API/HARRY-CLINTON/Auth/Verify-Login-OTP"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/Forgot-Password",
+                              "FullPath":  "/API/HARRY-CLINTON/Auth/Forgot-Password"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/Reset-Password",
+                              "FullPath":  "/API/HARRY-CLINTON/Auth/Reset-Password"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/Forgot-Password-Confirm",
+                              "FullPath":  "/API/HARRY-CLINTON/Auth/Forgot-Password-Confirm"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Users",
+        "RequirePath":  "A_User_Access_Management/User",
+        "FilePath":  "routes/HARRY_CLINTON/A_User_Access_Management/User.js",
+        "ModuleName":  "User",
+        "ModuleFolder":  "A_User_Access_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Users"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Users/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Users"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Users"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Users"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Roles",
+        "RequirePath":  "A_User_Access_Management/Roles",
+        "FilePath":  "routes/HARRY_CLINTON/A_User_Access_Management/Roles.js",
+        "ModuleName":  "Roles",
+        "ModuleFolder":  "A_User_Access_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Roles"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Roles/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Roles"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Roles"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Roles"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/User-Roles",
+        "RequirePath":  "A_User_Access_Management/UserRoles",
+        "FilePath":  "routes/HARRY_CLINTON/A_User_Access_Management/UserRoles.js",
+        "ModuleName":  "UserRoles",
+        "ModuleFolder":  "A_User_Access_Management",
+        "Crud5":  true,
+        "EndpointCount":  8,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/User-Roles"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/User-Roles/:id"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/user/:user_id",
+                              "FullPath":  "/API/HARRY-CLINTON/User-Roles/user/:user_id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/User-Roles"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/User-Roles"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/User-Roles"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/add",
+                              "FullPath":  "/API/HARRY-CLINTON/User-Roles/add"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/remove",
+                              "FullPath":  "/API/HARRY-CLINTON/User-Roles/remove"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Running-Bar",
+        "RequirePath":  "HC_A_Header_Running_Bars/RunningBar",
+        "FilePath":  "routes/HARRY_CLINTON/HC_A_Header_Running_Bars/RunningBar.js",
+        "ModuleName":  "RunningBar",
+        "ModuleFolder":  "HC_A_Header_Running_Bars",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Running-Bar-Items",
+        "RequirePath":  "HC_A_Header_Running_Bars/RunningBarItems",
+        "FilePath":  "routes/HARRY_CLINTON/HC_A_Header_Running_Bars/RunningBarItems.js",
+        "ModuleName":  "RunningBarItems",
+        "ModuleFolder":  "HC_A_Header_Running_Bars",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar-Items"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar-Items/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar-Items"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar-Items"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Running-Bar-Items"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Menu-Category",
+        "RequirePath":  "HC_B_Menu_Navigation/MenuCategory",
+        "FilePath":  "routes/HARRY_CLINTON/HC_B_Menu_Navigation/MenuCategory.js",
+        "ModuleName":  "MenuCategory",
+        "ModuleFolder":  "HC_B_Menu_Navigation",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Category"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Category/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Category"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Category"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Category"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Menu-Sub-Category",
+        "RequirePath":  "HC_B_Menu_Navigation/MenuSubCategory",
+        "FilePath":  "routes/HARRY_CLINTON/HC_B_Menu_Navigation/MenuSubCategory.js",
+        "ModuleName":  "MenuSubCategory",
+        "ModuleFolder":  "HC_B_Menu_Navigation",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Sub-Category"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Sub-Category/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Sub-Category"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Sub-Category"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Sub-Category"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products.js",
+        "ModuleName":  "Products",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products-Variants",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products_Variants",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products_Variants.js",
+        "ModuleName":  "Products_Variants",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Variants"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Variants/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Variants"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Variants"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Variants"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products-Attributes",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products_Attributes",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products_Attributes.js",
+        "ModuleName":  "Products_Attributes",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products-Attributes-Values",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products_Attributes_Values",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products_Attributes_Values.js",
+        "ModuleName":  "Products_Attributes_Values",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes-Values"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes-Values/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes-Values"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes-Values"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Attributes-Values"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products-Sizes",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products_Sizes",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products_Sizes.js",
+        "ModuleName":  "Products_Sizes",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Sizes"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Sizes/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Sizes"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Sizes"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Sizes"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products-Cloth-Types",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products_Cloth_Types",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products_Cloth_Types.js",
+        "ModuleName":  "Products_Cloth_Types",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Types"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Types/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Types"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Types"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Types"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products-Care-Instructions",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products_Care_Instructions",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products_Care_Instructions.js",
+        "ModuleName":  "Products_Care_Instructions",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Care-Instructions"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Care-Instructions/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Care-Instructions"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Care-Instructions"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Care-Instructions"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products-Cloth-Type-Care-Instructions",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products_Cloth_Type_Care_Instructions",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products_Cloth_Type_Care_Instructions.js",
+        "ModuleName":  "Products_Cloth_Type_Care_Instructions",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Type-Care-Instructions"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Type-Care-Instructions/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Type-Care-Instructions"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Type-Care-Instructions"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Cloth-Type-Care-Instructions"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products-Seo",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products_Seo",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products_Seo.js",
+        "ModuleName":  "Products_Seo",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Seo"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Seo/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Seo"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Seo"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Seo"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Products-Media",
+        "RequirePath":  "C_Product_Catalog_\u0026_Configuration/Products_Media",
+        "FilePath":  "routes/HARRY_CLINTON/C_Product_Catalog_\u0026_Configuration/Products_Media.js",
+        "ModuleName":  "Products_Media",
+        "ModuleFolder":  "C_Product_Catalog_\u0026_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Media"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Media/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Media"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Media"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Products-Media"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Appointment-Date-Slots",
+        "RequirePath":  "HC_F_Appointments/AppointmentDateSlots",
+        "FilePath":  "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentDateSlots.js",
+        "ModuleName":  "AppointmentDateSlots",
+        "ModuleFolder":  "HC_F_Appointments",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Date-Slots"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Date-Slots/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Date-Slots"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Date-Slots"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Date-Slots"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Appointment-Slot-Blocks",
+        "RequirePath":  "HC_F_Appointments/AppointmentSlotBlocks",
+        "FilePath":  "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentSlotBlocks.js",
+        "ModuleName":  "AppointmentSlotBlocks",
+        "ModuleFolder":  "HC_F_Appointments",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Slot-Blocks"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Slot-Blocks/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Slot-Blocks"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Slot-Blocks"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Slot-Blocks"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Appointment-Time-Slots",
+        "RequirePath":  "HC_F_Appointments/AppointmentTimeSlots",
+        "FilePath":  "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentTimeSlots.js",
+        "ModuleName":  "AppointmentTimeSlots",
+        "ModuleFolder":  "HC_F_Appointments",
+        "Crud5":  true,
+        "EndpointCount":  6,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Time-Slots"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Time-Slots/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Time-Slots"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Time-Slots"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Time-Slots"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/by-date/:appointment_date_slot_id",
+                              "FullPath":  "/API/HARRY-CLINTON/Appointment-Time-Slots/by-date/:appointment_date_slot_id"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Custom-Appointments",
+        "RequirePath":  "HC_F_Appointments/CustomAppointments",
+        "FilePath":  "routes/HARRY_CLINTON/HC_F_Appointments/CustomAppointments.js",
+        "ModuleName":  "CustomAppointments",
+        "ModuleFolder":  "HC_F_Appointments",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Custom-Appointments"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Custom-Appointments/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Custom-Appointments"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Custom-Appointments"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Custom-Appointments"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Profiles",
+        "RequirePath":  "B_Customer_Management/Profiles",
+        "FilePath":  "routes/HARRY_CLINTON/B_Customer_Management/Profiles.js",
+        "ModuleName":  "Profiles",
+        "ModuleFolder":  "B_Customer_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Profiles"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Profiles/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Profiles"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Profiles"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Profiles"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Addresses",
+        "RequirePath":  "B_Customer_Management/Addresses",
+        "FilePath":  "routes/HARRY_CLINTON/B_Customer_Management/Addresses.js",
+        "ModuleName":  "Addresses",
+        "ModuleFolder":  "B_Customer_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Addresses"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Addresses/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Addresses"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Addresses"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Addresses"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Wishlists",
+        "RequirePath":  "D_Wishlist_Management/Wishlists",
+        "FilePath":  "routes/HARRY_CLINTON/D_Wishlist_Management/Wishlists.js",
+        "ModuleName":  "Wishlists",
+        "ModuleFolder":  "D_Wishlist_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlists"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlists/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlists"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlists"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlists"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Wishlist-Items",
+        "RequirePath":  "D_Wishlist_Management/Wishlist_Items",
+        "FilePath":  "routes/HARRY_CLINTON/D_Wishlist_Management/Wishlist_Items.js",
+        "ModuleName":  "Wishlist_Items",
+        "ModuleFolder":  "D_Wishlist_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlist-Items"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlist-Items/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlist-Items"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlist-Items"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Wishlist-Items"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Carts",
+        "RequirePath":  "E_Cart_Management/Carts",
+        "FilePath":  "routes/HARRY_CLINTON/E_Cart_Management/Carts.js",
+        "ModuleName":  "Carts",
+        "ModuleFolder":  "E_Cart_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Carts"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Carts/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Carts"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Carts"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Carts"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Cart-Items",
+        "RequirePath":  "E_Cart_Management/Cart_Items",
+        "FilePath":  "routes/HARRY_CLINTON/E_Cart_Management/Cart_Items.js",
+        "ModuleName":  "Cart_Items",
+        "ModuleFolder":  "E_Cart_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Cart-Items"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Cart-Items/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Cart-Items"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Cart-Items"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Cart-Items"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Order-Status-Master",
+        "RequirePath":  "F_Order_Management/Order_Status_Master",
+        "FilePath":  "routes/HARRY_CLINTON/F_Order_Management/Order_Status_Master.js",
+        "ModuleName":  "Order_Status_Master",
+        "ModuleFolder":  "F_Order_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-Master"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-Master/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-Master"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-Master"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-Master"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Orders",
+        "RequirePath":  "F_Order_Management/Orders",
+        "FilePath":  "routes/HARRY_CLINTON/F_Order_Management/Orders.js",
+        "ModuleName":  "Orders",
+        "ModuleFolder":  "F_Order_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Orders"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Orders/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Orders"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Orders"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Orders"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Order-Items",
+        "RequirePath":  "F_Order_Management/Order_Items",
+        "FilePath":  "routes/HARRY_CLINTON/F_Order_Management/Order_Items.js",
+        "ModuleName":  "Order_Items",
+        "ModuleFolder":  "F_Order_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Items"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Items/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Items"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Items"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Items"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Order-Addresses",
+        "RequirePath":  "F_Order_Management/Order_Addresses",
+        "FilePath":  "routes/HARRY_CLINTON/F_Order_Management/Order_Addresses.js",
+        "ModuleName":  "Order_Addresses",
+        "ModuleFolder":  "F_Order_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Addresses"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Addresses/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Addresses"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Addresses"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Addresses"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Order-Status-History",
+        "RequirePath":  "F_Order_Management/Order_Status_History",
+        "FilePath":  "routes/HARRY_CLINTON/F_Order_Management/Order_Status_History.js",
+        "ModuleName":  "Order_Status_History",
+        "ModuleFolder":  "F_Order_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-History"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-History/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-History"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-History"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Status-History"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Order-Cancellations",
+        "RequirePath":  "F_Order_Management/Order_Cancellations",
+        "FilePath":  "routes/HARRY_CLINTON/F_Order_Management/Order_Cancellations.js",
+        "ModuleName":  "Order_Cancellations",
+        "ModuleFolder":  "F_Order_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Cancellations"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Cancellations/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Cancellations"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Cancellations"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Cancellations"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Invoices",
+        "RequirePath":  "F_Order_Management/Invoices",
+        "FilePath":  "routes/HARRY_CLINTON/F_Order_Management/Invoices.js",
+        "ModuleName":  "Invoices",
+        "ModuleFolder":  "F_Order_Management",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Invoices"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Invoices/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Invoices"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Invoices"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Invoices"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Payments",
+        "RequirePath":  "G_Payments/Payments",
+        "FilePath":  "routes/HARRY_CLINTON/G_Payments/Payments.js",
+        "ModuleName":  "Payments",
+        "ModuleFolder":  "G_Payments",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Payments"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Payments/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Payments"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Payments"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Payments"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Coupons",
+        "RequirePath":  "H_Coupons_\u0026_Discounts/Coupons",
+        "FilePath":  "routes/HARRY_CLINTON/H_Coupons_\u0026_Discounts/Coupons.js",
+        "ModuleName":  "Coupons",
+        "ModuleFolder":  "H_Coupons_\u0026_Discounts",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupons"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupons/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupons"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupons"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupons"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Discounts",
+        "RequirePath":  "H_Coupons_\u0026_Discounts/Discounts",
+        "FilePath":  "routes/HARRY_CLINTON/H_Coupons_\u0026_Discounts/Discounts.js",
+        "ModuleName":  "Discounts",
+        "ModuleFolder":  "H_Coupons_\u0026_Discounts",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Discounts"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Discounts/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Discounts"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Discounts"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Discounts"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Discount-Targets",
+        "RequirePath":  "H_Coupons_\u0026_Discounts/Discount_Targets",
+        "FilePath":  "routes/HARRY_CLINTON/H_Coupons_\u0026_Discounts/Discount_Targets.js",
+        "ModuleName":  "Discount_Targets",
+        "ModuleFolder":  "H_Coupons_\u0026_Discounts",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Discount-Targets"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Discount-Targets/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Discount-Targets"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Discount-Targets"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Discount-Targets"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Coupon-Usage",
+        "RequirePath":  "H_Coupons_\u0026_Discounts/Coupon_Usage",
+        "FilePath":  "routes/HARRY_CLINTON/H_Coupons_\u0026_Discounts/Coupon_Usage.js",
+        "ModuleName":  "Coupon_Usage",
+        "ModuleFolder":  "H_Coupons_\u0026_Discounts",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupon-Usage"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupon-Usage/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupon-Usage"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupon-Usage"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Coupon-Usage"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Order-Promotions",
+        "RequirePath":  "H_Coupons_\u0026_Discounts/Order_Promotions",
+        "FilePath":  "routes/HARRY_CLINTON/H_Coupons_\u0026_Discounts/Order_Promotions.js",
+        "ModuleName":  "Order_Promotions",
+        "ModuleFolder":  "H_Coupons_\u0026_Discounts",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Promotions"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Promotions/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Promotions"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Promotions"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Order-Promotions"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Courier-Partners",
+        "RequirePath":  "I_ Shipping_\u0026_Delivery/Courier_Partners",
+        "FilePath":  "routes/HARRY_CLINTON/I_ Shipping_\u0026_Delivery/Courier_Partners.js",
+        "ModuleName":  "Courier_Partners",
+        "ModuleFolder":  "I_ Shipping_\u0026_Delivery",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Courier-Partners"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Courier-Partners/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Courier-Partners"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Courier-Partners"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Courier-Partners"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Shipments",
+        "RequirePath":  "I_ Shipping_\u0026_Delivery/Shipments",
+        "FilePath":  "routes/HARRY_CLINTON/I_ Shipping_\u0026_Delivery/Shipments.js",
+        "ModuleName":  "Shipments",
+        "ModuleFolder":  "I_ Shipping_\u0026_Delivery",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipments"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipments/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipments"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipments"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipments"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Shipment-Events",
+        "RequirePath":  "I_ Shipping_\u0026_Delivery/Shipment_Events",
+        "FilePath":  "routes/HARRY_CLINTON/I_ Shipping_\u0026_Delivery/Shipment_Events.js",
+        "ModuleName":  "Shipment_Events",
+        "ModuleFolder":  "I_ Shipping_\u0026_Delivery",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipment-Events"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipment-Events/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipment-Events"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipment-Events"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Shipment-Events"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Returns",
+        "RequirePath":  "J_Returns_\u0026_Refunds/Returns",
+        "FilePath":  "routes/HARRY_CLINTON/J_Returns_\u0026_Refunds/Returns.js",
+        "ModuleName":  "Returns",
+        "ModuleFolder":  "J_Returns_\u0026_Refunds",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Returns"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Returns/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Returns"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Returns"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Returns"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Refunds",
+        "RequirePath":  "J_Returns_\u0026_Refunds/Refunds",
+        "FilePath":  "routes/HARRY_CLINTON/J_Returns_\u0026_Refunds/Refunds.js",
+        "ModuleName":  "Refunds",
+        "ModuleFolder":  "J_Returns_\u0026_Refunds",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Refunds"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Refunds/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Refunds"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Refunds"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Refunds"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Support-Contacts",
+        "RequirePath":  "K_Support_Content_\u0026_System_Configuration/Support_Contacts",
+        "FilePath":  "routes/HARRY_CLINTON/K_Support_Content_\u0026_System_Configuration/Support_Contacts.js",
+        "ModuleName":  "Support_Contacts",
+        "ModuleFolder":  "K_Support_Content_\u0026_System_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Support-Contacts"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Support-Contacts/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Support-Contacts"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Support-Contacts"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Support-Contacts"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/FAQs",
+        "RequirePath":  "K_Support_Content_\u0026_System_Configuration/FAQs",
+        "FilePath":  "routes/HARRY_CLINTON/K_Support_Content_\u0026_System_Configuration/FAQs.js",
+        "ModuleName":  "FAQs",
+        "ModuleFolder":  "K_Support_Content_\u0026_System_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/FAQs"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/FAQs/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/FAQs"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/FAQs"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/FAQs"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Newsletter-Subscriptions",
+        "RequirePath":  "K_Support_Content_\u0026_System_Configuration/Newsletter_Subscriptions",
+        "FilePath":  "routes/HARRY_CLINTON/K_Support_Content_\u0026_System_Configuration/Newsletter_Subscriptions.js",
+        "ModuleName":  "Newsletter_Subscriptions",
+        "ModuleFolder":  "K_Support_Content_\u0026_System_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Newsletter-Subscriptions"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Newsletter-Subscriptions/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Newsletter-Subscriptions"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Newsletter-Subscriptions"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Newsletter-Subscriptions"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Settings",
+        "RequirePath":  "K_Support_Content_\u0026_System_Configuration/Settings",
+        "FilePath":  "routes/HARRY_CLINTON/K_Support_Content_\u0026_System_Configuration/Settings.js",
+        "ModuleName":  "Settings",
+        "ModuleFolder":  "K_Support_Content_\u0026_System_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Settings"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Settings/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Settings"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Settings"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Settings"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Image-Sliders",
+        "RequirePath":  "HC_C_Home_Visuals/Image_Sliders",
+        "FilePath":  "routes/HARRY_CLINTON/HC_C_Home_Visuals/Image_Sliders.js",
+        "ModuleName":  "Image_Sliders",
+        "ModuleFolder":  "HC_C_Home_Visuals",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Image-Sliders"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Image-Sliders/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Image-Sliders"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Image-Sliders"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Image-Sliders"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Menu-Video",
+        "RequirePath":  "HC_C_Home_Visuals/Menu_Video",
+        "FilePath":  "routes/HARRY_CLINTON/HC_C_Home_Visuals/Menu_Video.js",
+        "ModuleName":  "Menu_Video",
+        "ModuleFolder":  "HC_C_Home_Visuals",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Video"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Video/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Video"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Video"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Menu-Video"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Spotlight-Media",
+        "RequirePath":  "HC_D_Spotlight/Spotlight_Media",
+        "FilePath":  "routes/HARRY_CLINTON/HC_D_Spotlight/Spotlight_Media.js",
+        "ModuleName":  "Spotlight_Media",
+        "ModuleFolder":  "HC_D_Spotlight",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Media"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Media/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Media"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Media"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Media"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Spotlight-Entries",
+        "RequirePath":  "HC_D_Spotlight/Spotlight_Entries",
+        "FilePath":  "routes/HARRY_CLINTON/HC_D_Spotlight/Spotlight_Entries.js",
+        "ModuleName":  "Spotlight_Entries",
+        "ModuleFolder":  "HC_D_Spotlight",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Entries"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Entries/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Entries"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Entries"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Spotlight-Entries"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Style-Collection-Media",
+        "RequirePath":  "HC_E_Style_by_HC/Style_Collection_Media",
+        "FilePath":  "routes/HARRY_CLINTON/HC_E_Style_by_HC/Style_Collection_Media.js",
+        "ModuleName":  "Style_Collection_Media",
+        "ModuleFolder":  "HC_E_Style_by_HC",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collection-Media"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collection-Media/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collection-Media"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collection-Media"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collection-Media"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Style-Collections",
+        "RequirePath":  "HC_E_Style_by_HC/Style_Collections",
+        "FilePath":  "routes/HARRY_CLINTON/HC_E_Style_by_HC/Style_Collections.js",
+        "ModuleName":  "Style_Collections",
+        "ModuleFolder":  "HC_E_Style_by_HC",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collections"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collections/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collections"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collections"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Style-Collections"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Legal-Page-Headers",
+        "RequirePath":  "K_Support_Content_\u0026_System_Configuration/Legal_Page_Headers",
+        "FilePath":  "routes/HARRY_CLINTON/K_Support_Content_\u0026_System_Configuration/Legal_Page_Headers.js",
+        "ModuleName":  "Legal_Page_Headers",
+        "ModuleFolder":  "K_Support_Content_\u0026_System_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Headers"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Headers/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Headers"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Headers"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Headers"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Legal-Page-Sections",
+        "RequirePath":  "K_Support_Content_\u0026_System_Configuration/Legal_Page_Sections",
+        "FilePath":  "routes/HARRY_CLINTON/K_Support_Content_\u0026_System_Configuration/Legal_Page_Sections.js",
+        "ModuleName":  "Legal_Page_Sections",
+        "ModuleFolder":  "K_Support_Content_\u0026_System_Configuration",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Sections"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Sections/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Sections"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Sections"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Legal-Page-Sections"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Reviews",
+        "RequirePath":  "L_Ratings_\u0026_Reviews/Reviews",
+        "FilePath":  "routes/HARRY_CLINTON/L_Ratings_\u0026_Reviews/Reviews.js",
+        "ModuleName":  "Reviews",
+        "ModuleFolder":  "L_Ratings_\u0026_Reviews",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Reviews"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Reviews/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Reviews"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Reviews"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Reviews"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Review-Media",
+        "RequirePath":  "L_Ratings_\u0026_Reviews/Review_Media",
+        "FilePath":  "routes/HARRY_CLINTON/L_Ratings_\u0026_Reviews/Review_Media.js",
+        "ModuleName":  "Review_Media",
+        "ModuleFolder":  "L_Ratings_\u0026_Reviews",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Media"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Media/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Media"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Media"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Media"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Review-Votes",
+        "RequirePath":  "L_Ratings_\u0026_Reviews/Review_Votes",
+        "FilePath":  "routes/HARRY_CLINTON/L_Ratings_\u0026_Reviews/Review_Votes.js",
+        "ModuleName":  "Review_Votes",
+        "ModuleFolder":  "L_Ratings_\u0026_Reviews",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Votes"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Votes/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Votes"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Votes"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Review-Votes"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Variant-Rating-Summary",
+        "RequirePath":  "L_Ratings_\u0026_Reviews/Variant_Rating_Summary",
+        "FilePath":  "routes/HARRY_CLINTON/L_Ratings_\u0026_Reviews/Variant_Rating_Summary.js",
+        "ModuleName":  "Variant_Rating_Summary",
+        "ModuleFolder":  "L_Ratings_\u0026_Reviews",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Variant-Rating-Summary"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Variant-Rating-Summary/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Variant-Rating-Summary"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Variant-Rating-Summary"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Variant-Rating-Summary"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Product-Rating-Summary",
+        "RequirePath":  "L_Ratings_\u0026_Reviews/Product_Rating_Summary",
+        "FilePath":  "routes/HARRY_CLINTON/L_Ratings_\u0026_Reviews/Product_Rating_Summary.js",
+        "ModuleName":  "Product_Rating_Summary",
+        "ModuleFolder":  "L_Ratings_\u0026_Reviews",
+        "Crud5":  true,
+        "EndpointCount":  5,
+        "Endpoints":  [
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Product-Rating-Summary"
+                          },
+                          {
+                              "Method":  "GET",
+                              "SubPath":  "/:id",
+                              "FullPath":  "/API/HARRY-CLINTON/Product-Rating-Summary/:id"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Product-Rating-Summary"
+                          },
+                          {
+                              "Method":  "PUT",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Product-Rating-Summary"
+                          },
+                          {
+                              "Method":  "DELETE",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/Product-Rating-Summary"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/FileUpload",
+        "RequirePath":  "A_Auth_Mail_FileUpload/FileUpload",
+        "FilePath":  "routes/HARRY_CLINTON/A_Auth_Mail_FileUpload/FileUpload.js",
+        "ModuleName":  "FileUpload",
+        "ModuleFolder":  "A_Auth_Mail_FileUpload",
+        "Crud5":  false,
+        "EndpointCount":  1,
+        "Endpoints":  [
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/",
+                              "FullPath":  "/API/HARRY-CLINTON/FileUpload"
+                          }
+                      ]
+    },
+    {
+        "Mount":  "/Mail",
+        "RequirePath":  "A_Auth_Mail_FileUpload/Mail",
+        "FilePath":  "routes/HARRY_CLINTON/A_Auth_Mail_FileUpload/Mail.js",
+        "ModuleName":  "Mail",
+        "ModuleFolder":  "A_Auth_Mail_FileUpload",
+        "Crud5":  false,
+        "EndpointCount":  2,
+        "Endpoints":  [
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/SendMail",
+                              "FullPath":  "/API/HARRY-CLINTON/Mail/SendMail"
+                          },
+                          {
+                              "Method":  "POST",
+                              "SubPath":  "/SendOTPEmail",
+                              "FullPath":  "/API/HARRY-CLINTON/Mail/SendOTPEmail"
+                          }
+                      ]
+    }
+]

@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { pool, poolConnect, sql } = require('../../config/db_harry_clinton');
-const EmailService = require('./MAIL_SERVICE/services');
-const { hashPassword, comparePassword, generateToken } = require('./helpers');
+const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
+const EmailService = require('../MAIL_SERVICE/services');
+const { hashPassword, comparePassword, generateToken } = require('../helpers');
 
 var E_Mail_OTP_Map = new Map();
 var Password_Reset_Map = new Map();

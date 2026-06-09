@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const MAIL_SERVICE = require('./MAIL_SERVICE/services');
+const MAIL_SERVICE = require('../MAIL_SERVICE/services');
 
 const emailService = new MAIL_SERVICE();
 
