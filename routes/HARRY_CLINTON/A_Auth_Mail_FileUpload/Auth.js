@@ -81,7 +81,7 @@ router.post('/Register', async (req, res, next) => {
   } catch (err) {
     out = {
       Status: '0',
-      Message: err.message,
+      Message: err.message || err.originalError?.message || String(err),
       Response: null,
       ResponseCode: '500',
     };
@@ -173,7 +173,7 @@ const userRoles = loginResult.recordsets?.[1] ?? [];
   } catch (err) {
     out = {
       Status: '0',
-      Message: err.message,
+      Message: err.message || err.originalError?.message || String(err),
       Response: null,
       ResponseCode: '500',
     };
@@ -296,7 +296,7 @@ router.post('/OTP-Login', async (req, res, next) => {
   } catch (err) {
     out = {
       Status: '0',
-      Message: err.message,
+      Message: err.message || err.originalError?.message || String(err),
       Response: null,
       ResponseCode: '500',
     };
@@ -369,7 +369,7 @@ router.post('/Verify-Login-OTP', async (req, res, next) => {
   } catch (err) {
     out = {
       Status: '0',
-      Message: err.message,
+      Message: err.message || err.originalError?.message || String(err),
       Response: null,
       ResponseCode: '500',
       RequestReceived: data,
@@ -453,7 +453,7 @@ router.post('/Forgot-Password', async (req, res, next) => {
   } catch (err) {
     out = {
       Status: '0',
-      Message: err.message,
+      Message: err.message || err.originalError?.message || String(err),
       Response: null,
       ResponseCode: '500',
     };
@@ -562,7 +562,7 @@ router.post('/Reset-Password', async (req, res, next) => {
   } catch (err) {
     out = {
       Status: '0',
-      Message: err.message,
+      Message: err.message || err.originalError?.message || String(err),
       Response: null,
       ResponseCode: '500',
     };
@@ -669,7 +669,7 @@ router.post('/Forgot-Password-Confirm', async (req, res, next) => {
   } catch (err) {
     out = {
       Status: '0',
-      Message: err.message,
+      Message: err.message || err.originalError?.message || String(err),
       Response: null,
       ResponseCode: '500',
     };

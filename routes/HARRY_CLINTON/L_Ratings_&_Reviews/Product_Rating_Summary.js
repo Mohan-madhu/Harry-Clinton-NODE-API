@@ -82,29 +82,21 @@ router.get('/', async (req, res) => {
   try {
     await poolConnect;
 
-    const { product_id, variant_id, rating } = req.query;
+    const { product_id } = req.query;
 
-    const where = ['isdeleted = 0'];
+    const where = [];
 
     if (product_id) where.push('product_id = @product_id');
-    if (variant_id) where.push('variant_id = @variant_id');
-    if (rating) where.push('rating = @rating');
 
     const request = pool.request();
 
     if (product_id)
       request.input('product_id', FIELD_TYPES.product_id.type, product_id);
 
-    if (variant_id)
-      request.input('variant_id', FIELD_TYPES.variant_id.type, variant_id);
-
-    if (rating)
-      request.input('rating', FIELD_TYPES.rating.type, rating);
-
     const query = `
       SELECT *
       FROM ${TABLE_NAME}
-      WHERE ${where.join(' AND ')}
+      ${where.length ? `WHERE ${where.join(' AND ')}` : ''}
       ORDER BY rcm DESC;
     `;
 
@@ -116,7 +108,7 @@ router.get('/', async (req, res) => {
       count: result.recordset.length
     });
   } catch (err) {
-    console.error('REVIEWS GET error:', err);
+    console.error('ProductRatingSummary GET error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });
@@ -131,24 +123,24 @@ router.get('/:id', async (req, res) => {
     if (!id) {
       return res.status(400).json({
         success: false,
-        message: 'review_id required'
+        message: 'product_id required'
       });
     }
 
     await poolConnect;
 
     const result = await pool.request()
-      .input('review_id', FIELD_TYPES.review_id.type, id)
+      .input('product_id', FIELD_TYPES.product_id.type, id)
       .query(`
         SELECT *
         FROM ${TABLE_NAME}
-        WHERE review_id = @review_id AND isdeleted = 0;
+        WHERE product_id = @product_id;
       `);
 
     if (result.recordset.length === 0) {
       return res.status(404).json({
         success: false,
-        message: 'Review not found'
+        message: 'Product rating summary not found'
       });
     }
 
@@ -157,7 +149,7 @@ router.get('/:id', async (req, res) => {
       data: result.recordset[0]
     });
   } catch (err) {
-    console.error('REVIEWS GET BY ID error:', err);
+    console.error('ProductRatingSummary GET BY ID error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });
@@ -169,10 +161,10 @@ router.post('/', async (req, res) => {
   try {
     const data = req.body;
 
-    if (!data.product_id || !data.user_id || !data.rating) {
+    if (!data.product_id) {
       return res.status(400).json({
         success: false,
-        message: 'product_id, user_id, rating required'
+        message: 'product_id required'
       });
     }
 
@@ -204,7 +196,7 @@ router.post('/', async (req, res) => {
       data: result.recordset[0]
     });
   } catch (err) {
-    console.error('REVIEWS POST error:', err);
+    console.error('ProductRatingSummary POST error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });
@@ -216,17 +208,17 @@ router.put('/', async (req, res) => {
   try {
     const data = req.body;
 
-    if (!data.review_id) {
+    if (!data.product_id) {
       return res.status(400).json({
         success: false,
-        message: 'review_id required'
+        message: 'product_id required'
       });
     }
 
     const updates = [];
     const request = pool.request();
 
-    request.input('review_id', FIELD_TYPES.review_id.type, data.review_id);
+    request.input('product_id', FIELD_TYPES.product_id.type, data.product_id);
 
     UPDATE_FIELDS.forEach((f) => {
       if (data[f] != null) {
@@ -252,7 +244,7 @@ router.put('/', async (req, res) => {
     const result = await request.query(`
       UPDATE ${TABLE_NAME}
       SET ${updates.join(', ')}
-      WHERE review_id = @review_id;
+      WHERE product_id = @product_id;
 
       SELECT @@ROWCOUNT AS affected;
     `);
@@ -260,48 +252,43 @@ router.put('/', async (req, res) => {
     if (result.recordset[0].affected === 0) {
       return res.status(404).json({
         success: false,
-        message: 'Review not found'
+        message: 'Product rating summary not found'
       });
     }
 
     res.json({
       success: true,
-      message: 'Review updated'
+      message: 'Product rating summary updated'
     });
   } catch (err) {
-    console.error('REVIEWS PUT error:', err);
+    console.error('ProductRatingSummary PUT error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });
 
 /* =========================================
-   5) DELETE (SOFT DELETE)
+   5) DELETE (HARD DELETE)
+   Note: tbl_product_rating_summary has no isactive/isdeleted columns.
 ========================================= */
 router.delete('/', async (req, res) => {
   try {
-    const { review_id, luu } = req.body;
+    const { product_id } = req.body;
 
-    if (!review_id) {
+    if (!product_id) {
       return res.status(400).json({
         success: false,
-        message: 'review_id required'
+        message: 'product_id required'
       });
     }
 
     await poolConnect;
 
     const request = pool.request()
-      .input('review_id', FIELD_TYPES.review_id.type, review_id);
-
-    if (luu)
-      request.input('luu', FIELD_TYPES.luu.type, luu);
+      .input('product_id', FIELD_TYPES.product_id.type, product_id);
 
     const result = await request.query(`
-      UPDATE ${TABLE_NAME}
-      SET isdeleted = 1,
-          ${luu ? 'luu = @luu,' : ''}
-          lcm = ${IST_NOW_SQL}
-      WHERE review_id = @review_id;
+      DELETE FROM ${TABLE_NAME}
+      WHERE product_id = @product_id;
 
       SELECT @@ROWCOUNT AS affected;
     `);
@@ -309,16 +296,16 @@ router.delete('/', async (req, res) => {
     if (result.recordset[0].affected === 0) {
       return res.status(404).json({
         success: false,
-        message: 'Review not found'
+        message: 'Product rating summary not found'
       });
     }
 
     res.json({
       success: true,
-      message: 'Review deleted'
+      message: 'Product rating summary deleted'
     });
   } catch (err) {
-    console.error('REVIEWS DELETE error:', err);
+    console.error('ProductRatingSummary DELETE error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });

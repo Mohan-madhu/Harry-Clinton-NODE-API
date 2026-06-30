@@ -10,16 +10,21 @@ const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
 const FIELD_TYPES = {
   return_id: { type: sql.VarChar, maxLength: 36 },
   order_id: { type: sql.VarChar, maxLength: 36 },
-  order_item_id: { type: sql.VarChar, maxLength: 36 },
   user_id: { type: sql.VarChar, maxLength: 36 },
 
+  return_type: { type: sql.VarChar, maxLength: 50 },
   return_reason: { type: sql.VarChar, maxLength: 500 },
+  return_reason_code: { type: sql.VarChar, maxLength: 50 },
   return_status: { type: sql.VarChar, maxLength: 50 },
+  return_items_count: { type: sql.Int },
+  return_amount: { type: sql.Decimal },
 
-  requested_at: { type: sql.DateTime },
-  approved_at: { type: sql.DateTime },
-  completed_at: { type: sql.DateTime },
+  requested_date: { type: sql.DateTime },
+  approved_date: { type: sql.DateTime },
+  received_date: { type: sql.DateTime },
+  completed_date: { type: sql.DateTime },
 
+  rma_number: { type: sql.VarChar, maxLength: 100 },
   notes: { type: sql.VarChar, maxLength: 500 },
 
   isactive: { type: sql.Bit },
@@ -33,22 +38,31 @@ const FIELD_TYPES = {
 
 const INSERT_FIELDS = [
   'order_id',
-  'order_item_id',
   'user_id',
+  'return_type',
   'return_reason',
+  'return_reason_code',
   'return_status',
-  'requested_at',
-  'approved_at',
-  'completed_at',
+  'return_items_count',
+  'return_amount',
+  'requested_date',
+  'approved_date',
+  'rma_number',
   'notes',
   'rcu'
 ];
 
 const UPDATE_FIELDS = [
+  'return_type',
   'return_reason',
+  'return_reason_code',
   'return_status',
-  'approved_at',
-  'completed_at',
+  'return_items_count',
+  'return_amount',
+  'approved_date',
+  'received_date',
+  'completed_date',
+  'rma_number',
   'notes',
   'isactive',
   'isdeleted',
@@ -59,10 +73,11 @@ const VALID_RETURN_STATUSES = [
   'requested',
   'approved',
   'rejected',
-  'pickedup',
   'received',
-  'completed'
+  'processed'
 ];
+
+const VALID_RETURN_TYPES = ['full', 'partial'];
 
 /* =========================================
    INPUT PREPARATION
@@ -117,7 +132,7 @@ router.get('/', async (req, res) => {
       SELECT *
       FROM dbo.tbl_returns
       ${where.length ? `WHERE ${where.join(' AND ')}` : ''}
-      ORDER BY requested_at DESC;
+      ORDER BY requested_date DESC;
     `;
 
     const result = await pool.request().query(query);
@@ -179,10 +194,17 @@ router.post('/', async (req, res) => {
   try {
     const data = req.body;
 
-    if (!data.order_id || !data.user_id) {
+    if (!data.order_id || !data.user_id || !data.return_type) {
       return res.status(400).json({
         success: false,
-        message: 'order_id, user_id required'
+        message: 'order_id, user_id, return_type required'
+      });
+    }
+
+    if (!VALID_RETURN_TYPES.includes(data.return_type.toLowerCase())) {
+      return res.status(400).json({
+        success: false,
+        message: `return_type must be one of: ${VALID_RETURN_TYPES.join(', ')}`
       });
     }
 

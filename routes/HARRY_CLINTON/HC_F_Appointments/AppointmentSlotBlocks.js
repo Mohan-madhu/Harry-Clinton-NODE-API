@@ -63,7 +63,17 @@ const prepareInputValue = (field, value) => {
     return null;
   }
 
-  // Times: pass as string "HH:mm" or "HH:mm:ss"
+  if (typeName === 'Time') {
+    if (value instanceof Date) return value;
+    if (typeof value === 'string') {
+      const match = value.trim().match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
+      if (!match) return null;
+      const [, h, m, s] = match;
+      return new Date(Date.UTC(1970, 0, 1, Number(h), Number(m), s ? Number(s) : 0));
+    }
+    return null;
+  }
+
   return typeof value === 'string' ? value.trim() : value;
 };
 

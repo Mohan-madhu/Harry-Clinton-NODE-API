@@ -11,15 +11,13 @@ const FIELD_TYPES = {
   courier_partner_id: { type: sql.VarChar, maxLength: 36 },
   courier_name: { type: sql.VarChar, maxLength: 255 },
   courier_code: { type: sql.VarChar, maxLength: 50 },
-  logo_url: { type: sql.VarChar, maxLength: 1000 },
-  tracking_url: { type: sql.VarChar, maxLength: 1000 },
-
-  contact_number: { type: sql.VarChar, maxLength: 50 },
-  support_email: { type: sql.VarChar, maxLength: 255 },
-  website_url: { type: sql.VarChar, maxLength: 500 },
-  description: { type: sql.VarChar, maxLength: 500 },
-
-  display_order: { type: sql.Int },
+  contact_email: { type: sql.VarChar, maxLength: 255 },
+  contact_phone: { type: sql.VarChar, maxLength: 50 },
+  base_rate: { type: sql.Decimal },
+  rate_per_kg: { type: sql.Decimal },
+  api_base_url: { type: sql.VarChar, maxLength: 500 },
+  api_key: { type: sql.VarChar, maxLength: 255 },
+  integration_status: { type: sql.VarChar, maxLength: 50 },
 
   isactive: { type: sql.Bit },
   isdeleted: { type: sql.Bit },
@@ -33,26 +31,26 @@ const FIELD_TYPES = {
 const INSERT_FIELDS = [
   'courier_name',
   'courier_code',
-  'logo_url',
-  'tracking_url',
-  'contact_number',
-  'support_email',
-  'website_url',
-  'description',
-  'display_order',
+  'contact_email',
+  'contact_phone',
+  'base_rate',
+  'rate_per_kg',
+  'api_base_url',
+  'api_key',
+  'integration_status',
   'rcu'
 ];
 
 const UPDATE_FIELDS = [
   'courier_name',
   'courier_code',
-  'logo_url',
-  'tracking_url',
-  'contact_number',
-  'support_email',
-  'website_url',
-  'description',
-  'display_order',
+  'contact_email',
+  'contact_phone',
+  'base_rate',
+  'rate_per_kg',
+  'api_base_url',
+  'api_key',
+  'integration_status',
   'isactive',
   'isdeleted',
   'luu'
@@ -111,7 +109,7 @@ router.get('/', async (req, res) => {
       SELECT *
       FROM dbo.tbl_courier_partners
       ${where.length ? `WHERE ${where.join(' AND ')}` : ''}
-      ORDER BY display_order ASC, rcm DESC;
+      ORDER BY rcm DESC;
     `;
 
     const result = await pool.request().query(query);
@@ -173,17 +171,10 @@ router.post('/', async (req, res) => {
   try {
     const data = req.body;
 
-    if (!data.courier_name) {
+    if (!data.courier_name || !data.courier_code) {
       return res.status(400).json({
         success: false,
-        message: 'courier_name required'
-      });
-    }
-
-    if (data.display_order && parseInt(data.display_order, 10) <= 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'display_order must be greater than 0'
+        message: 'courier_name, courier_code required'
       });
     }
 
@@ -231,13 +222,6 @@ router.put('/', async (req, res) => {
       return res.status(400).json({
         success: false,
         message: 'courier_partner_id required'
-      });
-    }
-
-    if (data.display_order && parseInt(data.display_order, 10) <= 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'display_order must be greater than 0'
       });
     }
 

@@ -14,11 +14,17 @@ const FIELD_TYPES = {
   payment_id: { type: sql.VarChar, maxLength: 36 },
   user_id: { type: sql.VarChar, maxLength: 36 },
 
+  refund_type: { type: sql.VarChar, maxLength: 50 },
   refund_amount: { type: sql.Decimal, precision: 18, scale: 2 },
   refund_status: { type: sql.VarChar, maxLength: 50 },
+  refund_method: { type: sql.VarChar, maxLength: 50 },
+  transaction_id: { type: sql.VarChar, maxLength: 100 },
 
-  refunded_at: { type: sql.DateTime },
-  refund_reference: { type: sql.VarChar, maxLength: 100 },
+  initiated_date: { type: sql.DateTime },
+  processed_date: { type: sql.DateTime },
+  completed_date: { type: sql.DateTime },
+
+  failure_reason: { type: sql.VarChar, maxLength: 500 },
   notes: { type: sql.VarChar, maxLength: 500 },
 
   isactive: { type: sql.Bit },
@@ -35,18 +41,23 @@ const INSERT_FIELDS = [
   'return_id',
   'payment_id',
   'user_id',
+  'refund_type',
   'refund_amount',
   'refund_status',
-  'refunded_at',
-  'refund_reference',
+  'refund_method',
+  'transaction_id',
+  'initiated_date',
   'notes',
   'rcu'
 ];
 
 const UPDATE_FIELDS = [
   'refund_status',
-  'refunded_at',
-  'refund_reference',
+  'refund_method',
+  'transaction_id',
+  'processed_date',
+  'completed_date',
+  'failure_reason',
   'notes',
   'isactive',
   'isdeleted',

@@ -9,9 +9,12 @@ const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
 ========================================= */
 const FIELD_TYPES = {
   coupon_id: { type: sql.VarChar, maxLength: 36 },
-  coupon_code: { type: sql.VarChar, maxLength: 50 },
-  description: { type: sql.VarChar, maxLength: 255 },
-  discount_id: { type: sql.VarChar, maxLength: 36 },
+  coupon_code: { type: sql.VarChar, maxLength: 100 },
+  coupon_name: { type: sql.VarChar, maxLength: 255 },
+  description: { type: sql.VarChar, maxLength: 500 },
+
+  discount_type: { type: sql.VarChar, maxLength: 20 },
+  discount_value: { type: sql.Decimal, precision: 18, scale: 2 },
 
   start_date: { type: sql.DateTime },
   end_date: { type: sql.DateTime },
@@ -19,7 +22,7 @@ const FIELD_TYPES = {
   usage_limit: { type: sql.Int },
   per_user_limit: { type: sql.Int },
 
-  min_order_amount: { type: sql.Decimal, precision: 18, scale: 2 },
+  min_purchase_amount: { type: sql.Decimal, precision: 18, scale: 2 },
   max_discount_amount: { type: sql.Decimal, precision: 18, scale: 2 },
 
   isactive: { type: sql.Bit },
@@ -33,30 +36,36 @@ const FIELD_TYPES = {
 
 const INSERT_FIELDS = [
   'coupon_code',
+  'coupon_name',
   'description',
-  'discount_id',
+  'discount_type',
+  'discount_value',
   'start_date',
   'end_date',
   'usage_limit',
   'per_user_limit',
-  'min_order_amount',
+  'min_purchase_amount',
   'max_discount_amount',
   'rcu'
 ];
 
 const UPDATE_FIELDS = [
+  'coupon_name',
   'description',
-  'discount_id',
+  'discount_type',
+  'discount_value',
   'start_date',
   'end_date',
   'usage_limit',
   'per_user_limit',
-  'min_order_amount',
+  'min_purchase_amount',
   'max_discount_amount',
   'isactive',
   'isdeleted',
   'luu'
 ];
+
+const VALID_DISCOUNT_TYPES = ['fixed', 'percentage'];
 
 /* =========================================
    INPUT PREPARATION
@@ -83,7 +92,17 @@ const prepareInputValue = (field, value) => {
     return !isNaN(num) && num > 0 ? num : null;
   }
 
-  if (field === 'min_order_amount' || field === 'max_discount_amount') {
+  if (field === 'min_purchase_amount' || field === 'max_discount_amount') {
+    const num = parseFloat(value);
+    return !isNaN(num) && num > 0 ? num : null;
+  }
+
+  if (field === 'discount_type') {
+    const v = typeof value === 'string' ? value.trim().toLowerCase() : value;
+    return VALID_DISCOUNT_TYPES.includes(v) ? v : null;
+  }
+
+  if (field === 'discount_value') {
     const num = parseFloat(value);
     return !isNaN(num) && num > 0 ? num : null;
   }
@@ -178,10 +197,24 @@ router.post('/', async (req, res) => {
   try {
     const data = req.body;
 
-    if (!data.coupon_code) {
+    if (!data.coupon_code || !data.discount_type || !data.discount_value) {
       return res.status(400).json({
         success: false,
-        message: 'coupon_code required'
+        message: 'coupon_code, discount_type, discount_value required'
+      });
+    }
+
+    if (!VALID_DISCOUNT_TYPES.includes(data.discount_type.toLowerCase())) {
+      return res.status(400).json({
+        success: false,
+        message: `discount_type must be one of: ${VALID_DISCOUNT_TYPES.join(', ')}`
+      });
+    }
+
+    if (parseFloat(data.discount_value) <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'discount_value must be greater than 0'
       });
     }
 
@@ -199,10 +232,10 @@ router.post('/', async (req, res) => {
       });
     }
 
-    if (data.min_order_amount && parseFloat(data.min_order_amount) <= 0) {
+    if (data.min_purchase_amount && parseFloat(data.min_purchase_amount) <= 0) {
       return res.status(400).json({
         success: false,
-        message: 'min_order_amount must be greater than 0'
+        message: 'min_purchase_amount must be greater than 0'
       });
     }
 
@@ -270,6 +303,20 @@ router.put('/', async (req, res) => {
       });
     }
 
+    if (data.discount_type && !VALID_DISCOUNT_TYPES.includes(data.discount_type.toLowerCase())) {
+      return res.status(400).json({
+        success: false,
+        message: `discount_type must be one of: ${VALID_DISCOUNT_TYPES.join(', ')}`
+      });
+    }
+
+    if (data.discount_value && parseFloat(data.discount_value) <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'discount_value must be greater than 0'
+      });
+    }
+
     if (data.usage_limit && parseInt(data.usage_limit, 10) <= 0) {
       return res.status(400).json({
         success: false,
@@ -284,10 +331,10 @@ router.put('/', async (req, res) => {
       });
     }
 
-    if (data.min_order_amount && parseFloat(data.min_order_amount) <= 0) {
+    if (data.min_purchase_amount && parseFloat(data.min_purchase_amount) <= 0) {
       return res.status(400).json({
         success: false,
-        message: 'min_order_amount must be greater than 0'
+        message: 'min_purchase_amount must be greater than 0'
       });
     }
 

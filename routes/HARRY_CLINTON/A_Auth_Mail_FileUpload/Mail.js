@@ -5,7 +5,7 @@ const MAIL_SERVICE = require('../MAIL_SERVICE/services');
 
 const emailService = new MAIL_SERVICE();
 
-router.post('/SendMail', async (req, res, next) => {
+const sendMailHandler = async (req, res, next) => {
     try {
         const { to, subject, html, text } = req.body; // Destructure email details from request body
 
@@ -36,10 +36,12 @@ router.post('/SendMail', async (req, res, next) => {
             ResponseCode: '500',
         });
     }
-});
+};
 
+router.post('/SendMail', sendMailHandler);
+router.post('/Send-Mail', sendMailHandler);
 
-router.post('/SendOTPEmail', async (req, res, next) => {
+const sendOTPEmailHandler = async (req, res, next) => {
     let out = '';
     let Data = req.body ?? {};
 
@@ -76,6 +78,9 @@ router.post('/SendOTPEmail', async (req, res, next) => {
         };
         return res.status(500).json(out);
     }
-});
+};
+
+router.post('/SendOTPEmail', sendOTPEmailHandler);
+router.post('/Send-OTP-Email', sendOTPEmailHandler);
 
 module.exports = router;

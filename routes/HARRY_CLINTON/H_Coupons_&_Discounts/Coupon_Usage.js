@@ -13,6 +13,8 @@ const FIELD_TYPES = {
   user_id: { type: sql.VarChar, maxLength: 36 },
   order_id: { type: sql.VarChar, maxLength: 36 },
 
+  discount_amount: { type: sql.Decimal, precision: 18, scale: 2 },
+
   used_at: { type: sql.DateTime },
 
   isactive: { type: sql.Bit },
@@ -28,12 +30,14 @@ const INSERT_FIELDS = [
   'coupon_id',
   'user_id',
   'order_id',
+  'discount_amount',
   'used_at',
   'rcu'
 ];
 
 const UPDATE_FIELDS = [
   'order_id',
+  'discount_amount',
   'used_at',
   'isactive',
   'isdeleted',
@@ -58,6 +62,11 @@ const prepareInputValue = (field, value) => {
       if (['0', 'false', 'no', 'n'].includes(v)) return 0;
     }
     return null;
+  }
+
+  if (field === 'discount_amount') {
+    const num = parseFloat(value);
+    return !isNaN(num) && num >= 0 ? num : null;
   }
 
   return typeof value === 'string' ? value.trim() : value;
@@ -150,10 +159,17 @@ router.post('/', async (req, res) => {
   try {
     const data = req.body;
 
-    if (!data.coupon_id || !data.user_id) {
+    if (!data.coupon_id || !data.user_id || data.discount_amount == null) {
       return res.status(400).json({
         success: false,
-        message: 'coupon_id, user_id required'
+        message: 'coupon_id, user_id, discount_amount required'
+      });
+    }
+
+    if (parseFloat(data.discount_amount) < 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'discount_amount cannot be negative'
       });
     }
 
@@ -171,6 +187,12 @@ router.post('/', async (req, res) => {
         }
       }
     });
+
+    // used_at is NOT NULL in the DB - default to current IST time if not provided
+    if (!cols.includes('used_at')) {
+      cols.push('used_at');
+      vals.push(IST_NOW_SQL);
+    }
 
     await poolConnect;
 

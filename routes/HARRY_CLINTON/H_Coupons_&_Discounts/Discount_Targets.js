@@ -11,10 +11,8 @@ const FIELD_TYPES = {
   discount_target_id: { type: sql.VarChar, maxLength: 36 },
   discount_id: { type: sql.VarChar, maxLength: 36 },
 
-  target_type: { type: sql.VarChar, maxLength: 30 },
+  target_type: { type: sql.VarChar, maxLength: 50 },
   target_id: { type: sql.VarChar, maxLength: 36 },
-
-  display_order: { type: sql.Int },
 
   isactive: { type: sql.Bit },
   isdeleted: { type: sql.Bit },
@@ -29,14 +27,12 @@ const INSERT_FIELDS = [
   'discount_id',
   'target_type',
   'target_id',
-  'display_order',
   'rcu'
 ];
 
 const UPDATE_FIELDS = [
   'target_type',
   'target_id',
-  'display_order',
   'isactive',
   'isdeleted',
   'luu'
@@ -45,9 +41,8 @@ const UPDATE_FIELDS = [
 const VALID_TARGET_TYPES = [
   'all',
   'product',
-  'product_variant',
-  'menu_category',
-  'menu_subcategory'
+  'category',
+  'collection'
 ];
 
 /* =========================================
@@ -73,11 +68,6 @@ const prepareInputValue = (field, value) => {
   if (field === 'target_type') {
     const v = typeof value === 'string' ? value.trim().toLowerCase() : value;
     return VALID_TARGET_TYPES.includes(v) ? v : null;
-  }
-
-  if (field === 'display_order') {
-    const num = parseInt(value, 10);
-    return !isNaN(num) && num > 0 ? num : null;
   }
 
   return typeof value === 'string' ? value.trim() : value;
@@ -108,7 +98,7 @@ router.get('/', async (req, res) => {
       SELECT *
       FROM dbo.tbl_discount_targets
       ${where.length ? `WHERE ${where.join(' AND ')}` : ''}
-      ORDER BY display_order ASC, rcm DESC;
+      ORDER BY rcm DESC;
     `;
 
     const result = await pool.request().query(query);
@@ -192,13 +182,6 @@ router.post('/', async (req, res) => {
       });
     }
 
-    if (data.display_order && parseInt(data.display_order, 10) <= 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'display_order must be greater than 0'
-      });
-    }
-
     const cols = [];
     const vals = [];
     const request = pool.request();
@@ -258,13 +241,6 @@ router.put('/', async (req, res) => {
       return res.status(400).json({
         success: false,
         message: 'target_id required when target_type is not "all"'
-      });
-    }
-
-    if (data.display_order && parseInt(data.display_order, 10) <= 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'display_order must be greater than 0'
       });
     }
 

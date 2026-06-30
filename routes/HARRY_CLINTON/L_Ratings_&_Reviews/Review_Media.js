@@ -1,4 +1,4 @@
-// routes/reviews.js (REVIEWS MODULE - FULL CRUD)
+// routes/Review_Media.js (HARRY_CLINTON) - FULL CRUD for tbl_review_media
 
 const express = require('express');
 const router = express.Router();
@@ -55,11 +55,6 @@ const prepareInputValue = (field, value) => {
     return null;
   }
 
-  if (field === 'rating') {
-    const num = parseInt(value, 10);
-    return !isNaN(num) && num >= 1 && num <= 5 ? num : null;
-  }
-
   return typeof value === 'string' ? value.trim() : value;
 };
 
@@ -72,24 +67,20 @@ router.get('/', async (req, res) => {
   try {
     await poolConnect;
 
-    const { product_id, variant_id, rating } = req.query;
+    const { review_id, media_type } = req.query;
 
     const where = ['isdeleted = 0'];
 
-    if (product_id) where.push('product_id = @product_id');
-    if (variant_id) where.push('variant_id = @variant_id');
-    if (rating) where.push('rating = @rating');
+    if (review_id) where.push('review_id = @review_id');
+    if (media_type) where.push('media_type = @media_type');
 
     const request = pool.request();
 
-    if (product_id)
-      request.input('product_id', FIELD_TYPES.product_id.type, product_id);
+    if (review_id)
+      request.input('review_id', FIELD_TYPES.review_id.type, review_id);
 
-    if (variant_id)
-      request.input('variant_id', FIELD_TYPES.variant_id.type, variant_id);
-
-    if (rating)
-      request.input('rating', FIELD_TYPES.rating.type, rating);
+    if (media_type)
+      request.input('media_type', FIELD_TYPES.media_type.type, media_type);
 
     const query = `
       SELECT *
@@ -106,7 +97,7 @@ router.get('/', async (req, res) => {
       count: result.recordset.length
     });
   } catch (err) {
-    console.error('REVIEWS GET error:', err);
+    console.error('REVIEW MEDIA GET error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });
@@ -121,24 +112,24 @@ router.get('/:id', async (req, res) => {
     if (!id) {
       return res.status(400).json({
         success: false,
-        message: 'review_id required'
+        message: 'media_id required'
       });
     }
 
     await poolConnect;
 
     const result = await pool.request()
-      .input('review_id', FIELD_TYPES.review_id.type, id)
+      .input('media_id', FIELD_TYPES.media_id.type, id)
       .query(`
         SELECT *
         FROM ${TABLE_NAME}
-        WHERE review_id = @review_id AND isdeleted = 0;
+        WHERE media_id = @media_id AND isdeleted = 0;
       `);
 
     if (result.recordset.length === 0) {
       return res.status(404).json({
         success: false,
-        message: 'Review not found'
+        message: 'Review media not found'
       });
     }
 
@@ -147,7 +138,7 @@ router.get('/:id', async (req, res) => {
       data: result.recordset[0]
     });
   } catch (err) {
-    console.error('REVIEWS GET BY ID error:', err);
+    console.error('REVIEW MEDIA GET BY ID error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });
@@ -159,10 +150,10 @@ router.post('/', async (req, res) => {
   try {
     const data = req.body;
 
-    if (!data.product_id || !data.user_id || !data.rating) {
+    if (!data.review_id || !data.media_type || !data.media_url) {
       return res.status(400).json({
         success: false,
-        message: 'product_id, user_id, rating required'
+        message: 'review_id, media_type, media_url required'
       });
     }
 
@@ -194,7 +185,7 @@ router.post('/', async (req, res) => {
       data: result.recordset[0]
     });
   } catch (err) {
-    console.error('REVIEWS POST error:', err);
+    console.error('REVIEW MEDIA POST error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });
@@ -206,17 +197,17 @@ router.put('/', async (req, res) => {
   try {
     const data = req.body;
 
-    if (!data.review_id) {
+    if (!data.media_id) {
       return res.status(400).json({
         success: false,
-        message: 'review_id required'
+        message: 'media_id required'
       });
     }
 
     const updates = [];
     const request = pool.request();
 
-    request.input('review_id', FIELD_TYPES.review_id.type, data.review_id);
+    request.input('media_id', FIELD_TYPES.media_id.type, String(data.media_id));
 
     UPDATE_FIELDS.forEach((f) => {
       if (data[f] != null) {
@@ -242,7 +233,7 @@ router.put('/', async (req, res) => {
     const result = await request.query(`
       UPDATE ${TABLE_NAME}
       SET ${updates.join(', ')}
-      WHERE review_id = @review_id;
+      WHERE media_id = @media_id;
 
       SELECT @@ROWCOUNT AS affected;
     `);
@@ -250,16 +241,16 @@ router.put('/', async (req, res) => {
     if (result.recordset[0].affected === 0) {
       return res.status(404).json({
         success: false,
-        message: 'Review not found'
+        message: 'Review media not found'
       });
     }
 
     res.json({
       success: true,
-      message: 'Review updated'
+      message: 'Review media updated'
     });
   } catch (err) {
-    console.error('REVIEWS PUT error:', err);
+    console.error('REVIEW MEDIA PUT error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });
@@ -269,19 +260,19 @@ router.put('/', async (req, res) => {
 ========================================= */
 router.delete('/', async (req, res) => {
   try {
-    const { review_id, luu } = req.body;
+    const { media_id, luu } = req.body;
 
-    if (!review_id) {
+    if (!media_id) {
       return res.status(400).json({
         success: false,
-        message: 'review_id required'
+        message: 'media_id required'
       });
     }
 
     await poolConnect;
 
     const request = pool.request()
-      .input('review_id', FIELD_TYPES.review_id.type, review_id);
+      .input('media_id', FIELD_TYPES.media_id.type, String(media_id));
 
     if (luu)
       request.input('luu', FIELD_TYPES.luu.type, luu);
@@ -291,7 +282,7 @@ router.delete('/', async (req, res) => {
       SET isdeleted = 1,
           ${luu ? 'luu = @luu,' : ''}
           lcm = ${IST_NOW_SQL}
-      WHERE review_id = @review_id;
+      WHERE media_id = @media_id;
 
       SELECT @@ROWCOUNT AS affected;
     `);
@@ -299,16 +290,16 @@ router.delete('/', async (req, res) => {
     if (result.recordset[0].affected === 0) {
       return res.status(404).json({
         success: false,
-        message: 'Review not found'
+        message: 'Review media not found'
       });
     }
 
     res.json({
       success: true,
-      message: 'Review deleted'
+      message: 'Review media deleted'
     });
   } catch (err) {
-    console.error('REVIEWS DELETE error:', err);
+    console.error('REVIEW MEDIA DELETE error:', err);
     res.status(500).json({ success: false, message: err.message });
   }
 });

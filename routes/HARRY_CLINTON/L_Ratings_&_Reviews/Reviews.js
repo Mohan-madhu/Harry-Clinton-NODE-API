@@ -235,7 +235,7 @@ router.put('/', async (req, res) => {
     const updates = [];
     const request = pool.request();
 
-    request.input('review_id', FIELD_TYPES.review_id.type, data.review_id);
+    request.input('review_id', FIELD_TYPES.review_id.type, String(data.review_id));
 
     UPDATE_FIELDS.forEach((f) => {
       if (data[f] != null) {
@@ -300,7 +300,7 @@ router.delete('/', async (req, res) => {
     await poolConnect;
 
     const request = pool.request()
-      .input('review_id', FIELD_TYPES.review_id.type, review_id);
+      .input('review_id', FIELD_TYPES.review_id.type, String(review_id));
 
     if (luu)
       request.input('luu', FIELD_TYPES.luu.type, luu);

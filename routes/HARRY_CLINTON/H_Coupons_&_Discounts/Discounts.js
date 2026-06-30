@@ -10,7 +10,7 @@ const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
 const FIELD_TYPES = {
   discount_id: { type: sql.VarChar, maxLength: 36 },
   discount_name: { type: sql.VarChar, maxLength: 255 },
-  discount_code: { type: sql.VarChar, maxLength: 50 },
+  description: { type: sql.VarChar, maxLength: 500 },
 
   discount_type: { type: sql.VarChar, maxLength: 20 },
   discount_value: { type: sql.Decimal, precision: 18, scale: 2 },
@@ -18,10 +18,11 @@ const FIELD_TYPES = {
   start_date: { type: sql.DateTime },
   end_date: { type: sql.DateTime },
 
-  min_order_amount: { type: sql.Decimal, precision: 18, scale: 2 },
   max_discount_amount: { type: sql.Decimal, precision: 18, scale: 2 },
 
-  isstackable: { type: sql.Bit },
+  usage_limit: { type: sql.Int },
+
+  discount_priority: { type: sql.Int },
 
   isactive: { type: sql.Bit },
   isdeleted: { type: sql.Bit },
@@ -34,33 +35,33 @@ const FIELD_TYPES = {
 
 const INSERT_FIELDS = [
   'discount_name',
-  'discount_code',
+  'description',
   'discount_type',
   'discount_value',
   'start_date',
   'end_date',
-  'min_order_amount',
   'max_discount_amount',
-  'isstackable',
+  'usage_limit',
+  'discount_priority',
   'rcu'
 ];
 
 const UPDATE_FIELDS = [
   'discount_name',
-  'discount_code',
+  'description',
   'discount_type',
   'discount_value',
   'start_date',
   'end_date',
-  'min_order_amount',
   'max_discount_amount',
-  'isstackable',
+  'usage_limit',
+  'discount_priority',
   'isactive',
   'isdeleted',
   'luu'
 ];
 
-const VALID_DISCOUNT_TYPES = ['percent', 'flat'];
+const VALID_DISCOUNT_TYPES = ['fixed', 'percentage'];
 
 /* =========================================
    INPUT PREPARATION
@@ -87,8 +88,18 @@ const prepareInputValue = (field, value) => {
     return VALID_DISCOUNT_TYPES.includes(v) ? v : null;
   }
 
-  if (field === 'discount_value' || field === 'min_order_amount' || field === 'max_discount_amount') {
+  if (field === 'discount_value' || field === 'max_discount_amount') {
     const num = parseFloat(value);
+    return !isNaN(num) && num > 0 ? num : null;
+  }
+
+  if (field === 'usage_limit') {
+    const num = parseInt(value, 10);
+    return !isNaN(num) && num > 0 ? num : null;
+  }
+
+  if (field === 'discount_priority') {
+    const num = parseInt(value, 10);
     return !isNaN(num) && num > 0 ? num : null;
   }
 
@@ -203,18 +214,23 @@ router.post('/', async (req, res) => {
       });
     }
 
-    if (data.min_order_amount && parseFloat(data.min_order_amount) <= 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'min_order_amount must be greater than 0'
-      });
-    }
-
     if (data.max_discount_amount && parseFloat(data.max_discount_amount) <= 0) {
       return res.status(400).json({
         success: false,
         message: 'max_discount_amount must be greater than 0'
       });
+    }
+
+    if (data.discount_priority && parseInt(data.discount_priority, 10) <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'discount_priority must be greater than 0'
+      });
+    }
+
+    // discount_priority is NOT NULL in the DB - default to 1 if not provided
+    if (data.discount_priority == null) {
+      data.discount_priority = 1;
     }
 
     const cols = [];
@@ -278,17 +294,17 @@ router.put('/', async (req, res) => {
       });
     }
 
-    if (data.min_order_amount && parseFloat(data.min_order_amount) <= 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'min_order_amount must be greater than 0'
-      });
-    }
-
     if (data.max_discount_amount && parseFloat(data.max_discount_amount) <= 0) {
       return res.status(400).json({
         success: false,
         message: 'max_discount_amount must be greater than 0'
+      });
+    }
+
+    if (data.discount_priority && parseInt(data.discount_priority, 10) <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'discount_priority must be greater than 0'
       });
     }
 

@@ -7,13 +7,15 @@ const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
 const FIELD_TYPES = {
   user_id: { type: sql.VarChar, maxLength: 36 },
   full_name: { type: sql.VarChar, maxLength: 255 },
-  email_id: { type: sql.VarChar, maxLength: 255 },
-  mobile_number: { type: sql.VarChar, maxLength: 50 },
-  profile_url: { type: sql.VarChar, maxLength: 255 },
-  password_hash: { type: sql.VarChar, maxLength: 255 },
+  first_name: { type: sql.VarChar, maxLength: 100 },
+  last_name: { type: sql.VarChar, maxLength: 100 },
+  email: { type: sql.VarChar, maxLength: 255 },
+  phone_number: { type: sql.VarChar, maxLength: 20 },
+  profile_picture_url: { type: sql.VarChar, maxLength: 1000 },
+  password_hash: { type: sql.VarChar, maxLength: 500 },
   email_verified: { type: sql.Bit },
-  mobile_verified: { type: sql.Bit },
-  last_login_at: { type: sql.DateTime },
+  phone_verified: { type: sql.Bit },
+  last_login: { type: sql.DateTime },
   isactive: { type: sql.Bit },
   isdeleted: { type: sql.Bit },
   rcu: { type: sql.VarChar, maxLength: 100 },
@@ -22,27 +24,28 @@ const FIELD_TYPES = {
   lcm: { type: sql.DateTime }
 };
 
-// Fields allowed during INSERT
-// (user_id, email_verified, mobile_verified, isactive, isdeleted, rcm have defaults, but you can include them if you want)
 const INSERT_FIELDS = [
   'full_name',
-  'email_id',
-  'mobile_number',
-  'profile_url',
+  'first_name',
+  'last_name',
+  'email',
+  'phone_number',
+  'profile_picture_url',
   'password_hash',
   'rcu'
 ];
 
-// Fields allowed during UPDATE
 const UPDATE_FIELDS = [
   'full_name',
-  'email_id',
-  'mobile_number',
-  'profile_url',
+  'first_name',
+  'last_name',
+  'email',
+  'phone_number',
+  'profile_picture_url',
   'password_hash',
   'email_verified',
-  'mobile_verified',
-  'last_login_at',
+  'phone_verified',
+  'last_login',
   'isactive',
   'isdeleted',
   'luu'
@@ -148,10 +151,10 @@ router.post('/', async (req, res) => {
     }
 
     // Basic minimal validation (optional but helpful)
-    if (!data.full_name || !data.email_id || !data.password_hash) {
+    if (!data.full_name || !data.email || !data.password_hash) {
       return res.status(400).json({
         success: false,
-        message: 'full_name, email_id, and password_hash are required'
+        message: 'full_name, email, and password_hash are required'
       });
     }
 

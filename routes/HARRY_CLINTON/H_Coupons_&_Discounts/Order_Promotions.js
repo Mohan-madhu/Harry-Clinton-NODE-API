@@ -11,11 +11,10 @@ const FIELD_TYPES = {
   order_promotion_id: { type: sql.VarChar, maxLength: 36 },
   order_id: { type: sql.VarChar, maxLength: 36 },
 
-  coupon_id: { type: sql.VarChar, maxLength: 36 },
-  coupon_code: { type: sql.VarChar, maxLength: 50 },
+  promotion_type: { type: sql.VarChar, maxLength: 50 },
+  promotion_id: { type: sql.VarChar, maxLength: 36 },
+  promotion_name: { type: sql.VarChar, maxLength: 255 },
 
-  discount_id: { type: sql.VarChar, maxLength: 36 },
-  discount_name: { type: sql.VarChar, maxLength: 255 },
   discount_type: { type: sql.VarChar, maxLength: 20 },
   discount_value: { type: sql.Decimal, precision: 18, scale: 2 },
 
@@ -32,12 +31,13 @@ const FIELD_TYPES = {
   lcm: { type: sql.DateTime }
 };
 
+const VALID_PROMOTION_TYPES = ['coupon', 'discount', 'automatic', 'referral'];
+
 const INSERT_FIELDS = [
   'order_id',
-  'coupon_id',
-  'coupon_code',
-  'discount_id',
-  'discount_name',
+  'promotion_type',
+  'promotion_id',
+  'promotion_name',
   'discount_type',
   'discount_value',
   'discount_amount',
@@ -46,8 +46,7 @@ const INSERT_FIELDS = [
 ];
 
 const UPDATE_FIELDS = [
-  'coupon_code',
-  'discount_name',
+  'promotion_name',
   'discount_type',
   'discount_value',
   'discount_amount',
@@ -80,6 +79,11 @@ const prepareInputValue = (field, value) => {
   if (field === 'discount_amount' || field === 'discount_value') {
     const num = parseFloat(value);
     return !isNaN(num) && num >= 0 ? num : null;
+  }
+
+  if (field === 'promotion_type') {
+    const v = typeof value === 'string' ? value.trim().toLowerCase() : value;
+    return VALID_PROMOTION_TYPES.includes(v) ? v : null;
   }
 
   return typeof value === 'string' ? value.trim() : value;
@@ -172,14 +176,28 @@ router.post('/', async (req, res) => {
   try {
     const data = req.body;
 
-    if (!data.order_id) {
+    if (!data.order_id || !data.promotion_type) {
       return res.status(400).json({
         success: false,
-        message: 'order_id required'
+        message: 'order_id, promotion_type required'
       });
     }
 
-    if (data.discount_amount && parseFloat(data.discount_amount) < 0) {
+    if (!VALID_PROMOTION_TYPES.includes(data.promotion_type.toLowerCase())) {
+      return res.status(400).json({
+        success: false,
+        message: `promotion_type must be one of: ${VALID_PROMOTION_TYPES.join(', ')}`
+      });
+    }
+
+    if (data.discount_amount == null) {
+      return res.status(400).json({
+        success: false,
+        message: 'discount_amount required'
+      });
+    }
+
+    if (parseFloat(data.discount_amount) < 0) {
       return res.status(400).json({
         success: false,
         message: 'discount_amount cannot be negative'
@@ -251,6 +269,13 @@ router.put('/', async (req, res) => {
       return res.status(400).json({
         success: false,
         message: 'discount_value cannot be negative'
+      });
+    }
+
+    if (data.promotion_type && !VALID_PROMOTION_TYPES.includes(data.promotion_type.toLowerCase())) {
+      return res.status(400).json({
+        success: false,
+        message: `promotion_type must be one of: ${VALID_PROMOTION_TYPES.join(', ')}`
       });
     }
 

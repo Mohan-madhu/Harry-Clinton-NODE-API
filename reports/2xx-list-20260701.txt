@@ -1,0 +1,110 @@
+2 Authentication POST /Auth/Register
+3 Authentication POST /Auth/Password-Login
+4 Authentication POST /Auth/OTP-Login
+5 Authentication POST /Auth/Verify-Login-OTP
+6 Authentication POST /Auth/Reset-Password
+7 Authentication POST /Auth/Forgot-Password
+8 Authentication POST /Auth/Forgot-Password-Confirm
+9 Mail POST /Mail/Send-Mail
+10 Mail POST /Mail/Send-OTP-Email
+11 Mail POST /Mail/SendMail
+12 Mail POST /Mail/SendOTPEmail
+13 User GET /Users
+18 Roles GET /Roles
+21 Roles PUT /Roles
+22 Roles DELETE /Roles
+23 User - Roles GET /User-Roles
+25 User - Roles GET /User-Roles/user/C304C995-7B8C-45BA-B101-00572AAEE9F1
+31 Profiles GET /Profiles
+33 Profiles POST /Profiles
+34 Profiles PUT /Profiles
+36 Addresses GET /Addresses
+37 Addresses GET /Addresses/278AF065-BE57-4F44-B712-FFC85F6D9429
+38 Addresses POST /Addresses
+39 Addresses PUT /Addresses
+40 Addresses DELETE /Addresses
+41 Running Bar GET /Running-Bar
+43 Running Bar POST /Running-Bar
+46 Running Bar Items GET /Running-Bar-Items
+48 Running Bar Items POST /Running-Bar-Items
+51 Menu Category GET /Menu-Category
+56 Menu Sub Categories GET /Menu-Sub-Category
+61 Products GET /Products
+62 Products GET /Products/5F44205F-52AF-416B-9531-7BC702163C54
+64 Products PUT /Products
+66 Products-Media GET /Products-Media
+71 Products-Seo GET /Products-Seo
+76 Products-Cloth-Type-Care-Instructions GET /Products-Cloth-Type-Care-Instructions
+81 Products-Care-Instructions GET /Products-Care-Instructions
+83 Products-Care-Instructions POST /Products-Care-Instructions
+86 Products-Cloth-Types GET /Products-Cloth-Types
+91 Products-Sizes GET /Products-Sizes
+96 Products-Attributes-Values GET /Products-Attributes-Values
+101 Products-Attributes GET /Products-Attributes
+106 Products-Variants GET /Products-Variants
+111 Appointment-Date-Slots GET /Appointment-Date-Slots
+114 Appointment-Date-Slots PUT /Appointment-Date-Slots
+115 Appointment-Date-Slots DELETE /Appointment-Date-Slots
+116 Appointment-Slot-Blocks GET /Appointment-Slot-Blocks
+118 Appointment-Slot-Blocks POST /Appointment-Slot-Blocks
+121 Appointment-Time-Slots GET /Appointment-Time-Slots
+126 Appointment-Time-Slots GET /Appointment-Time-Slots/by-date/189E8EB7-BE58-42F4-9381-B35798205F8C
+127 Custom-Appointments GET /Custom-Appointments
+133 Wishlists GET /Wishlists?includeDeleted=false&includeInactive=false
+135 Wishlists POST /Wishlists
+138 Wishlist-Items GET /Wishlist-Items?includeDeleted=false&includeInactive=false
+143 Carts GET /Carts?includeDeleted=false&includeInactive=false
+145 Carts POST /Carts
+148 Cart-Items GET /Cart-Items?includeDeleted=false&includeInactive=false
+153 Orders GET /Orders?includeDeleted=false&includeInactive=false
+158 Order-Items GET /Order-Items?includeDeleted=false&includeInactive=false
+163 Order-Addresses GET /Order-Addresses?includeDeleted=false&includeInactive=false
+168 Order-Status-Master GET /Order-Status-Master?includeDeleted=false&includeInactive=false
+173 Order-Status-History GET /Order-Status-History?includeDeleted=false&includeInactive=false
+178 Order-Cancellations GET /Order-Cancellations?includeDeleted=false&includeInactive=false
+183 Invoices GET /Invoices?includeDeleted=false&includeInactive=false
+188 Payments GET /Payments?includeDeleted=false&includeInactive=false
+193 Coupons GET /Coupons?includeDeleted=false&includeInactive=false
+198 Discounts GET /Discounts?includeDeleted=false&includeInactive=false
+200 Discounts POST /Discounts
+203 Discount-Targets GET /Discount-Targets?includeDeleted=false&includeInactive=false
+208 Coupon-Usage GET /Coupon-Usage?includeDeleted=false&includeInactive=false
+213 Order-Promotions GET /Order-Promotions?includeDeleted=false&includeInactive=false
+218 Courier-Partners GET /Courier-Partners?includeDeleted=false&includeInactive=false
+223 Shipments GET /Shipments?includeDeleted=false&includeInactive=false
+228 Shipment-Events GET /Shipment-Events?includeDeleted=false&includeInactive=false
+230 Shipment-Events POST /Shipment-Events
+233 Returns GET /Returns?includeDeleted=false&includeInactive=false
+238 Refunds GET /Refunds?includeDeleted=false&includeInactive=false
+243 Support-Contacts GET /Support-Contacts?includeDeleted=false&includeInactive=false
+248 FAQs GET /FAQs?includeDeleted=false&includeInactive=false
+250 FAQs POST /FAQs
+253 Newsletter-Subscriptions GET /Newsletter-Subscriptions?includeDeleted=false&includeInactive=false
+258 Settings GET /Settings?includeDeleted=false&includeInactive=false
+260 Settings POST /Settings
+264 Style-Collection-Media GET /Style-Collection-Media?includeDeleted=false&includeInactive=false
+270 Style-Collections GET /Style-Collections?includeDeleted=false&includeInactive=false
+276 Spotlight-Media GET /Spotlight-Media?includeDeleted=false&includeInactive=false
+278 Spotlight-Media POST /Spotlight-Media
+281 Spotlight-Entries GET /Spotlight-Entries?includeDeleted=false&includeInactive=false
+283 Spotlight-Entries POST /Spotlight-Entries
+286 Menu-Video GET /Menu-Video?includeDeleted=false&includeInactive=false
+288 Menu-Video POST /Menu-Video
+291 Image-Sliders GET /Image-Sliders?includeDeleted=false&includeInactive=false
+293 Image-Sliders POST /Image-Sliders
+296 Legal-Page-Headers GET /Legal-Page-Headers
+298 Legal-Page-Headers POST /Legal-Page-Headers
+301 Legal-Page-Sections GET /Legal-Page-Sections
+303 Legal-Page-Sections POST /Legal-Page-Sections
+306 Reviews GET /reviews
+308 Reviews POST /reviews
+311 Variant Rating Summary GET /variant-rating-summary
+313 Variant Rating Summary POST /variant-rating-summary
+314 Variant Rating Summary PUT /variant-rating-summary
+315 Variant Rating Summary DELETE /variant-rating-summary
+316 Product Rating Summary GET /product-rating-summary
+318 Product Rating Summary POST /product-rating-summary
+319 Product Rating Summary PUT /product-rating-summary
+320 Product Rating Summary DELETE /product-rating-summary
+321 Review Votes GET /review-votes
+326 Review Media GET /review-media

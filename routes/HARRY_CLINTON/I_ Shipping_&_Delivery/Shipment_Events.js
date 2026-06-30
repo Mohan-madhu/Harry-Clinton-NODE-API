@@ -14,7 +14,8 @@ const FIELD_TYPES = {
   event_status: { type: sql.VarChar, maxLength: 50 },
   event_location: { type: sql.VarChar, maxLength: 255 },
   event_description: { type: sql.VarChar, maxLength: 500 },
-  event_time: { type: sql.DateTime },
+  event_timestamp: { type: sql.DateTime },
+  event_source: { type: sql.VarChar, maxLength: 50 },
 
   isactive: { type: sql.Bit },
   isdeleted: { type: sql.Bit },
@@ -30,7 +31,8 @@ const INSERT_FIELDS = [
   'event_status',
   'event_location',
   'event_description',
-  'event_time',
+  'event_timestamp',
+  'event_source',
   'rcu'
 ];
 
@@ -38,18 +40,22 @@ const UPDATE_FIELDS = [
   'event_status',
   'event_location',
   'event_description',
-  'event_time',
+  'event_timestamp',
+  'event_source',
   'isactive',
   'isdeleted',
   'luu'
 ];
 
 const VALID_EVENT_STATUSES = [
-  'picked_up',
+  'pickup_scheduled',
+  'dispatched',
   'in_transit',
   'out_for_delivery',
   'delivered',
-  'failed_attempt'
+  'failed',
+  'returned',
+  'exception'
 ];
 
 /* =========================================
@@ -105,7 +111,7 @@ router.get('/', async (req, res) => {
       SELECT *
       FROM dbo.tbl_shipment_events
       ${where.length ? `WHERE ${where.join(' AND ')}` : ''}
-      ORDER BY event_time DESC;
+      ORDER BY event_timestamp DESC;
     `;
 
     const result = await pool.request().query(query);
