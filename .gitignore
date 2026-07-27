@@ -55,3 +55,11 @@ coverage/
 # Misc
 .cache/
 .git/
+.agents/
+.claude/
+.windsurf/
+skills-lock.json
+HC_Backend_Routes/
+HC_Backend_Routes.zip
+
+/generated/prisma
