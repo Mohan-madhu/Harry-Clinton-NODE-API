@@ -13,7 +13,8 @@
     "db:query": "node scripts/db-query.js",
     "db:sp:list": "node scripts/db-sp-test.js list",
     "db:sp:describe": "node scripts/db-sp-test.js describe",
-    "db:sp:test": "node scripts/db-sp-test.js test"
+    "db:sp:test": "node scripts/db-sp-test.js test",
+    "audit:columns": "node scripts/audit-route-column-references.js"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,6 @@
 # Live MSSQL Object Snapshot
 
-Generated: 2026-07-27T02:33:37.568Z
+Generated: 2026-07-27T03:51:11.606Z
 Database: db_harry_clinton
 
 ## Summary
@@ -12,6 +12,9 @@ Database: db_harry_clinton
 - Inline table functions: 0
 - Table functions: 0
 - Triggers: 6
+- Tables: 65
+- Column rows: 870
+- Key constraint rows: 65
 - Index column rows: 256
 - Foreign key column rows: 55
 
@@ -98,6 +101,1444 @@ Database: db_harry_clinton
 | dbo.tbl_variant_rating_summary | 0 |
 | dbo.tbl_wishlist_items | 0 |
 | dbo.tbl_wishlists | 7 |
+
+## Tables and Columns
+
+### dbo.tbl_addresses
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| address_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| user_id | varchar(36) | no | no |  |
+| full_name | varchar(255) | no | no |  |
+| mobile_number | varchar(50) | no | no |  |
+| house_street | varchar(500) | no | no |  |
+| city | varchar(150) | no | no |  |
+| state | varchar(150) | no | no |  |
+| pincode | varchar(20) | no | no |  |
+| landmark | varchar(255) | yes | no |  |
+| isdefault | bit | no | no | ((0)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_addresses | PRIMARY_KEY_CONSTRAINT | address_id |
+
+### dbo.tbl_appointment_date_slots
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| appointment_date_slot_id | uniqueidentifier | no | no | (newid()) |
+| slot_date | date | no | no |  |
+| slot_duration_minutes | int | no | no | ((30)) |
+| isavailable | bit | no | no | ((1)) |
+| notes | varchar(500) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK_tbl_appointment_date_slots | PRIMARY_KEY_CONSTRAINT | appointment_date_slot_id |
+
+### dbo.tbl_appointment_slot_blocks
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| appointment_slot_block_id | uniqueidentifier | no | no | (newid()) |
+| appointment_date_slot_id | uniqueidentifier | no | no |  |
+| block_start_time | time | no | no |  |
+| block_end_time | time | no | no |  |
+| block_reason | varchar(255) | yes | no |  |
+| blocked_by | varchar(100) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK_tbl_appointment_slot_blocks | PRIMARY_KEY_CONSTRAINT | appointment_slot_block_id |
+
+### dbo.tbl_appointment_time_slots
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| appointment_time_slot_id | uniqueidentifier | no | no | (newid()) |
+| appointment_date_slot_id | uniqueidentifier | no | no |  |
+| slot_start_time | time | no | no |  |
+| slot_end_time | time | no | no |  |
+| isavailable | bit | no | no | ((1)) |
+| isbooked | bit | no | no | ((0)) |
+| booked_at | datetime | yes | no |  |
+| appointment_id | uniqueidentifier | yes | no |  |
+| notes | varchar(500) | yes | no |  |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK_tbl_appointment_time_slots | PRIMARY_KEY_CONSTRAINT | appointment_time_slot_id |
+
+### dbo.tbl_attributes
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| attribute_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| attribute_name | varchar(255) | no | no |  |
+| attribute_slug | varchar(255) | no | no |  |
+| attribute_type | varchar(50) | no | no |  |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_attributes | PRIMARY_KEY_CONSTRAINT | attribute_id |
+
+### dbo.tbl_care_instructions
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| care_instruction_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| instruction_text | varchar(max) | no | no |  |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_care_instructions | PRIMARY_KEY_CONSTRAINT | care_instruction_id |
+
+### dbo.tbl_cart_items
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| cart_item_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| cart_id | varchar(36) | no | no |  |
+| product_id | varchar(36) | no | no |  |
+| product_variant_id | varchar(36) | yes | no |  |
+| qty | int | no | no | ((1)) |
+| unit_price | decimal(18,2) | yes | no |  |
+| total_price | decimal(18,2) | yes | no |  |
+| added_at | datetime | no | no | (getdate()) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_cart__5D9A6C6E7AD4DA40 | PRIMARY_KEY_CONSTRAINT | cart_item_id |
+
+### dbo.tbl_carts
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| cart_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| user_id | varchar(36) | no | no |  |
+| cart_status | varchar(20) | no | no | ('active') |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_cart__2EF52A27F0DAE529 | PRIMARY_KEY_CONSTRAINT | cart_id |
+
+### dbo.tbl_cloth_type_care_instructions
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| cloth_type_care_instruction_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| cloth_type_id | varchar(36) | no | no |  |
+| care_instruction_id | varchar(36) | no | no |  |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_cloth_type_care_instructions | PRIMARY_KEY_CONSTRAINT | cloth_type_care_instruction_id |
+
+### dbo.tbl_cloth_types
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| cloth_type_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| cloth_type_name | varchar(255) | no | no |  |
+| cloth_type_slug | varchar(255) | no | no |  |
+| description | varchar(500) | yes | no |  |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_cloth_types | PRIMARY_KEY_CONSTRAINT | cloth_type_id |
+
+### dbo.tbl_coupon_usage
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| coupon_usage_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| coupon_id | varchar(36) | no | no |  |
+| user_id | varchar(36) | no | no |  |
+| order_id | varchar(36) | yes | no |  |
+| discount_amount | decimal(18,2) | no | no |  |
+| used_at | datetime | no | no | (getdate()) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_coup__1B44EFEBCD0F9DBD | PRIMARY_KEY_CONSTRAINT | coupon_usage_id |
+
+### dbo.tbl_coupons
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| coupon_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| coupon_code | varchar(100) | no | no |  |
+| coupon_name | varchar(255) | yes | no |  |
+| description | varchar(500) | yes | no |  |
+| discount_type | varchar(20) | no | no |  |
+| discount_value | decimal(18,2) | no | no |  |
+| min_purchase_amount | decimal(18,2) | yes | no |  |
+| max_discount_amount | decimal(18,2) | yes | no |  |
+| usage_limit | int | yes | no |  |
+| usage_count | int | no | no | ((0)) |
+| per_user_limit | int | yes | no | ((1)) |
+| start_date | datetime | no | no |  |
+| end_date | datetime | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_coup__58CF63898F14BC10 | PRIMARY_KEY_CONSTRAINT | coupon_id |
+
+### dbo.tbl_courier_partners
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| courier_partner_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| courier_name | varchar(255) | no | no |  |
+| courier_code | varchar(50) | no | no |  |
+| contact_email | varchar(255) | yes | no |  |
+| contact_phone | varchar(50) | yes | no |  |
+| base_rate | decimal(18,2) | yes | no |  |
+| rate_per_kg | decimal(18,2) | yes | no |  |
+| api_base_url | varchar(500) | yes | no |  |
+| api_key | varchar(255) | yes | no |  |
+| integration_status | varchar(50) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_cour__39BCF39E2230EA0B | PRIMARY_KEY_CONSTRAINT | courier_partner_id |
+| ux_tbl_courier_partners_code | UNIQUE_CONSTRAINT | courier_code |
+
+### dbo.tbl_custom_appointments
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| appointment_id | uniqueidentifier | no | no | (newid()) |
+| user_id | uniqueidentifier | yes | no |  |
+| appointment_date_slot_id | uniqueidentifier | no | no |  |
+| appointment_time_slot_id | uniqueidentifier | no | no |  |
+| name | varchar(255) | no | no |  |
+| city | varchar(150) | yes | no |  |
+| preferred_delivery_date | date | yes | no |  |
+| occasion | varchar(255) | yes | no |  |
+| appointment_status | varchar(30) | no | no | ('requested') |
+| isrejected | bit | no | no | ((0)) |
+| appointment_notes | varchar(500) | yes | no |  |
+| requested_at | datetime | no | no | (getdate()) |
+| approved_at | datetime | yes | no |  |
+| rejected_at | datetime | yes | no |  |
+| cancelled_at | datetime | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK_tbl_custom_appointments | PRIMARY_KEY_CONSTRAINT | appointment_id |
+
+### dbo.tbl_customer_profiles
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| profile_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| user_id | varchar(36) | no | no |  |
+| date_of_birth | date | yes | no |  |
+| gender | varchar(20) | yes | no |  |
+| gstin | varchar(20) | yes | no |  |
+| company_name | varchar(255) | yes | no |  |
+| preferred_language | varchar(20) | yes | no |  |
+| preferred_currency | varchar(10) | yes | no |  |
+| newsletter_subscription | bit | no | no | ((0)) |
+| sms_notifications | bit | no | no | ((1)) |
+| email_notifications | bit | no | no | ((1)) |
+| push_notifications | bit | no | no | ((1)) |
+| loyalty_points | int | no | no | ((0)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_cust__AEBB701F922A2DF3 | PRIMARY_KEY_CONSTRAINT | profile_id |
+| ux_tbl_customer_profiles_user | UNIQUE_CONSTRAINT | user_id |
+
+### dbo.tbl_discount_targets
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| discount_target_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| discount_id | varchar(36) | no | no |  |
+| target_type | varchar(50) | no | no |  |
+| target_id | varchar(36) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_disc__B422BF010289AE72 | PRIMARY_KEY_CONSTRAINT | discount_target_id |
+
+### dbo.tbl_discounts
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| discount_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| discount_name | varchar(255) | no | no |  |
+| description | varchar(500) | yes | no |  |
+| discount_type | varchar(20) | no | no |  |
+| discount_value | decimal(18,2) | no | no |  |
+| max_discount_amount | decimal(18,2) | yes | no |  |
+| usage_limit | int | yes | no |  |
+| usage_count | int | no | no | ((0)) |
+| start_date | datetime | no | no |  |
+| end_date | datetime | yes | no |  |
+| discount_priority | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_disc__BDBE9EF9D720D481 | PRIMARY_KEY_CONSTRAINT | discount_id |
+
+### dbo.tbl_faqs
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| faq_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| question | varchar(1000) | no | no |  |
+| answer | varchar(max) | no | no |  |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK_tbl_faqs | PRIMARY_KEY_CONSTRAINT | faq_id |
+
+### dbo.tbl_image_sliders
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| image_slider_id | varchar(36) | yes | no | (newid()) |
+| image_url | varchar(max) | yes | no |  |
+| title | varchar(max) | yes | no |  |
+| subtitle | varchar(max) | yes | no |  |
+| button_text | varchar(max) | yes | no | ('shop now') |
+| redirect_link | varchar(max) | yes | no |  |
+| display_order | int | yes | no | ((1)) |
+| auto_slide_interval_seconds | int | yes | no | ((5)) |
+| isactive | bit | yes | no | ((1)) |
+| isdeleted | bit | yes | no | ((0)) |
+| rcu | varchar(max) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(max) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+### dbo.tbl_invoices
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| invoice_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| order_id | varchar(36) | no | no |  |
+| invoice_number | varchar(50) | no | no |  |
+| invoice_date | datetime | no | no | (getdate()) |
+| invoice_url | varchar(1000) | yes | no |  |
+| notes | varchar(500) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_invo__F58DFD4968E79D18 | PRIMARY_KEY_CONSTRAINT | invoice_id |
+
+### dbo.tbl_legal_page_header
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| id | int | no | yes |  |
+| page_type | nvarchar(100) | no | no |  |
+| page_title | nvarchar(510) | no | no |  |
+| intro_text | nvarchar(max) | no | no |  |
+| effective_date | date | yes | no |  |
+| version_number | nvarchar(40) | yes | no |  |
+| is_active | bit | no | no | ((1)) |
+| updated_by | nvarchar(200) | yes | no |  |
+| updated_at | datetime | no | no | (getdate()) |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_lega__3213E83FEB7C5468 | PRIMARY_KEY_CONSTRAINT | id |
+
+### dbo.tbl_legal_page_sections
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| id | int | no | yes |  |
+| page_type | nvarchar(100) | no | no |  |
+| section_title | nvarchar(510) | no | no |  |
+| section_order | int | no | no | ((0)) |
+| content | nvarchar(max) | no | no |  |
+| is_active | bit | no | no | ((1)) |
+| created_by | nvarchar(200) | yes | no |  |
+| created_at | datetime | no | no | (getdate()) |
+| updated_by | nvarchar(200) | yes | no |  |
+| updated_at | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_lega__3213E83F774BB419 | PRIMARY_KEY_CONSTRAINT | id |
+
+### dbo.tbl_menu_categories
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| menu_category_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| menu_category_name | varchar(255) | no | no |  |
+| menu_category_slug | varchar(255) | no | no |  |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_menu_categories | PRIMARY_KEY_CONSTRAINT | menu_category_id |
+
+### dbo.tbl_menu_subcategories
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| menu_subcategory_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| menu_category_id | varchar(36) | no | no |  |
+| menu_subcategory_name | varchar(255) | no | no |  |
+| menu_subcategory_slug | varchar(255) | no | no |  |
+| redirect_link | varchar(1000) | yes | no |  |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_menu_subcategories | PRIMARY_KEY_CONSTRAINT | menu_subcategory_id |
+
+### dbo.tbl_menu_video
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| menu_video_id | varchar(36) | yes | no | (newid()) |
+| video_type | varchar(36) | yes | no | ('youtube') |
+| video_url | varchar(max) | yes | no |  |
+| poster_image_url | varchar(max) | yes | no |  |
+| autoplay | bit | yes | no | ((1)) |
+| loop_video | bit | yes | no | ((1)) |
+| mute_default | bit | yes | no | ((1)) |
+| display_order | int | yes | no | ((1)) |
+| isactive | bit | yes | no | ((1)) |
+| isdeleted | bit | yes | no | ((0)) |
+| rcu | varchar(max) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(max) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+### dbo.tbl_newsletter_subscriptions
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| newsletter_subscription_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| emailid | varchar(255) | no | no |  |
+| user_id | varchar(36) | yes | no |  |
+| subscribed_at | datetime | no | no | (getdate()) |
+| unsubscribed_at | datetime | yes | no |  |
+| subscription_status | varchar(20) | no | no | ('subscribed') |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK_tbl_newsletter_subscriptions | PRIMARY_KEY_CONSTRAINT | newsletter_subscription_id |
+
+### dbo.tbl_order_addresses
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| order_address_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| order_id | varchar(36) | no | no |  |
+| address_type | varchar(20) | no | no |  |
+| full_name | varchar(255) | no | no |  |
+| mobile_number | varchar(50) | no | no |  |
+| house_street | varchar(500) | no | no |  |
+| city | varchar(150) | no | no |  |
+| state | varchar(150) | no | no |  |
+| pincode | varchar(20) | no | no |  |
+| landmark | varchar(255) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_orde__9A9DCB571DED03B7 | PRIMARY_KEY_CONSTRAINT | order_address_id |
+
+### dbo.tbl_order_cancellations
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| order_cancellation_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| order_id | varchar(36) | no | no |  |
+| cancelled_by | varchar(50) | yes | no |  |
+| cancelled_reason | varchar(500) | yes | no |  |
+| cancelled_at | datetime | no | no | (getdate()) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_orde__C033AB8710CC116B | PRIMARY_KEY_CONSTRAINT | order_cancellation_id |
+
+### dbo.tbl_order_items
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| order_item_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| order_id | varchar(36) | no | no |  |
+| product_id | varchar(36) | no | no |  |
+| product_variant_id | varchar(36) | yes | no |  |
+| product_name | varchar(255) | no | no |  |
+| sku | varchar(100) | yes | no |  |
+| qty | int | no | no | ((1)) |
+| unit_price | decimal(18,2) | yes | no |  |
+| total_price | decimal(18,2) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_orde__3764B6BCA13309CF | PRIMARY_KEY_CONSTRAINT | order_item_id |
+
+### dbo.tbl_order_promotions
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| order_promotion_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| order_id | varchar(36) | no | no |  |
+| promotion_type | varchar(50) | no | no |  |
+| promotion_id | varchar(36) | yes | no |  |
+| promotion_name | varchar(255) | yes | no |  |
+| discount_amount | decimal(18,2) | no | no |  |
+| discount_type | varchar(20) | yes | no |  |
+| discount_value | decimal(18,2) | yes | no |  |
+| applied_at | datetime | no | no | (getdate()) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_orde__0A2A9E0E1EDCE3E3 | PRIMARY_KEY_CONSTRAINT | order_promotion_id |
+
+### dbo.tbl_order_status_history
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| order_status_history_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| order_id | varchar(36) | no | no |  |
+| order_status_id | varchar(36) | no | no |  |
+| orderstatus | varchar(50) | no | no |  |
+| orderstatusby | varchar(255) | yes | no |  |
+| orderstatustime | datetime | no | no | (getdate()) |
+| remarks | varchar(500) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_orde__0AEF0D355F8E1176 | PRIMARY_KEY_CONSTRAINT | order_status_history_id |
+
+### dbo.tbl_order_status_master
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| order_status_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| status_name | varchar(100) | no | no |  |
+| status_code | varchar(50) | no | no |  |
+| display_order | int | no | no | ((1)) |
+| iscancelled_status | bit | no | no | ((0)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_orde__A499CF231C312767 | PRIMARY_KEY_CONSTRAINT | order_status_id |
+| ux_tbl_order_status_master_status_code | UNIQUE_CONSTRAINT | status_code |
+
+### dbo.tbl_orders
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| order_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| user_id | varchar(36) | no | no |  |
+| cart_id | varchar(36) | yes | no |  |
+| order_number | varchar(50) | no | no |  |
+| order_status_id | varchar(36) | no | no |  |
+| orderstatus | varchar(50) | yes | no |  |
+| subtotal | decimal(18,2) | yes | no |  |
+| discount_amount | decimal(18,2) | yes | no |  |
+| shipping_amount | decimal(18,2) | yes | no |  |
+| tax_amount | decimal(18,2) | yes | no |  |
+| total_amount | decimal(18,2) | yes | no |  |
+| payment_status | varchar(50) | yes | no |  |
+| notes | varchar(500) | yes | no |  |
+| placed_at | datetime | no | no | (getdate()) |
+| cancelled_at | datetime | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_orde__46596229D70FFA50 | PRIMARY_KEY_CONSTRAINT | order_id |
+
+### dbo.tbl_payments
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| payment_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| order_id | varchar(36) | no | no |  |
+| user_id | varchar(36) | no | no |  |
+| payment_provider | varchar(50) | no | no | ('razorpay') |
+| payment_method_type | varchar(20) | yes | no |  |
+| payment_status | varchar(50) | no | no | ('pending') |
+| amount | decimal(18,2) | no | no |  |
+| currency_code | varchar(10) | no | no | ('inr') |
+| razorpay_order_id | varchar(100) | yes | no |  |
+| razorpay_payment_id | varchar(100) | yes | no |  |
+| razorpay_signature | varchar(255) | yes | no |  |
+| paid_at | datetime | yes | no |  |
+| failed_at | datetime | yes | no |  |
+| refund_amount | decimal(18,2) | yes | no |  |
+| refunded_at | datetime | yes | no |  |
+| notes | varchar(500) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_paym__ED1FC9EA9578C69D | PRIMARY_KEY_CONSTRAINT | payment_id |
+
+### dbo.tbl_product_attribute_values
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| product_attribute_value_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| product_id | varchar(36) | no | no |  |
+| product_variant_id | varchar(36) | yes | no |  |
+| attribute_id | varchar(36) | no | no |  |
+| attribute_value | varchar(1000) | no | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_product_attribute_values | PRIMARY_KEY_CONSTRAINT | product_attribute_value_id |
+
+### dbo.tbl_product_media
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| product_media_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| product_id | varchar(36) | no | no |  |
+| product_variant_id | varchar(36) | yes | no |  |
+| media_type | varchar(20) | no | no |  |
+| media_url | varchar(1000) | no | no |  |
+| alt_text | varchar(255) | yes | no |  |
+| display_order | int | no | no | ((1)) |
+| isprimary | bit | no | no | ((0)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_product_media | PRIMARY_KEY_CONSTRAINT | product_media_id |
+
+### dbo.tbl_product_rating_summary
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| product_id | varchar(36) | no | no |  |
+| avg_rating | decimal(3,2) | yes | no | ((0)) |
+| total_reviews | int | yes | no | ((0)) |
+| rating_1_count | int | yes | no | ((0)) |
+| rating_2_count | int | yes | no | ((0)) |
+| rating_3_count | int | yes | no | ((0)) |
+| rating_4_count | int | yes | no | ((0)) |
+| rating_5_count | int | yes | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_prod__47027DF5F127799D | PRIMARY_KEY_CONSTRAINT | product_id |
+
+### dbo.tbl_product_reviews
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| product_review_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| product_id | varchar(36) | no | no |  |
+| user_id | varchar(36) | no | no |  |
+| order_item_id | varchar(36) | yes | no |  |
+| rating | int | no | no |  |
+| review_title | varchar(255) | yes | no |  |
+| review_text | varchar(max) | yes | no |  |
+| helpful_count | int | no | no | ((0)) |
+| unhelpful_count | int | no | no | ((0)) |
+| is_verified_purchase | bit | no | no | ((0)) |
+| review_status | varchar(50) | no | no | ('pending') |
+| reviewed_date | datetime | no | no | (getdate()) |
+| approved_date | datetime | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_prod__8440EB03F3CD2A45 | PRIMARY_KEY_CONSTRAINT | product_review_id |
+
+### dbo.tbl_product_seo
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| product_seo_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| product_id | varchar(36) | no | no |  |
+| seo_title | varchar(255) | yes | no |  |
+| seo_description | varchar(500) | yes | no |  |
+| seo_keywords | varchar(500) | yes | no |  |
+| og_image_url | varchar(1000) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_product_seo | PRIMARY_KEY_CONSTRAINT | product_seo_id |
+
+### dbo.tbl_product_variants
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| product_variant_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| product_id | varchar(36) | no | no |  |
+| sku | varchar(100) | no | no |  |
+| variant_name | varchar(255) | yes | no |  |
+| price | decimal(18,2) | yes | no |  |
+| stock_qty | int | no | no | ((0)) |
+| size_id | varchar(36) | yes | no |  |
+| cloth_type_id | varchar(36) | yes | no |  |
+| isdefault | bit | no | no | ((0)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_product_variants | PRIMARY_KEY_CONSTRAINT | product_variant_id |
+
+### dbo.tbl_products
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| product_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| product_name | varchar(255) | no | no |  |
+| product_slug | varchar(255) | no | no |  |
+| short_description | varchar(500) | yes | no |  |
+| description | varchar(max) | yes | no |  |
+| base_price | decimal(18,2) | yes | no |  |
+| currency_code | varchar(10) | no | no | ('inr') |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_products | PRIMARY_KEY_CONSTRAINT | product_id |
+
+### dbo.tbl_profiles
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| profile_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| user_id | varchar(36) | no | no |  |
+| fullname | varchar(255) | no | no |  |
+| emailid | varchar(255) | no | no |  |
+| mobile_number | varchar(50) | yes | no |  |
+| gender | varchar(20) | yes | no |  |
+| dateofbirth | date | yes | no |  |
+| profile_url | varchar(1000) | yes | no |  |
+| lastloginat | datetime | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_profiles | PRIMARY_KEY_CONSTRAINT | profile_id |
+
+### dbo.tbl_refunds
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| refund_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| return_id | varchar(36) | no | no |  |
+| payment_id | varchar(36) | yes | no |  |
+| order_id | varchar(36) | no | no |  |
+| user_id | varchar(36) | no | no |  |
+| refund_type | varchar(50) | no | no |  |
+| refund_status | varchar(50) | no | no | ('initiated') |
+| refund_amount | decimal(18,2) | no | no |  |
+| refund_method | varchar(50) | no | no |  |
+| transaction_id | varchar(100) | yes | no |  |
+| initiated_date | datetime | no | no | (getdate()) |
+| processed_date | datetime | yes | no |  |
+| completed_date | datetime | yes | no |  |
+| failure_reason | varchar(500) | yes | no |  |
+| notes | varchar(500) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_refu__897E9EA3847B7BED | PRIMARY_KEY_CONSTRAINT | refund_id |
+
+### dbo.tbl_returns
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| return_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| order_id | varchar(36) | no | no |  |
+| user_id | varchar(36) | no | no |  |
+| return_type | varchar(50) | no | no |  |
+| return_status | varchar(50) | no | no | ('requested') |
+| return_reason | varchar(500) | yes | no |  |
+| return_reason_code | varchar(50) | yes | no |  |
+| return_items_count | int | no | no | ((1)) |
+| return_amount | decimal(18,2) | yes | no |  |
+| requested_date | datetime | no | no | (getdate()) |
+| approved_date | datetime | yes | no |  |
+| received_date | datetime | yes | no |  |
+| completed_date | datetime | yes | no |  |
+| rma_number | varchar(100) | yes | no |  |
+| notes | varchar(500) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_retu__35C234739C6BA681 | PRIMARY_KEY_CONSTRAINT | return_id |
+
+### dbo.tbl_review_media
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| media_id | varchar(36) | no | no | (newid()) |
+| review_id | varchar(36) | no | no |  |
+| media_type | varchar(20) | no | no |  |
+| media_url | varchar(500) | no | no |  |
+| isactive | bit | yes | no | ((1)) |
+| isdeleted | bit | yes | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_revi__D0A840F4C3D443EE | PRIMARY_KEY_CONSTRAINT | media_id |
+
+### dbo.tbl_review_responses
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| review_response_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| product_review_id | varchar(36) | no | no |  |
+| responder_user_id | varchar(36) | no | no |  |
+| response_text | varchar(max) | yes | no |  |
+| response_date | datetime | no | no | (getdate()) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_revi__D317A8EB7825EAA6 | PRIMARY_KEY_CONSTRAINT | review_response_id |
+
+### dbo.tbl_review_votes
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| vote_id | varchar(36) | no | no | (newid()) |
+| review_id | varchar(36) | no | no |  |
+| user_id | varchar(36) | no | no |  |
+| is_helpful | bit | no | no |  |
+| isactive | bit | yes | no | ((1)) |
+| isdeleted | bit | yes | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_revi__9F5405AE6C590472 | PRIMARY_KEY_CONSTRAINT | vote_id |
+| UQ_review_vote | UNIQUE_CONSTRAINT | review_id, user_id |
+
+### dbo.tbl_reviews
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| review_id | varchar(36) | no | no | (newid()) |
+| product_id | varchar(36) | no | no |  |
+| variant_id | varchar(36) | yes | no |  |
+| user_id | varchar(36) | no | no |  |
+| rating | int | no | no |  |
+| review_title | varchar(255) | yes | no |  |
+| review_text | varchar(max) | yes | no |  |
+| is_verified | bit | yes | no | ((0)) |
+| is_approved | bit | yes | no | ((1)) |
+| isactive | bit | yes | no | ((1)) |
+| isdeleted | bit | yes | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_revi__60883D905A08A3A7 | PRIMARY_KEY_CONSTRAINT | review_id |
+
+### dbo.tbl_roles
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| role_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| role_name | varchar(100) | no | no |  |
+| role_code | varchar(50) | no | no |  |
+| description | varchar(255) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_roles | PRIMARY_KEY_CONSTRAINT | role_id |
+
+### dbo.tbl_running_bar_items
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| running_bar_item_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| running_bar_id | varchar(36) | no | no |  |
+| itemsdata | varchar(max) | no | no |  |
+| duration_seconds | int | no | no | ((5)) |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_running_bar_items | PRIMARY_KEY_CONSTRAINT | running_bar_item_id |
+
+### dbo.tbl_running_bars
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| running_bar_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| running_bar_name | varchar(255) | no | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_running_bars | PRIMARY_KEY_CONSTRAINT | running_bar_id |
+
+### dbo.tbl_settings
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| setting_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| site_name | varchar(255) | yes | no |  |
+| header_logo_url | varchar(1000) | yes | no |  |
+| brand_logo_url | varchar(1000) | yes | no |  |
+| footer_logo_url | varchar(1000) | yes | no |  |
+| brand_description | varchar(max) | yes | no |  |
+| newsletter_title | varchar(255) | yes | no |  |
+| newsletter_description | varchar(max) | yes | no |  |
+| ismaintenance_mode | bit | no | no | ((0)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK_tbl_settings | PRIMARY_KEY_CONSTRAINT | setting_id |
+
+### dbo.tbl_shipment_events
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| shipment_event_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| shipment_id | varchar(36) | no | no |  |
+| event_status | varchar(50) | no | no |  |
+| event_location | varchar(255) | yes | no |  |
+| event_description | varchar(500) | yes | no |  |
+| event_timestamp | datetime | no | no | (getdate()) |
+| event_source | varchar(50) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_ship__1F365B12A23DBBBE | PRIMARY_KEY_CONSTRAINT | shipment_event_id |
+
+### dbo.tbl_shipments
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| shipment_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| order_id | varchar(36) | no | no |  |
+| courier_partner_id | varchar(36) | no | no |  |
+| tracking_number | varchar(100) | yes | no |  |
+| awb_number | varchar(100) | yes | no |  |
+| shipment_status | varchar(50) | no | no | ('pending') |
+| weight | decimal(18,2) | yes | no |  |
+| dimensions | varchar(100) | yes | no |  |
+| shipped_date | datetime | yes | no |  |
+| estimated_delivery | datetime | yes | no |  |
+| actual_delivery_date | datetime | yes | no |  |
+| pickup_address_id | varchar(36) | yes | no |  |
+| drop_address_id | varchar(36) | yes | no |  |
+| shipping_cost | decimal(18,2) | yes | no |  |
+| notes | varchar(500) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_ship__41466E593D1A3ABF | PRIMARY_KEY_CONSTRAINT | shipment_id |
+
+### dbo.tbl_sizes
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| size_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| size_name | varchar(50) | no | no |  |
+| size_type | varchar(20) | no | no |  |
+| display_order | int | no | no | ((1)) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_sizes | PRIMARY_KEY_CONSTRAINT | size_id |
+
+### dbo.tbl_spotlight_entries
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| spotlight_entry_id | varchar(36) | yes | no | (newid()) |
+| title | varchar(max) | yes | no |  |
+| subtitle | varchar(max) | yes | no |  |
+| description | varchar(max) | yes | no |  |
+| redirect_link | varchar(max) | yes | no |  |
+| cta_text | varchar(100) | yes | no | ('shop now/explore') |
+| display_order | int | yes | no | ((1)) |
+| isactive | bit | yes | no | ((1)) |
+| isdeleted | bit | yes | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+### dbo.tbl_spotlight_media
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| spotlight_media_id | varchar(36) | yes | no | (newid()) |
+| spotlight_entry_id | varchar(36) | yes | no |  |
+| media_type | varchar(20) | yes | no |  |
+| media_url | varchar(max) | yes | no |  |
+| alt_text | varchar(max) | yes | no |  |
+| display_order | int | yes | no | ((1)) |
+| isprimary | bit | yes | no | ((0)) |
+| isactive | bit | yes | no | ((1)) |
+| isdeleted | bit | yes | no | ((0)) |
+| rcu | varchar(max) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(max) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+### dbo.tbl_style_collection_media
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| style_collection_media_id | varchar(36) | yes | no | (newid()) |
+| style_collection_id | varchar(36) | yes | no |  |
+| media_type | varchar(20) | yes | no |  |
+| media_url | varchar(max) | yes | no |  |
+| alt_text | varchar(max) | yes | no |  |
+| display_order | int | yes | no | ((1)) |
+| isprimary | bit | yes | no | ((0)) |
+| isactive | bit | yes | no | ((1)) |
+| isdeleted | bit | yes | no | ((0)) |
+| rcu | varchar(max) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(max) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+### dbo.tbl_style_collections
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| style_collection_id | varchar(36) | yes | no | (newid()) |
+| collection_name | varchar(max) | yes | no |  |
+| collection_slug | varchar(max) | yes | no |  |
+| description | varchar(max) | yes | no |  |
+| redirect_link | varchar(max) | yes | no |  |
+| cta_text | varchar(max) | yes | no |  |
+| display_order | int | yes | no | ((1)) |
+| isactive | bit | yes | no | ((1)) |
+| isdeleted | bit | yes | no | ((0)) |
+| rcu | varchar(max) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(max) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+### dbo.tbl_support_contacts
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| support_contact_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| contact_title | varchar(255) | yes | no |  |
+| contact_name | varchar(255) | yes | no |  |
+| contact_email | varchar(255) | yes | no |  |
+| contact_number | varchar(50) | yes | no |  |
+| whatsapp_number | varchar(50) | yes | no |  |
+| address_text | varchar(500) | yes | no |  |
+| working_hours | varchar(255) | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK_tbl_support_contacts | PRIMARY_KEY_CONSTRAINT | support_contact_id |
+
+### dbo.tbl_user_roles
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| user_role_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| user_id | varchar(36) | no | no |  |
+| role_id | varchar(36) | no | no |  |
+| assigned_at | datetime | no | no | (getdate()) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| pk_tbl_user_roles | PRIMARY_KEY_CONSTRAINT | user_role_id |
+
+### dbo.tbl_users
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| user_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| email | varchar(255) | no | no |  |
+| phone_number | varchar(20) | yes | no |  |
+| first_name | varchar(100) | yes | no |  |
+| last_name | varchar(100) | yes | no |  |
+| full_name | varchar(255) | yes | no |  |
+| password_hash | varchar(500) | yes | no |  |
+| password_salt | varchar(500) | yes | no |  |
+| profile_picture_url | varchar(1000) | yes | no |  |
+| email_verified | bit | no | no | ((0)) |
+| email_verified_at | datetime | yes | no |  |
+| phone_verified | bit | no | no | ((0)) |
+| phone_verified_at | datetime | yes | no |  |
+| last_login | datetime | yes | no |  |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_user__B9BE370F0E7453B1 | PRIMARY_KEY_CONSTRAINT | user_id |
+| ux_tbl_users_email | UNIQUE_CONSTRAINT | email |
+
+### dbo.tbl_variant_rating_summary
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| variant_id | varchar(36) | no | no |  |
+| avg_rating | decimal(3,2) | yes | no | ((0)) |
+| total_reviews | int | yes | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | yes | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_vari__EACC68B779E7C5F9 | PRIMARY_KEY_CONSTRAINT | variant_id |
+
+### dbo.tbl_wishlist_items
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| wishlist_item_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| wishlist_id | varchar(36) | no | no |  |
+| product_id | varchar(36) | no | no |  |
+| product_variant_id | varchar(36) | yes | no |  |
+| added_at | datetime | no | no | (getdate()) |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_wish__190EBE2840AB6F5C | PRIMARY_KEY_CONSTRAINT | wishlist_item_id |
+
+### dbo.tbl_wishlists
+
+| Column | Type | Nullable | Identity | Default |
+|---|---|---:|---:|---|
+| wishlist_id | varchar(36) | no | no | (CONVERT([varchar](36),newid())) |
+| user_id | varchar(36) | no | no |  |
+| wishlist_name | varchar(255) | no | no | ('my wishlist') |
+| isactive | bit | no | no | ((1)) |
+| isdeleted | bit | no | no | ((0)) |
+| rcu | varchar(100) | yes | no |  |
+| rcm | datetime | no | no | (getdate()) |
+| luu | varchar(100) | yes | no |  |
+| lcm | datetime | yes | no |  |
+
+| Constraint | Type | Columns |
+|---|---|---|
+| PK__tbl_wish__6151514E28648F38 | PRIMARY_KEY_CONSTRAINT | wishlist_id |
 
 ## Indexes
 

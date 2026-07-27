@@ -1,0 +1,796 @@
+{
+  "summary": {
+    "generated_at": "2026-07-27T03:57:27.248Z",
+    "route_dir": "routes/HARRY_CLINTON",
+    "route_js_files_checked": 73,
+    "live_tables_loaded": 65,
+    "live_columns_loaded": 870,
+    "issue_count": 0,
+    "error_count": 0,
+    "warning_count": 0
+  },
+  "issues": [],
+  "files": [
+    {
+      "file": "routes/HARRY_CLINTON/A_Auth_Mail_FileUpload/Auth.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_Auth_Mail_FileUpload/FileUpload.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_Auth_Mail_FileUpload/Mail.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/Roles.js",
+      "primaryTable": "dbo.tbl_roles",
+      "referencedTables": [
+        "dbo.tbl_roles"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/User.js",
+      "primaryTable": "dbo.tbl_users",
+      "referencedTables": [
+        "dbo.tbl_users"
+      ],
+      "insertFieldCount": 8,
+      "updateFieldCount": 13,
+      "fieldTypeCount": 17,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/UserRoles.js",
+      "primaryTable": "dbo.tbl_user_roles",
+      "referencedTables": [
+        "dbo.tbl_user_roles"
+      ],
+      "insertFieldCount": 3,
+      "updateFieldCount": 3,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/B_Customer_Management/Addresses.js",
+      "primaryTable": "dbo.tbl_addresses",
+      "referencedTables": [
+        "dbo.tbl_addresses"
+      ],
+      "insertFieldCount": 10,
+      "updateFieldCount": 11,
+      "fieldTypeCount": 16,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/B_Customer_Management/Profiles.js",
+      "primaryTable": "dbo.tbl_profiles",
+      "referencedTables": [
+        "dbo.tbl_profiles"
+      ],
+      "insertFieldCount": 9,
+      "updateFieldCount": 10,
+      "fieldTypeCount": 15,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products.js",
+      "primaryTable": "dbo.tbl_products",
+      "referencedTables": [
+        "dbo.tbl_products"
+      ],
+      "insertFieldCount": 7,
+      "updateFieldCount": 8,
+      "fieldTypeCount": 13,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Attributes.js",
+      "primaryTable": "dbo.tbl_attributes",
+      "referencedTables": [
+        "dbo.tbl_attributes"
+      ],
+      "insertFieldCount": 5,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 11,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Attributes_Values.js",
+      "primaryTable": "dbo.tbl_product_attribute_values",
+      "referencedTables": [
+        "dbo.tbl_product_attribute_values"
+      ],
+      "insertFieldCount": 5,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 11,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Care_Instructions.js",
+      "primaryTable": "dbo.tbl_care_instructions",
+      "referencedTables": [
+        "dbo.tbl_care_instructions"
+      ],
+      "insertFieldCount": 3,
+      "updateFieldCount": 4,
+      "fieldTypeCount": 9,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Cloth_Types.js",
+      "primaryTable": "dbo.tbl_cloth_types",
+      "referencedTables": [
+        "dbo.tbl_cloth_types"
+      ],
+      "insertFieldCount": 5,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 11,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Cloth_Type_Care_Instructions.js",
+      "primaryTable": "dbo.tbl_cloth_type_care_instructions",
+      "referencedTables": [
+        "dbo.tbl_cloth_type_care_instructions"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 5,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Media.js",
+      "primaryTable": "dbo.tbl_product_media",
+      "referencedTables": [
+        "dbo.tbl_product_media"
+      ],
+      "insertFieldCount": 8,
+      "updateFieldCount": 9,
+      "fieldTypeCount": 14,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Seo.js",
+      "primaryTable": "dbo.tbl_product_seo",
+      "referencedTables": [
+        "dbo.tbl_product_seo"
+      ],
+      "insertFieldCount": 6,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 12,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Sizes.js",
+      "primaryTable": "dbo.tbl_sizes",
+      "referencedTables": [
+        "dbo.tbl_sizes"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 5,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Variants.js",
+      "primaryTable": "dbo.tbl_product_variants",
+      "referencedTables": [
+        "dbo.tbl_product_variants"
+      ],
+      "insertFieldCount": 9,
+      "updateFieldCount": 9,
+      "fieldTypeCount": 15,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/D_Wishlist_Management/Wishlists.js",
+      "primaryTable": "dbo.tbl_wishlists",
+      "referencedTables": [
+        "dbo.tbl_wishlists"
+      ],
+      "insertFieldCount": 3,
+      "updateFieldCount": 4,
+      "fieldTypeCount": 9,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/D_Wishlist_Management/Wishlist_Items.js",
+      "primaryTable": "dbo.tbl_wishlist_items",
+      "referencedTables": [
+        "dbo.tbl_wishlist_items"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 5,
+      "fieldTypeCount": 11,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/E_Cart_Management/Carts.js",
+      "primaryTable": "dbo.tbl_carts",
+      "referencedTables": [
+        "dbo.tbl_carts"
+      ],
+      "insertFieldCount": 3,
+      "updateFieldCount": 4,
+      "fieldTypeCount": 9,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/E_Cart_Management/Cart_Items.js",
+      "primaryTable": "dbo.tbl_cart_items",
+      "referencedTables": [
+        "dbo.tbl_cart_items"
+      ],
+      "insertFieldCount": 7,
+      "updateFieldCount": 8,
+      "fieldTypeCount": 14,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Invoices.js",
+      "primaryTable": "dbo.tbl_invoices",
+      "referencedTables": [
+        "dbo.tbl_invoices"
+      ],
+      "insertFieldCount": 5,
+      "updateFieldCount": 5,
+      "fieldTypeCount": 12,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Orders.js",
+      "primaryTable": "dbo.tbl_orders",
+      "referencedTables": [
+        "dbo.tbl_orders"
+      ],
+      "insertFieldCount": 13,
+      "updateFieldCount": 13,
+      "fieldTypeCount": 21,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Addresses.js",
+      "primaryTable": "dbo.tbl_order_addresses",
+      "referencedTables": [
+        "dbo.tbl_order_addresses"
+      ],
+      "insertFieldCount": 10,
+      "updateFieldCount": 11,
+      "fieldTypeCount": 16,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Cancellations.js",
+      "primaryTable": "dbo.tbl_order_cancellations",
+      "referencedTables": [
+        "dbo.tbl_order_cancellations"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 5,
+      "fieldTypeCount": 11,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Items.js",
+      "primaryTable": "dbo.tbl_order_items",
+      "referencedTables": [
+        "dbo.tbl_order_items"
+      ],
+      "insertFieldCount": 9,
+      "updateFieldCount": 10,
+      "fieldTypeCount": 15,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Status_History.js",
+      "primaryTable": "dbo.tbl_order_status_history",
+      "referencedTables": [
+        "dbo.tbl_order_status_history"
+      ],
+      "insertFieldCount": 6,
+      "updateFieldCount": 5,
+      "fieldTypeCount": 13,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Status_Master.js",
+      "primaryTable": "dbo.tbl_order_status_master",
+      "referencedTables": [
+        "dbo.tbl_order_status_master"
+      ],
+      "insertFieldCount": 5,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 11,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/G_Payments/Payments.js",
+      "primaryTable": "dbo.tbl_payments",
+      "referencedTables": [
+        "dbo.tbl_payments"
+      ],
+      "insertFieldCount": 11,
+      "updateFieldCount": 13,
+      "fieldTypeCount": 22,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_A_Header_Running_Bars/RunningBar.js",
+      "primaryTable": "dbo.tbl_running_bars",
+      "referencedTables": [
+        "dbo.tbl_running_bars"
+      ],
+      "insertFieldCount": 2,
+      "updateFieldCount": 4,
+      "fieldTypeCount": 8,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_A_Header_Running_Bars/RunningBarItems.js",
+      "primaryTable": "dbo.tbl_running_bar_items",
+      "referencedTables": [
+        "dbo.tbl_running_bar_items"
+      ],
+      "insertFieldCount": 5,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 11,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_B_Menu_Navigation/MenuCategory.js",
+      "primaryTable": "dbo.tbl_menu_categories",
+      "referencedTables": [
+        "dbo.tbl_menu_categories"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_B_Menu_Navigation/MenuSubCategory.js",
+      "primaryTable": "dbo.tbl_menu_subcategories",
+      "referencedTables": [
+        "dbo.tbl_menu_subcategories"
+      ],
+      "insertFieldCount": 6,
+      "updateFieldCount": 8,
+      "fieldTypeCount": 12,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_C_Home_Visuals/Image_Sliders.js",
+      "primaryTable": "dbo.tbl_image_sliders",
+      "referencedTables": [
+        "dbo.tbl_image_sliders"
+      ],
+      "insertFieldCount": 8,
+      "updateFieldCount": 10,
+      "fieldTypeCount": 14,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_C_Home_Visuals/Menu_Video.js",
+      "primaryTable": "dbo.tbl_menu_video",
+      "referencedTables": [
+        "dbo.tbl_menu_video"
+      ],
+      "insertFieldCount": 8,
+      "updateFieldCount": 10,
+      "fieldTypeCount": 14,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_D_Spotlight/Spotlight_Entries.js",
+      "primaryTable": "dbo.tbl_spotlight_entries",
+      "referencedTables": [
+        "dbo.tbl_spotlight_entries"
+      ],
+      "insertFieldCount": 7,
+      "updateFieldCount": 9,
+      "fieldTypeCount": 13,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_D_Spotlight/Spotlight_Media.js",
+      "primaryTable": "dbo.tbl_spotlight_media",
+      "referencedTables": [
+        "dbo.tbl_spotlight_media"
+      ],
+      "insertFieldCount": 7,
+      "updateFieldCount": 8,
+      "fieldTypeCount": 13,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_E_Style_by_HC/Style_Collections.js",
+      "primaryTable": "dbo.tbl_style_collections",
+      "referencedTables": [
+        "dbo.tbl_style_collections"
+      ],
+      "insertFieldCount": 7,
+      "updateFieldCount": 9,
+      "fieldTypeCount": 13,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_E_Style_by_HC/Style_Collection_Media.js",
+      "primaryTable": "dbo.tbl_style_collection_media",
+      "referencedTables": [
+        "dbo.tbl_style_collection_media"
+      ],
+      "insertFieldCount": 7,
+      "updateFieldCount": 8,
+      "fieldTypeCount": 13,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentDateSlots.js",
+      "primaryTable": "dbo.tbl_appointment_date_slots",
+      "referencedTables": [
+        "dbo.tbl_appointment_date_slots"
+      ],
+      "insertFieldCount": 5,
+      "updateFieldCount": 7,
+      "fieldTypeCount": 11,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentSlotBlocks.js",
+      "primaryTable": "dbo.tbl_appointment_slot_blocks",
+      "referencedTables": [
+        "dbo.tbl_appointment_slot_blocks"
+      ],
+      "insertFieldCount": 6,
+      "updateFieldCount": 8,
+      "fieldTypeCount": 12,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentTimeSlots.js",
+      "primaryTable": "dbo.tbl_appointment_time_slots",
+      "referencedTables": [
+        "dbo.tbl_appointment_time_slots"
+      ],
+      "insertFieldCount": 10,
+      "updateFieldCount": 12,
+      "fieldTypeCount": 16,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/CustomAppointments.js",
+      "primaryTable": "dbo.tbl_custom_appointments",
+      "referencedTables": [
+        "dbo.tbl_custom_appointments"
+      ],
+      "insertFieldCount": 11,
+      "updateFieldCount": 16,
+      "fieldTypeCount": 21,
+      "sqlFragmentCount": 2
+    },
+    {
+      "file": "routes/HARRY_CLINTON/helpers.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Coupons.js",
+      "primaryTable": "dbo.tbl_coupons",
+      "referencedTables": [
+        "dbo.tbl_coupons"
+      ],
+      "insertFieldCount": 12,
+      "updateFieldCount": 13,
+      "fieldTypeCount": 18,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Coupon_Usage.js",
+      "primaryTable": "dbo.tbl_coupon_usage",
+      "referencedTables": [
+        "dbo.tbl_coupon_usage"
+      ],
+      "insertFieldCount": 6,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 12,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Discounts.js",
+      "primaryTable": "dbo.tbl_discounts",
+      "referencedTables": [
+        "dbo.tbl_discounts"
+      ],
+      "insertFieldCount": 10,
+      "updateFieldCount": 12,
+      "fieldTypeCount": 16,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Discount_Targets.js",
+      "primaryTable": "dbo.tbl_discount_targets",
+      "referencedTables": [
+        "dbo.tbl_discount_targets"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 5,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Order_Promotions.js",
+      "primaryTable": "dbo.tbl_order_promotions",
+      "referencedTables": [
+        "dbo.tbl_order_promotions"
+      ],
+      "insertFieldCount": 9,
+      "updateFieldCount": 8,
+      "fieldTypeCount": 15,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/index.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/I_ Shipping_&_Delivery/Courier_Partners.js",
+      "primaryTable": "dbo.tbl_courier_partners",
+      "referencedTables": [
+        "dbo.tbl_courier_partners"
+      ],
+      "insertFieldCount": 10,
+      "updateFieldCount": 12,
+      "fieldTypeCount": 16,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/I_ Shipping_&_Delivery/Shipments.js",
+      "primaryTable": "dbo.tbl_shipments",
+      "referencedTables": [
+        "dbo.tbl_shipments"
+      ],
+      "insertFieldCount": 15,
+      "updateFieldCount": 16,
+      "fieldTypeCount": 21,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/I_ Shipping_&_Delivery/Shipment_Events.js",
+      "primaryTable": "dbo.tbl_shipment_events",
+      "referencedTables": [
+        "dbo.tbl_shipment_events"
+      ],
+      "insertFieldCount": 7,
+      "updateFieldCount": 8,
+      "fieldTypeCount": 13,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/J_Returns_&_Refunds/Refunds.js",
+      "primaryTable": "dbo.tbl_refunds",
+      "referencedTables": [
+        "dbo.tbl_refunds"
+      ],
+      "insertFieldCount": 12,
+      "updateFieldCount": 10,
+      "fieldTypeCount": 21,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/J_Returns_&_Refunds/Returns.js",
+      "primaryTable": "dbo.tbl_returns",
+      "referencedTables": [
+        "dbo.tbl_returns"
+      ],
+      "insertFieldCount": 13,
+      "updateFieldCount": 14,
+      "fieldTypeCount": 21,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/FAQs.js",
+      "primaryTable": "dbo.tbl_faqs",
+      "referencedTables": [
+        "dbo.tbl_faqs"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Legal_Page_Headers.js",
+      "primaryTable": "dbo.tbl_legal_page_header",
+      "referencedTables": [
+        "dbo.tbl_legal_page_header"
+      ],
+      "insertFieldCount": 6,
+      "updateFieldCount": 7,
+      "fieldTypeCount": 9,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Legal_Page_Sections.js",
+      "primaryTable": "dbo.tbl_legal_page_sections",
+      "referencedTables": [
+        "dbo.tbl_legal_page_sections"
+      ],
+      "insertFieldCount": 5,
+      "updateFieldCount": 6,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Newsletter_Subscriptions.js",
+      "primaryTable": "dbo.tbl_newsletter_subscriptions",
+      "referencedTables": [
+        "dbo.tbl_newsletter_subscriptions"
+      ],
+      "insertFieldCount": 6,
+      "updateFieldCount": 5,
+      "fieldTypeCount": 12,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Settings.js",
+      "primaryTable": "dbo.tbl_settings",
+      "referencedTables": [
+        "dbo.tbl_settings"
+      ],
+      "insertFieldCount": 9,
+      "updateFieldCount": 11,
+      "fieldTypeCount": 15,
+      "sqlFragmentCount": 5
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Support_Contacts.js",
+      "primaryTable": "dbo.tbl_support_contacts",
+      "referencedTables": [
+        "dbo.tbl_support_contacts"
+      ],
+      "insertFieldCount": 8,
+      "updateFieldCount": 10,
+      "fieldTypeCount": 14,
+      "sqlFragmentCount": 3
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Product_Rating_Summary.js",
+      "primaryTable": "dbo.tbl_product_rating_summary",
+      "referencedTables": [
+        "dbo.tbl_product_rating_summary"
+      ],
+      "insertFieldCount": 9,
+      "updateFieldCount": 8,
+      "fieldTypeCount": 12,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Reviews.js",
+      "primaryTable": "dbo.tbl_reviews",
+      "referencedTables": [
+        "dbo.tbl_reviews"
+      ],
+      "insertFieldCount": 8,
+      "updateFieldCount": 7,
+      "fieldTypeCount": 15,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Review_Media.js",
+      "primaryTable": "dbo.tbl_review_media",
+      "referencedTables": [
+        "dbo.tbl_review_media"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 5,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Review_Votes.js",
+      "primaryTable": "dbo.tbl_review_votes",
+      "referencedTables": [
+        "dbo.tbl_review_votes"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 4,
+      "fieldTypeCount": 10,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Variant_Rating_Summary.js",
+      "primaryTable": "dbo.tbl_variant_rating_summary",
+      "referencedTables": [
+        "dbo.tbl_variant_rating_summary"
+      ],
+      "insertFieldCount": 4,
+      "updateFieldCount": 3,
+      "fieldTypeCount": 7,
+      "sqlFragmentCount": 4
+    },
+    {
+      "file": "routes/HARRY_CLINTON/MAIL_SERVICE/config.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/MAIL_SERVICE/index.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/MAIL_SERVICE/services.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/MAIL_SERVICE/Templates/OTP_Template.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/MAIL_SERVICE/Templates/ResetPassword_Template.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    },
+    {
+      "file": "routes/HARRY_CLINTON/MAIL_SMTP_GMAIL.js",
+      "primaryTable": "",
+      "referencedTables": [],
+      "insertFieldCount": 0,
+      "updateFieldCount": 0,
+      "fieldTypeCount": 0,
+      "sqlFragmentCount": 0
+    }
+  ]
+}

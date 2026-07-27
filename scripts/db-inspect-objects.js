@@ -85,6 +85,51 @@ async function queryDatabase() {
     ORDER BY s.name, t.name, i.name, ic.key_ordinal, ic.index_column_id;
   `);
 
+  const columns = await pool.request().query(`
+    SELECT
+      s.name AS schema_name,
+      t.name AS table_name,
+      c.column_id,
+      c.name AS column_name,
+      ty.name AS data_type,
+      c.max_length,
+      c.precision,
+      c.scale,
+      c.is_nullable,
+      c.is_identity,
+      dc.definition AS default_definition
+    FROM sys.tables t
+    INNER JOIN sys.schemas s ON s.schema_id = t.schema_id
+    INNER JOIN sys.columns c ON c.object_id = t.object_id
+    INNER JOIN sys.types ty ON ty.user_type_id = c.user_type_id
+    LEFT JOIN sys.default_constraints dc
+      ON dc.parent_object_id = t.object_id
+     AND dc.parent_column_id = c.column_id
+    WHERE t.is_ms_shipped = 0
+    ORDER BY s.name, t.name, c.column_id;
+  `);
+
+  const constraints = await pool.request().query(`
+    SELECT
+      s.name AS schema_name,
+      t.name AS table_name,
+      kc.name AS constraint_name,
+      kc.type_desc AS constraint_type,
+      ic.key_ordinal,
+      c.name AS column_name
+    FROM sys.key_constraints kc
+    INNER JOIN sys.tables t ON t.object_id = kc.parent_object_id
+    INNER JOIN sys.schemas s ON s.schema_id = t.schema_id
+    INNER JOIN sys.index_columns ic
+      ON ic.object_id = kc.parent_object_id
+     AND ic.index_id = kc.unique_index_id
+    INNER JOIN sys.columns c
+      ON c.object_id = ic.object_id
+     AND c.column_id = ic.column_id
+    WHERE t.is_ms_shipped = 0
+    ORDER BY s.name, t.name, kc.name, ic.key_ordinal;
+  `);
+
   const foreignKeys = await pool.request().query(`
     SELECT
       fk.name AS foreign_key_name,
@@ -131,6 +176,8 @@ async function queryDatabase() {
     database: process.env.DB_HARRY_CLINTON_NAME || null,
     schemas: schemas.recordset,
     objects: objects.recordset,
+    columns: columns.recordset,
+    constraints: constraints.recordset,
     indexes: indexes.recordset,
     foreign_keys: foreignKeys.recordset,
     row_counts: rowCounts.recordset,
@@ -139,6 +186,8 @@ async function queryDatabase() {
 
 function buildMarkdown(snapshot) {
   const objectsByType = groupBy(snapshot.objects, (row) => row.type_desc);
+  const columnsByTable = groupBy(snapshot.columns, (row) => `${row.schema_name}.${row.table_name}`);
+  const constraintsByTable = groupBy(snapshot.constraints, (row) => `${row.schema_name}.${row.table_name}`);
   const indexesByTable = groupBy(snapshot.indexes, (row) => `${row.schema_name}.${row.table_name}`);
   const fksByTable = groupBy(snapshot.foreign_keys, (row) => `${row.parent_schema}.${row.parent_table}`);
 
@@ -158,6 +207,9 @@ function buildMarkdown(snapshot) {
   lines.push(`- Inline table functions: ${(objectsByType.get("SQL_INLINE_TABLE_VALUED_FUNCTION") || []).length}`);
   lines.push(`- Table functions: ${(objectsByType.get("SQL_TABLE_VALUED_FUNCTION") || []).length}`);
   lines.push(`- Triggers: ${(objectsByType.get("SQL_TRIGGER") || []).length}`);
+  lines.push(`- Tables: ${columnsByTable.size}`);
+  lines.push(`- Column rows: ${snapshot.columns.length}`);
+  lines.push(`- Key constraint rows: ${snapshot.constraints.length}`);
   lines.push(`- Index column rows: ${snapshot.indexes.length}`);
   lines.push(`- Foreign key column rows: ${snapshot.foreign_keys.length}`);
   lines.push("");
@@ -177,6 +229,35 @@ function buildMarkdown(snapshot) {
     lines.push(`| ${row.schema_name}.${row.table_name} | ${row.row_count || 0} |`);
   }
   lines.push("");
+
+  lines.push("## Tables and Columns");
+  lines.push("");
+  for (const [tableName, rows] of columnsByTable) {
+    lines.push(`### ${tableName}`);
+    lines.push("");
+    lines.push("| Column | Type | Nullable | Identity | Default |");
+    lines.push("|---|---|---:|---:|---|");
+    for (const row of rows) {
+      const typeSuffix = ["varchar", "nvarchar", "char", "nchar", "binary", "varbinary"].includes(row.data_type)
+        ? `(${row.max_length === -1 ? "max" : row.max_length})`
+        : ["decimal", "numeric"].includes(row.data_type)
+          ? `(${row.precision},${row.scale})`
+          : "";
+      lines.push(`| ${row.column_name} | ${row.data_type}${typeSuffix} | ${row.is_nullable ? "yes" : "no"} | ${row.is_identity ? "yes" : "no"} | ${row.default_definition || ""} |`);
+    }
+    const constraints = constraintsByTable.get(tableName) || [];
+    if (constraints.length > 0) {
+      const byConstraint = groupBy(constraints, (row) => row.constraint_name);
+      lines.push("");
+      lines.push("| Constraint | Type | Columns |");
+      lines.push("|---|---|---|");
+      for (const [constraintName, constraintRows] of byConstraint) {
+        const ordered = constraintRows.sort((a, b) => a.key_ordinal - b.key_ordinal);
+        lines.push(`| ${constraintName} | ${ordered[0].constraint_type} | ${ordered.map((row) => row.column_name).join(", ")} |`);
+      }
+    }
+    lines.push("");
+  }
 
   lines.push("## Indexes");
   lines.push("");
@@ -258,7 +339,7 @@ async function main() {
   fs.writeFileSync(MD_OUT, buildMarkdown(snapshot));
   console.log(`Wrote ${JSON_OUT}`);
   console.log(`Wrote ${MD_OUT}`);
-  console.log(`Objects: ${snapshot.objects.length}, indexes rows: ${snapshot.indexes.length}, FK rows: ${snapshot.foreign_keys.length}`);
+  console.log(`Objects: ${snapshot.objects.length}, tables: ${groupBy(snapshot.columns, (row) => `${row.schema_name}.${row.table_name}`).size}, columns: ${snapshot.columns.length}, indexes rows: ${snapshot.indexes.length}, FK rows: ${snapshot.foreign_keys.length}`);
 }
 
 main()
