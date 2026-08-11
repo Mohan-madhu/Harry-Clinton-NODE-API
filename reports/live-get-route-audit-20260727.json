@@ -1,0 +1,1274 @@
+{
+  "generated_at": "2026-07-27T03:20:22.587Z",
+  "summary": {
+    "total": 126,
+    "statusCounts": {
+      "200": 67,
+      "404": 59
+    },
+    "serverErrors": [],
+    "schemaErrors": []
+  },
+  "results": [
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/User.js",
+      "path": "/Users/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Users/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 764,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"user_id\":\"077E83F1-94B5-42A6-9E59-C9CA8B647BC5\",\"email\":\"test-new@example.com\",\"phone_number\":null,\"first_name\":null,\"last_name\":null,\"full_name\":\"Test\",\"password_hash\":\"$2b$"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/User.js",
+      "path": "/Users/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Users/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 200,
+      "ok": true,
+      "durationMs": 1351,
+      "message": "",
+      "text": "{\"success\":true,\"data\":{\"user_id\":\"A429E7B4-7A36-489E-BA86-DB0AE8A29BB6\",\"email\":\"akr.rajkumar@gmail.com\",\"phone_number\":\"9999999999\",\"first_name\":null,\"last_name\":null,\"full_name\":\"Rajkumar\",\"passwor"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/Roles.js",
+      "path": "/Roles/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Roles/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 1895,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"role_id\":\"0EF4C2E9-DFF8-4E21-A7A1-BF28E35A7A39\",\"role_name\":\"Order Manager\",\"role_code\":\"OR\",\"description\":\"Full access to Orders\",\"isactive\":true,\"isdeleted\":false,\"rcu\":\"SY"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/UserRoles.js",
+      "path": "/User-Roles/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/User-Roles/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 1988,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"user_role_id\":\"C1B8F7C1-BA45-4ABF-9326-9F5F9ACE7C1D\",\"user_id\":\"A429E7B4-7A36-489E-BA86-DB0AE8A29BB6\",\"role_id\":\"A22F3C91-ADF8-4367-8D2B-A0A9E416A481\",\"assigned_at\":\"2026-06-"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/Roles.js",
+      "path": "/Roles/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Roles/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 1990,
+      "message": "Role not found",
+      "text": "{\"success\":false,\"message\":\"Role not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/UserRoles.js",
+      "path": "/User-Roles/user/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/User-Roles/user/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 200,
+      "ok": true,
+      "durationMs": 1990,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"user_role_id\":\"C1B8F7C1-BA45-4ABF-9326-9F5F9ACE7C1D\",\"user_id\":\"A429E7B4-7A36-489E-BA86-DB0AE8A29BB6\",\"role_id\":\"A22F3C91-ADF8-4367-8D2B-A0A9E416A481\",\"assigned_at\":\"2026-06-"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/A_User_Access_Management/UserRoles.js",
+      "path": "/User-Roles/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/User-Roles/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 1991,
+      "message": "User role assignment not found",
+      "text": "{\"success\":false,\"message\":\"User role assignment not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_A_Header_Running_Bars/RunningBar.js",
+      "path": "/Running-Bar/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Running-Bar/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 1991,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"running_bar_id\":\"D50258F6-2CD0-4C83-A382-DAA207D44653\",\"running_bar_name\":\"Diwali Running Bar\",\"isactive\":true,\"isdeleted\":false,\"rcu\":\"ADMIN_PORTAL\",\"rcm\":\"2026-01-29T18:04:"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_A_Header_Running_Bars/RunningBar.js",
+      "path": "/Running-Bar/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Running-Bar/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 1346,
+      "message": "Running bar not found",
+      "text": "{\"success\":false,\"message\":\"Running bar not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_A_Header_Running_Bars/RunningBarItems.js",
+      "path": "/Running-Bar-Items/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Running-Bar-Items/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 701,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"running_bar_item_id\":\"DD99F807-50E4-4594-8163-4C5006F28D77\",\"running_bar_id\":\"D50258F6-2CD0-4C83-A382-DAA207D44653\",\"itemsdata\":\"50% for Diwali\",\"duration_seconds\":1,\"display"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_A_Header_Running_Bars/RunningBarItems.js",
+      "path": "/Running-Bar-Items/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Running-Bar-Items/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 640,
+      "message": "Running bar item not found",
+      "text": "{\"success\":false,\"message\":\"Running bar item not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products.js",
+      "path": "/Products/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 675,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"product_id\":\"35D564CF-19C6-4652-BD06-60EDEFF9DDC2\",\"product_name\":\"Navy Blue Blazer\",\"product_slug\":\"navy-blue-blazer\",\"short_description\":\"Premium navy blazer\",\"description\""
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_B_Menu_Navigation/MenuCategory.js",
+      "path": "/Menu-Category/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Menu-Category/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 679,
+      "message": "Menu category not found",
+      "text": "{\"success\":false,\"message\":\"Menu category not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_B_Menu_Navigation/MenuCategory.js",
+      "path": "/Menu-Category/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Menu-Category/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 681,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"menu_category_id\":\"A53D1EE2-3DE8-427F-8F63-EBCE29230319\",\"menu_category_name\":\"Starters\",\"menu_category_slug\":\"starters\",\"display_order\":1,\"isactive\":true,\"isdeleted\":false,\""
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_B_Menu_Navigation/MenuSubCategory.js",
+      "path": "/Menu-Sub-Category/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Menu-Sub-Category/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 680,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"menu_subcategory_id\":\"2E3B37F6-3BEB-4083-892C-9A7300A53AFC\",\"menu_category_id\":\"9F9D7E25-71C8-4B69-ABA4-F19C7C9BA57F\",\"menu_subcategory_name\":\"Business\",\"menu_subcategory_slu"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_B_Menu_Navigation/MenuSubCategory.js",
+      "path": "/Menu-Sub-Category/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Menu-Sub-Category/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 679,
+      "message": "Menu subcategory not found",
+      "text": "{\"success\":false,\"message\":\"Menu subcategory not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Variants.js",
+      "path": "/Products-Variants/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Variants/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 663,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products.js",
+      "path": "/Products/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 666,
+      "message": "Product not found",
+      "text": "{\"success\":false,\"message\":\"Product not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Variants.js",
+      "path": "/Products-Variants/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Variants/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 633,
+      "message": "Variant not found",
+      "text": "{\"success\":false,\"message\":\"Variant not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Sizes.js",
+      "path": "/Products-Sizes/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Sizes/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 634,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"size_id\":\"68F686F2-7A72-4C6F-A6C2-0CB62305A7C8\",\"size_name\":\"M\",\"size_type\":\"alpha\",\"display_order\":2,\"isactive\":true,\"isdeleted\":false,\"rcu\":\"admin@brand.com\",\"rcm\":\"2026-06"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Attributes.js",
+      "path": "/Products-Attributes/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Attributes/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 644,
+      "message": "Attribute not found",
+      "text": "{\"success\":false,\"message\":\"Attribute not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Attributes_Values.js",
+      "path": "/Products-Attributes-Values/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Attributes-Values/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 646,
+      "message": "Product attribute value not found",
+      "text": "{\"success\":false,\"message\":\"Product attribute value not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Attributes_Values.js",
+      "path": "/Products-Attributes-Values/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Attributes-Values/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 653,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Attributes.js",
+      "path": "/Products-Attributes/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Attributes/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 656,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"attribute_id\":\"43C763A4-62AC-49AD-87F3-ABA15AC373D0\",\"attribute_name\":\"Color\",\"attribute_slug\":\"color\",\"attribute_type\":\"dropdown\",\"display_order\":1,\"isactive\":true,\"isdelete"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Cloth_Types.js",
+      "path": "/Products-Cloth-Types/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Cloth-Types/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 671,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"cloth_type_id\":\"C46F4CBB-E417-4F07-AE75-5C8D8BB9CB1C\",\"cloth_type_name\":\"100% Cotton\",\"cloth_type_slug\":\"cotton-100\",\"description\":\"Pure cotton fabric, breathable and soft.\","
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Sizes.js",
+      "path": "/Products-Sizes/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Sizes/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 673,
+      "message": "Size not found",
+      "text": "{\"success\":false,\"message\":\"Size not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Cloth_Types.js",
+      "path": "/Products-Cloth-Types/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Cloth-Types/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 671,
+      "message": "Cloth type not found",
+      "text": "{\"success\":false,\"message\":\"Cloth type not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Care_Instructions.js",
+      "path": "/Products-Care-Instructions/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Care-Instructions/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 634,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"care_instruction_id\":\"0D8EAFAA-2956-4B34-BC0C-A937182DF396\",\"instruction_text\":\"Machine wash cold. Do not bleach. Tumble dry low.\",\"display_order\":1,\"isactive\":true,\"isdelete"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Care_Instructions.js",
+      "path": "/Products-Care-Instructions/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Care-Instructions/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 635,
+      "message": "Care instruction not found",
+      "text": "{\"success\":false,\"message\":\"Care instruction not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Cloth_Type_Care_Instructions.js",
+      "path": "/Products-Cloth-Type-Care-Instructions/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Cloth-Type-Care-Instructions/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 628,
+      "message": "Mapping not found",
+      "text": "{\"success\":false,\"message\":\"Mapping not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Cloth_Type_Care_Instructions.js",
+      "path": "/Products-Cloth-Type-Care-Instructions/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Cloth-Type-Care-Instructions/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 642,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Seo.js",
+      "path": "/Products-Seo/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Seo/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 651,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Media.js",
+      "path": "/Products-Media/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Media/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 657,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Seo.js",
+      "path": "/Products-Seo/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Seo/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 659,
+      "message": "Product SEO not found",
+      "text": "{\"success\":false,\"message\":\"Product SEO not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/C_Product_Catalog_&_Configuration/Products_Media.js",
+      "path": "/Products-Media/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Products-Media/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 633,
+      "message": "Product media not found",
+      "text": "{\"success\":false,\"message\":\"Product media not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentDateSlots.js",
+      "path": "/Appointment-Date-Slots/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Appointment-Date-Slots/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 650,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"appointment_date_slot_id\":\"7B5A69C1-7B53-4D7C-9784-4DD25C0B1210\",\"slot_date\":\"2026-02-05T00:00:00.000Z\",\"slot_duration_minutes\":60,\"isavailable\":true,\"notes\":\"Regular working"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentSlotBlocks.js",
+      "path": "/Appointment-Slot-Blocks/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Appointment-Slot-Blocks/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 644,
+      "message": "Slot block not found",
+      "text": "{\"success\":false,\"message\":\"Slot block not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentDateSlots.js",
+      "path": "/Appointment-Date-Slots/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Appointment-Date-Slots/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 656,
+      "message": "Appointment date slot not found",
+      "text": "{\"success\":false,\"message\":\"Appointment date slot not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentSlotBlocks.js",
+      "path": "/Appointment-Slot-Blocks/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Appointment-Slot-Blocks/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 653,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"appointment_slot_block_id\":\"66BABCB1-4519-4F01-B686-126FA4F54B73\",\"appointment_date_slot_id\":\"A6087909-1A35-449D-804B-9F0F950CB894\",\"block_start_time\":\"1970-01-01T14:00:00.00"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentTimeSlots.js",
+      "path": "/Appointment-Time-Slots/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Appointment-Time-Slots/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 647,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"appointment_time_slot_id\":\"602C623D-3B2B-494B-9564-19DA61CF323C\",\"appointment_date_slot_id\":\"A6087909-1A35-449D-804B-9F0F950CB894\",\"slot_start_time\":\"1970-01-01T13:00:00.000Z"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentTimeSlots.js",
+      "path": "/Appointment-Time-Slots/by-date/A6087909-1A35-449D-804B-9F0F950CB894",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Appointment-Time-Slots/by-date/A6087909-1A35-449D-804B-9F0F950CB894",
+      "status": 200,
+      "ok": true,
+      "durationMs": 690,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"appointment_time_slot_id\":\"602C623D-3B2B-494B-9564-19DA61CF323C\",\"appointment_date_slot_id\":\"A6087909-1A35-449D-804B-9F0F950CB894\",\"slot_start_time\":\"1970-01-01T13:00:00.000Z"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/AppointmentTimeSlots.js",
+      "path": "/Appointment-Time-Slots/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Appointment-Time-Slots/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 692,
+      "message": "Appointment time slot not found",
+      "text": "{\"success\":false,\"message\":\"Appointment time slot not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/CustomAppointments.js",
+      "path": "/Custom-Appointments/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Custom-Appointments/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 632,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_F_Appointments/CustomAppointments.js",
+      "path": "/Custom-Appointments/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Custom-Appointments/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 638,
+      "message": "Appointment not found",
+      "text": "{\"success\":false,\"message\":\"Appointment not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/B_Customer_Management/Profiles.js",
+      "path": "/Profiles/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Profiles/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 628,
+      "message": "Profile not found",
+      "text": "{\"success\":false,\"message\":\"Profile not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/B_Customer_Management/Addresses.js",
+      "path": "/Addresses/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Addresses/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 637,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"address_id\":\"DE51B581-313E-4B89-BFCD-2B68945196FB\",\"user_id\":\"16D12EF1-B26C-4FDB-AB17-1FCD84D24BDE\",\"full_name\":\"Mohan B\",\"mobile_number\":\"984531\",\"house_street\":\"#159\",\"city"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/B_Customer_Management/Profiles.js",
+      "path": "/Profiles/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Profiles/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 640,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"profile_id\":\"50BB8C92-7E38-4B87-B7B7-BFB2670D10BC\",\"user_id\":\"16D12EF1-B26C-4FDB-AB17-1FCD84D24BDE\",\"fullname\":\"Mohan B\",\"emailid\":\"mohan@gmail.com\",\"mobile_number\":null,\"gen"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/B_Customer_Management/Addresses.js",
+      "path": "/Addresses/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Addresses/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 636,
+      "message": "Address not found",
+      "text": "{\"success\":false,\"message\":\"Address not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/D_Wishlist_Management/Wishlists.js",
+      "path": "/Wishlists/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Wishlists/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 670,
+      "message": "Wishlist not found",
+      "text": "{\"success\":false,\"message\":\"Wishlist not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/D_Wishlist_Management/Wishlists.js",
+      "path": "/Wishlists/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Wishlists/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 679,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"wishlist_id\":\"0BF727CB-6A30-4228-836A-48459977706F\",\"user_id\":\"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\"wishlist_name\":\"Birthday Gifts\",\"isactive\":true,\"isdeleted\":false,\"rcu\":"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/D_Wishlist_Management/Wishlist_Items.js",
+      "path": "/Wishlist-Items/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Wishlist-Items/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 649,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/E_Cart_Management/Cart_Items.js",
+      "path": "/Cart-Items/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Cart-Items/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 640,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/D_Wishlist_Management/Wishlist_Items.js",
+      "path": "/Wishlist-Items/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Wishlist-Items/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 656,
+      "message": "Wishlist item not found",
+      "text": "{\"success\":false,\"message\":\"Wishlist item not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/E_Cart_Management/Carts.js",
+      "path": "/Carts/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Carts/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 652,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"cart_id\":\"C8699F37-D31E-43CA-95A9-B979092CB54A\",\"user_id\":\"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\"cart_status\":\"active\",\"isactive\":true,\"isdeleted\":false,\"rcu\":\"user@brand.co"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/E_Cart_Management/Carts.js",
+      "path": "/Carts/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Carts/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 644,
+      "message": "Cart not found",
+      "text": "{\"success\":false,\"message\":\"Cart not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/E_Cart_Management/Cart_Items.js",
+      "path": "/Cart-Items/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Cart-Items/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 728,
+      "message": "Cart item not found",
+      "text": "{\"success\":false,\"message\":\"Cart item not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Status_Master.js",
+      "path": "/Order-Status-Master/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Status-Master/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 666,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"order_status_id\":\"4B1D988D-EAAA-4079-A307-65E6F7B4E463\",\"status_name\":\"Pending\",\"status_code\":\"PENDING\",\"display_order\":1,\"iscancelled_status\":false,\"isactive\":true,\"isdelete"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Status_Master.js",
+      "path": "/Order-Status-Master/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Status-Master/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 664,
+      "message": "Order status not found",
+      "text": "{\"success\":false,\"message\":\"Order status not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Orders.js",
+      "path": "/Orders/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Orders/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 628,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"order_id\":\"A83FD585-B59F-4898-B58F-ACFC2B541D3A\",\"user_id\":\"A945E8DC-C7D5-4F68-8026-02DB31BF3E67\",\"cart_id\":null,\"order_number\":\"ORD-1782386274591\",\"order_status_id\":\"4B1D988"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Orders.js",
+      "path": "/Orders/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Orders/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 633,
+      "message": "Order not found",
+      "text": "{\"success\":false,\"message\":\"Order not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Items.js",
+      "path": "/Order-Items/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Items/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 638,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"order_item_id\":\"46FC1887-78B4-4C5A-B98D-D3C398529956\",\"order_id\":\"A83FD585-B59F-4898-B58F-ACFC2B541D3A\",\"product_id\":\"35D564CF-19C6-4652-BD06-60EDEFF9DDC2\",\"product_variant_i"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Items.js",
+      "path": "/Order-Items/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Items/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 639,
+      "message": "Order item not found",
+      "text": "{\"success\":false,\"message\":\"Order item not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Addresses.js",
+      "path": "/Order-Addresses/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Addresses/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 639,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"order_address_id\":\"CCC065AC-91AB-45C5-84C8-E01E40975417\",\"order_id\":\"A83FD585-B59F-4898-B58F-ACFC2B541D3A\",\"address_type\":\"shipping\",\"full_name\":\"Test User\",\"mobile_number\":\""
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Addresses.js",
+      "path": "/Order-Addresses/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Addresses/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 644,
+      "message": "Order address not found",
+      "text": "{\"success\":false,\"message\":\"Order address not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Status_History.js",
+      "path": "/Order-Status-History/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Status-History/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 664,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"order_status_history_id\":\"34140850-E3CD-40EA-96C3-2C80851C0F84\",\"order_id\":\"A83FD585-B59F-4898-B58F-ACFC2B541D3A\",\"order_status_id\":\"4B1D988D-EAAA-4079-A307-65E6F7B4E463\",\"or"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Status_History.js",
+      "path": "/Order-Status-History/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Status-History/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 659,
+      "message": "Order status history not found",
+      "text": "{\"success\":false,\"message\":\"Order status history not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Cancellations.js",
+      "path": "/Order-Cancellations/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Cancellations/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 635,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Order_Cancellations.js",
+      "path": "/Order-Cancellations/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Cancellations/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 635,
+      "message": "Order cancellation not found",
+      "text": "{\"success\":false,\"message\":\"Order cancellation not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/G_Payments/Payments.js",
+      "path": "/Payments/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Payments/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 630,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"payment_id\":\"A7FACFFE-B010-4386-8E60-3861EAAF4B1B\",\"order_id\":\"A83FD585-B59F-4898-B58F-ACFC2B541D3A\",\"user_id\":\"A945E8DC-C7D5-4F68-8026-02DB31BF3E67\",\"payment_provider\":\"razo"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Invoices.js",
+      "path": "/Invoices/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Invoices/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 634,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/F_Order_Management/Invoices.js",
+      "path": "/Invoices/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Invoices/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 642,
+      "message": "Invoice not found",
+      "text": "{\"success\":false,\"message\":\"Invoice not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/G_Payments/Payments.js",
+      "path": "/Payments/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Payments/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 674,
+      "message": "Payment not found",
+      "text": "{\"success\":false,\"message\":\"Payment not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Coupons.js",
+      "path": "/Coupons/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Coupons/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 658,
+      "message": "Coupon not found",
+      "text": "{\"success\":false,\"message\":\"Coupon not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Coupons.js",
+      "path": "/Coupons/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Coupons/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 676,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"coupon_id\":\"EE463F17-91B2-42EB-8946-E57960BDFA41\",\"coupon_code\":\"SAVE20\",\"coupon_name\":\"Save 20\",\"description\":\"20% off on all items\",\"discount_type\":\"percentage\",\"discount_v"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Discounts.js",
+      "path": "/Discounts/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Discounts/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 633,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"discount_id\":\"F21FDB70-5EED-4155-A7D2-06EF41A83EF8\",\"discount_name\":\"New Year Sale\",\"description\":\"20% off on select items\",\"discount_type\":\"percentage\",\"discount_value\":20,\""
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Discount_Targets.js",
+      "path": "/Discount-Targets/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Discount-Targets/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 646,
+      "message": "Discount target not found",
+      "text": "{\"success\":false,\"message\":\"Discount target not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Discounts.js",
+      "path": "/Discounts/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Discounts/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 651,
+      "message": "Discount not found",
+      "text": "{\"success\":false,\"message\":\"Discount not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Discount_Targets.js",
+      "path": "/Discount-Targets/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Discount-Targets/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 652,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Coupon_Usage.js",
+      "path": "/Coupon-Usage/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Coupon-Usage/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 663,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Coupon_Usage.js",
+      "path": "/Coupon-Usage/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Coupon-Usage/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 653,
+      "message": "Coupon usage not found",
+      "text": "{\"success\":false,\"message\":\"Coupon usage not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Order_Promotions.js",
+      "path": "/Order-Promotions/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Promotions/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 685,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/H_Coupons_&_Discounts/Order_Promotions.js",
+      "path": "/Order-Promotions/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Order-Promotions/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 672,
+      "message": "Order promotion not found",
+      "text": "{\"success\":false,\"message\":\"Order promotion not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/I_ Shipping_&_Delivery/Courier_Partners.js",
+      "path": "/Courier-Partners/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Courier-Partners/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 648,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"courier_partner_id\":\"2D1B75C7-E372-4394-94AE-24844F7EBF2F\",\"courier_name\":\"FedEx India\",\"courier_code\":\"FEDEX_IN\",\"contact_email\":null,\"contact_phone\":null,\"base_rate\":null,\""
+    },
+    {
+      "file": "routes/HARRY_CLINTON/I_ Shipping_&_Delivery/Shipments.js",
+      "path": "/Shipments/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Shipments/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 617,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/I_ Shipping_&_Delivery/Courier_Partners.js",
+      "path": "/Courier-Partners/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Courier-Partners/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 624,
+      "message": "Courier partner not found",
+      "text": "{\"success\":false,\"message\":\"Courier partner not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/I_ Shipping_&_Delivery/Shipments.js",
+      "path": "/Shipments/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Shipments/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 652,
+      "message": "Shipment not found",
+      "text": "{\"success\":false,\"message\":\"Shipment not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/I_ Shipping_&_Delivery/Shipment_Events.js",
+      "path": "/Shipment-Events/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Shipment-Events/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 641,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"shipment_event_id\":\"6BC4C148-FD1F-4A8E-A69E-8C5FAB0E95FE\",\"shipment_id\":\"33333333-9999-0000-1111-222222222222\",\"event_status\":\"pickup_scheduled\",\"event_location\":\"Warehouse\","
+    },
+    {
+      "file": "routes/HARRY_CLINTON/I_ Shipping_&_Delivery/Shipment_Events.js",
+      "path": "/Shipment-Events/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Shipment-Events/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 635,
+      "message": "Shipment event not found",
+      "text": "{\"success\":false,\"message\":\"Shipment event not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/J_Returns_&_Refunds/Returns.js",
+      "path": "/Returns/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Returns/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 666,
+      "message": "Return not found",
+      "text": "{\"success\":false,\"message\":\"Return not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/J_Returns_&_Refunds/Returns.js",
+      "path": "/Returns/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Returns/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 680,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/J_Returns_&_Refunds/Refunds.js",
+      "path": "/Refunds/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Refunds/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 640,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/J_Returns_&_Refunds/Refunds.js",
+      "path": "/Refunds/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Refunds/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 647,
+      "message": "Refund not found",
+      "text": "{\"success\":false,\"message\":\"Refund not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Support_Contacts.js",
+      "path": "/Support-Contacts/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Support-Contacts/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 645,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Support_Contacts.js",
+      "path": "/Support-Contacts/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Support-Contacts/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 641,
+      "message": "Support contact not found",
+      "text": "{\"success\":false,\"message\":\"Support contact not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/FAQs.js",
+      "path": "/FAQs/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/FAQs/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 636,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"faq_id\":\"59C7E02C-8840-4491-ABF0-4C76D01CE4F9\",\"question\":\"What is your return policy?\",\"answer\":\"<p>We offer 30-day returns for all products in original condition.</p>\",\"dis"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/FAQs.js",
+      "path": "/FAQs/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/FAQs/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 640,
+      "message": "FAQ not found",
+      "text": "{\"success\":false,\"message\":\"FAQ not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Newsletter_Subscriptions.js",
+      "path": "/Newsletter-Subscriptions/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Newsletter-Subscriptions/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 664,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"newsletter_subscription_id\":\"FD10DAD1-B416-4891-B3F0-CA5EE18C7279\",\"emailid\":\"user@example.com\",\"user_id\":null,\"subscribed_at\":\"2026-06-25T17:40:55.047Z\",\"unsubscribed_at\":nu"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Newsletter_Subscriptions.js",
+      "path": "/Newsletter-Subscriptions/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Newsletter-Subscriptions/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 654,
+      "message": "Newsletter subscription not found",
+      "text": "{\"success\":false,\"message\":\"Newsletter subscription not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Settings.js",
+      "path": "/Settings/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Settings/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 641,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"setting_id\":\"609C3A54-A54B-4DCD-A51B-F08BC50C8934\",\"site_name\":null,\"header_logo_url\":null,\"brand_logo_url\":null,\"footer_logo_url\":null,\"brand_description\":\"Premium fashion a"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Settings.js",
+      "path": "/Settings/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Settings/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 635,
+      "message": "Setting not found",
+      "text": "{\"success\":false,\"message\":\"Setting not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_C_Home_Visuals/Image_Sliders.js",
+      "path": "/Image-Sliders/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Image-Sliders/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 644,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"image_slider_id\":\"398408CE-0AE2-4827-8D4A-B80185E4D4F4\",\"image_url\":\"https://cdn.example.com/banner1.jpg\",\"title\":\"New Arrivals\",\"subtitle\":\"Fresh styles just dropped\",\"butto"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_C_Home_Visuals/Image_Sliders.js",
+      "path": "/Image-Sliders/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Image-Sliders/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 638,
+      "message": "Image slider not found",
+      "text": "{\"success\":false,\"message\":\"Image slider not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_C_Home_Visuals/Menu_Video.js",
+      "path": "/Menu-Video/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Menu-Video/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 647,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"menu_video_id\":\"CAA94437-A315-4922-BD5C-4FBB6CD79424\",\"video_type\":\"youtube\",\"video_url\":\"https://www.youtube.com/embed/ABC123\",\"poster_image_url\":\"https://cdn.example.com/po"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_C_Home_Visuals/Menu_Video.js",
+      "path": "/Menu-Video/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Menu-Video/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 658,
+      "message": "Menu video not found",
+      "text": "{\"success\":false,\"message\":\"Menu video not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_D_Spotlight/Spotlight_Media.js",
+      "path": "/Spotlight-Media/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Spotlight-Media/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 666,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"spotlight_media_id\":\"EC4974D8-66C4-41C0-A888-B44D0AE97A4F\",\"spotlight_entry_id\":\"UUID-HERE\",\"media_type\":\"image\",\"media_url\":\"https://cdn.example.com/spotlight1.jpg\",\"alt_tex"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_D_Spotlight/Spotlight_Media.js",
+      "path": "/Spotlight-Media/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Spotlight-Media/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 667,
+      "message": "Spotlight media not found",
+      "text": "{\"success\":false,\"message\":\"Spotlight media not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_D_Spotlight/Spotlight_Entries.js",
+      "path": "/Spotlight-Entries/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Spotlight-Entries/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 640,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"spotlight_entry_id\":\"2F13A1F5-066C-49B9-BCDD-23FDC0732673\",\"title\":\"Summer Collection\",\"subtitle\":\"Hot styles for the season\",\"description\":\"Explore our curated summer looks\""
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_D_Spotlight/Spotlight_Entries.js",
+      "path": "/Spotlight-Entries/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Spotlight-Entries/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 629,
+      "message": "Spotlight entry not found",
+      "text": "{\"success\":false,\"message\":\"Spotlight entry not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_E_Style_by_HC/Style_Collection_Media.js",
+      "path": "/Style-Collection-Media/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Style-Collection-Media/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 635,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_E_Style_by_HC/Style_Collection_Media.js",
+      "path": "/Style-Collection-Media/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Style-Collection-Media/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 639,
+      "message": "Style collection media not found",
+      "text": "{\"success\":false,\"message\":\"Style collection media not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_E_Style_by_HC/Style_Collections.js",
+      "path": "/Style-Collections/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Style-Collections/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 653,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/HC_E_Style_by_HC/Style_Collections.js",
+      "path": "/Style-Collections/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Style-Collections/A429E7B4-7A36-489E-BA86-DB0AE8A29BB6",
+      "status": 404,
+      "ok": false,
+      "durationMs": 646,
+      "message": "Style collection not found",
+      "text": "{\"success\":false,\"message\":\"Style collection not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Legal_Page_Headers.js",
+      "path": "/Legal-Page-Headers/8",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Legal-Page-Headers/8",
+      "status": 200,
+      "ok": true,
+      "durationMs": 709,
+      "message": "",
+      "text": "{\"success\":true,\"data\":{\"id\":8,\"page_type\":\"terms_new\",\"page_title\":\"Terms and Conditions\",\"intro_text\":\"Welcome to our platform. Please read these terms carefully before using our services.\",\"effecti"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Legal_Page_Headers.js",
+      "path": "/Legal-Page-Headers/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Legal-Page-Headers/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 713,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"id\":8,\"page_type\":\"terms_new\",\"page_title\":\"Terms and Conditions\",\"intro_text\":\"Welcome to our platform. Please read these terms carefully before using our services.\",\"effect"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Legal_Page_Sections.js",
+      "path": "/Legal-Page-Sections/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Legal-Page-Sections/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 618,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"id\":16,\"page_type\":\"terms\",\"section_title\":\"User Responsibilities\",\"section_order\":1,\"content\":\"<p>You must follow the platform rules and policies while using our services.</"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/K_Support_Content_&_System_Configuration/Legal_Page_Sections.js",
+      "path": "/Legal-Page-Sections/16",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Legal-Page-Sections/16",
+      "status": 200,
+      "ok": true,
+      "durationMs": 629,
+      "message": "",
+      "text": "{\"success\":true,\"data\":{\"id\":16,\"page_type\":\"terms\",\"section_title\":\"User Responsibilities\",\"section_order\":1,\"content\":\"<p>You must follow the platform rules and policies while using our services.</p"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Reviews.js",
+      "path": "/Reviews/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Reviews/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 656,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[{\"review_id\":\"EB26E59A-770A-48F1-8872-49E50FE2E3E6\",\"product_id\":\"prod_001\",\"variant_id\":\"var_001\",\"user_id\":\"user_001\",\"rating\":5,\"review_title\":\"Excellent\",\"review_text\":\"Ver"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Reviews.js",
+      "path": "/Reviews/16",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Reviews/16",
+      "status": 404,
+      "ok": false,
+      "durationMs": 647,
+      "message": "Review not found",
+      "text": "{\"success\":false,\"message\":\"Review not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Review_Media.js",
+      "path": "/Review-Media/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Review-Media/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 644,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Review_Media.js",
+      "path": "/Review-Media/16",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Review-Media/16",
+      "status": 404,
+      "ok": false,
+      "durationMs": 628,
+      "message": "Review media not found",
+      "text": "{\"success\":false,\"message\":\"Review media not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Review_Votes.js",
+      "path": "/Review-Votes/16",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Review-Votes/16",
+      "status": 404,
+      "ok": false,
+      "durationMs": 660,
+      "message": "Review vote not found",
+      "text": "{\"success\":false,\"message\":\"Review vote not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Variant_Rating_Summary.js",
+      "path": "/Variant-Rating-Summary/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Variant-Rating-Summary/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 618,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Review_Votes.js",
+      "path": "/Review-Votes/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Review-Votes/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 679,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Variant_Rating_Summary.js",
+      "path": "/Variant-Rating-Summary/16",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Variant-Rating-Summary/16",
+      "status": 404,
+      "ok": false,
+      "durationMs": 635,
+      "message": "Variant rating summary not found",
+      "text": "{\"success\":false,\"message\":\"Variant rating summary not found\"}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Product_Rating_Summary.js",
+      "path": "/Product-Rating-Summary/",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Product-Rating-Summary/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 653,
+      "message": "",
+      "text": "{\"success\":true,\"data\":[],\"count\":0}"
+    },
+    {
+      "file": "routes/HARRY_CLINTON/L_Ratings_&_Reviews/Product_Rating_Summary.js",
+      "path": "/Product-Rating-Summary/16",
+      "url": "http://localhost:15000/API/HARRY-CLINTON/Product-Rating-Summary/16",
+      "status": 404,
+      "ok": false,
+      "durationMs": 636,
+      "message": "Product rating summary not found",
+      "text": "{\"success\":false,\"message\":\"Product rating summary not found\"}"
+    }
+  ]
+}
