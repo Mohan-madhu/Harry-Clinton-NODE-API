@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { pool, poolConnect, sql } = require('../../../config/db_harry_clinton');
 const EmailService = require('../MAIL_SERVICE/services');
-const { hashPassword, comparePassword, generateToken } = require('../helpers');
+const { hashPassword, comparePassword, generateToken, generateJwt } = require('../helpers');
 
 var E_Mail_OTP_Map = new Map();
 var Password_Reset_Map = new Map();
@@ -71,7 +71,10 @@ router.post('/Register', async (req, res, next) => {
     out = {
       Status: success.toString(),
       Message: message,
-      Response: { user_id: userId },
+      Response: {
+        user_id: userId,
+        token: success ? generateJwt({ user_id: userId, email_id: data.email_id, role_code: null }) : null,
+      },
       ResponseCode: '200',
       RequestReceived: data,
     };
@@ -157,13 +160,16 @@ router.post('/Password-Login', async (req, res, next) => {
     const loginSuccess = loginResult.output?.success ?? 0;
     const loginMessage = loginResult.output?.message ?? '';
     const loginUserRow = loginResult.recordset?.[0] ?? null;
-const userRoles = loginResult.recordsets?.[1] ?? [];  
+const userRoles = loginResult.recordsets?.[1] ?? [];
     out = {
       Status: loginSuccess.toString(),
       Message: loginMessage,
       Response: {
     user: loginUserRow,
-    roles: userRoles
+    roles: userRoles,
+    token: loginSuccess && loginUserRow
+      ? generateJwt({ user_id: loginUserRow.user_id, email_id: loginUserRow.email_id, role_code: userRoles[0]?.role_code ?? null })
+      : null,
   },
       ResponseCode: '200',
       RequestReceived: data,
@@ -236,7 +242,10 @@ router.post('/OTP-Login', async (req, res, next) => {
       const Data = {
         Status: success.toString(),
         Message: message,
-        Response: userRow, // <-- send full row data
+        Response: {
+          ...userRow,
+          token: generateJwt({ user_id: userRow.user_id, email_id: userRow.email_id, role_code: null }),
+        },
         ResponseCode: '200',
         RequestReceived: data,
       };

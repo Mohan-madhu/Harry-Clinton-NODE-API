@@ -4,13 +4,41 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const helmet = require("helmet");
+const morgan = require("morgan");
 
 const app = express();
 
-// ---- ADD THIS ----
+const DEFAULT_ALLOWED_ORIGINS = [
+  "https://harryclinton.in",
+  "https://www.harryclinton.in",
+  "http://localhost:3000",
+];
+
+const ALLOWED_ORIGINS = (process.env.CORS_ORIGINS || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+const allowedOrigins = ALLOWED_ORIGINS.length ? ALLOWED_ORIGINS : DEFAULT_ALLOWED_ORIGINS;
+
+app.use(helmet({
+  // CSP is disabled because /api-tester serves its own static HTML/JS tool;
+  // a default CSP would block that page's inline scripts.
+  contentSecurityPolicy: false,
+}));
+
+app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
+
 app.use(cors({
-  origin: "*",   // OR restrict to your frontend domain:
-  // origin: "https://starlit-crepe-940a4f.netlify.app"
+  origin(origin, callback) {
+    // allow non-browser requests (curl, server-to-server, the httpie/api-tester tool)
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error(`CORS: origin not allowed: ${origin}`));
+  },
+  credentials: true,
 }));
 
 app.use(express.json());
